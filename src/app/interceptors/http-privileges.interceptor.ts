@@ -10,8 +10,7 @@ import { Injectable } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable, takeUntil, throwError } from 'rxjs';
 import { catchError, finalize, map } from 'rxjs/operators';
-import { CC_PROJECT_INITIALS } from 'src/app/app.component';
-import { environment } from 'src/environments/environment';
+import { environment } from '../environments/environment';
 import {
   authTokenVariable,
   privilegesVariable,
@@ -47,7 +46,7 @@ export class CmmHttpPrivilegesInterceptor implements HttpInterceptor {
   /**
    * Variable que contiene el nombre del proyecto
    */
-  projectInitials = CC_PROJECT_INITIALS;
+  projectInitials = 'f-bus';
 
   //? Logica de privilegios
 

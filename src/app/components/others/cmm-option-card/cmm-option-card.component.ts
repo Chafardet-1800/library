@@ -1,5 +1,5 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
-import { CmmModuleActionOption } from 'src/app/common/data/privileges/models/privileges.models';
+import { CmmModuleActionOption } from '../../../data/privileges/models/privileges.models';
 
 @Component({
   selector: 'cmp-cmm-option-card',

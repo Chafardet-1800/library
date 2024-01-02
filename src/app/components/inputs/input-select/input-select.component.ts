@@ -14,17 +14,11 @@ import { MatAutocomplete } from '@angular/material/autocomplete';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MAT_SELECT_CONFIG } from '@angular/material/select';
-import { Observable, Subject } from 'rxjs';
-import { map, startWith, takeUntil } from 'rxjs/operators';
-import { CmmSelectDialogModel } from 'src/app/common/data/dialogs/models/dialogs.model';
-import { CmmCustomInput, CustomFieldErrorMatcher } from 'src/app/common/data/forms/models/input.models';
-import { CmmErrorMessagesObject, CmmReplaceStringIndicator } from 'src/app/common/data/forms/models/inputs-messages';
-import { CmmDialogService } from 'src/app/common/services/dialogs.service';
-import {
-  autocompleteValidator,
-  mustHaveLetter,
-  validOption,
-} from 'src/app/common/validators/format.validator';
+import { CmmSelectDialogModel } from '../../../data/dialogs/models/dialogs.model';
+import { CmmCustomInput, CustomFieldErrorMatcher } from '../../../data/forms/models/input.models';
+import { CmmErrorMessagesObject, CmmReplaceStringIndicator } from '../../../data/forms/models/inputs-messages';
+import { CmmDialogService } from '../../../services/dialogs.service';
+import { validOption } from '../../../validators/format.validator';
 
 export type selectModes = 'autocomplete' | 'select' | 'dialog'
 

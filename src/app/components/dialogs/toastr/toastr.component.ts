@@ -3,7 +3,7 @@ import {
   MAT_SNACK_BAR_DATA,
   MatSnackBarRef,
 } from '@angular/material/snack-bar';
-import { CmmAlertToastrModel } from 'src/app/common/data/dialogs/models/dialogs.model';
+import { CmmAlertToastrModel } from '../../../data/dialogs/models/dialogs.model';
 
 @Component({
   selector: 'cmm-cmp-d-toastr',

@@ -16,8 +16,8 @@ import { DateAdapter, ErrorStateMatcher, MAT_DATE_FORMATS, MAT_DATE_LOCALE } fro
 // import * as moment from 'moment';
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-moment-adapter';
 import { } from '@angular/material/core';
-import { CmmCustomInput, CustomFieldErrorMatcher } from 'src/app/common/data/forms/models/input.models';
-import { CmmErrorMessagesObject, CmmReplaceStringIndicator } from 'src/app/common/data/forms/models/inputs-messages';
+import { CmmCustomInput, CustomFieldErrorMatcher } from '../../../data/forms/models/input.models';
+import { CmmErrorMessagesObject, CmmReplaceStringIndicator } from '../../../data/forms/models/inputs-messages';
 
 @Component({
   selector: 'cmm-cmp-i-date',

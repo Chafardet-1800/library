@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { BehaviorSubject, Subject, takeUntil, timer } from 'rxjs';
-import { modulesFilterClear } from 'src/app/core/reducer/module.actions';
+// import { modulesFilterClear } from '../../core/reducer/module.actions';
 import { authExpirationTime } from '../data/constants/local-storage-variables';
 import { clearPrivileges } from '../data/privileges/reducer/privileges.actions';
 import { setSpinner } from '../data/utils/reducer/utils.actions';
@@ -118,7 +118,7 @@ export class CmmTimerSessionService {
     this.store.dispatch(new clearPrivileges());
 
     // Elimino los módulos de reducer generales
-    this.store.dispatch(new modulesFilterClear());
+    // this.store.dispatch(new modulesFilterClear());
 
     // Cierro todos los procesos y las peticiones pendientes
     this.dataService.CmmCancelPendingRequests();

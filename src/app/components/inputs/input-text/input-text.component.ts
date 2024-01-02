@@ -8,12 +8,11 @@ import {
   forwardRef,
 } from '@angular/core';
 import { FormControl, NG_VALUE_ACCESSOR, NgControl, Validators } from '@angular/forms';
-import { ErrorStateMatcher } from '@angular/material/core';
-import { CmmCustomInput, CustomFieldErrorMatcher } from 'src/app/common/data/forms/models/input.models';
+import { CmmCustomInput, CustomFieldErrorMatcher } from '../../../data/forms/models/input.models';
 import {
   CmmErrorMessagesObject,
   CmmReplaceStringIndicator,
-} from 'src/app/common/data/forms/models/inputs-messages';
+} from '../../../data/forms/models/inputs-messages';
 
 @Component({
   selector: 'cmm-cmp-i-text',

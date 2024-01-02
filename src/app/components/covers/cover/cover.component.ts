@@ -10,7 +10,7 @@ import {
   coverPending,
   coverRejected,
   coverWarning,
-} from '../../../assets/images/images-routes';
+} from '../../../../assets/images/images-routes';
 import { CmmActionListModel } from '../../../data/privileges/models/privileges.models';
 import { cmmActions } from '../../../data/privileges/reducer/privileges.selectos';
 import { spinner } from '../../../data/utils/reducer/utils.selector';

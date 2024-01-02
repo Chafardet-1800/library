@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../environments/environment';
 import { CmmTimerSessionService } from '../../../services/timer-session.service';
-import { CmmEnvironmentNames } from 'src/app/common/data/constants/general-variables';
+import { CmmEnvironmentNames } from '../../../data/constants/general-variables';
 // import { environment } from 'src/environments/environment';
 
 @Component({

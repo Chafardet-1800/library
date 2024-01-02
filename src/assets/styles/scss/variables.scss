@@ -1,6 +1,6 @@
-/*--------------------------------------------------------------------------------------------------------------------------------------
-  Variables de colores
---------------------------------------------------------------------------------------------------------------------------------------*/
+//--------------------------------------------------------------------------------------------------------------------------------------
+//  Variables de colores
+//--------------------------------------------------------------------------------------------------------------------------------------
 
 
 // Paleta de colores del proyecto
@@ -31,13 +31,13 @@ $v-cc-dark-gray: #595959;
 $v-cc-medium-gray: #a09f9f;
 $v-cc-light-gray: #cccaca;
 
-//*Seteo este color como una variable para que pueda ser seteado de forma dinámica
+// Seteo este color como una variable para que pueda ser seteado de forma dinámica
 $dynamic_border_radios_button: 20px;
 
-//*Seteo este color como una variable para que pueda ser seteado de forma dinámica
+// Seteo este color como una variable para que pueda ser seteado de forma dinámica
 $dynamic_border_radios: 10px;
 
-//*Creo variables que puedan ser modificadas en JS
+// Creo variables que puedan ser modificadas en JS
 :root {
 
   // Variable que indica el color principal al seleccionar
