@@ -1,6 +1,6 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-import { CmmModule } from './app/commun.module';
+import { CmmModule } from './app/common.module';
 
 
 platformBrowserDynamic().bootstrapModule(CmmModule)

@@ -39,7 +39,7 @@ export class CmmHttpPrivilegesInterceptor implements HttpInterceptor {
   environmentVersion = environment.CC_VERSION;
 
   /**
-   * Varaible que contiene la version del commun en la que tiene el proyecto
+   * Varaible que contiene la version del common en la que tiene el proyecto
    */
   cmmVersion = version.version;
 
