@@ -1,6 +1,6 @@
 {
-  "name": "template-common",
-  "version": "0.0.295",
+  "name": "library",
+  "version": "0.0.008",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

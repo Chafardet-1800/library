@@ -10,7 +10,7 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, throwError } from 'rxjs';
 import { catchError, finalize, map, takeUntil } from 'rxjs/operators';
-import { environment } from '../environments/environment';
+import { environment } from 'src/environments/environment';
 import { authTokenVariable } from '../data/constants/local-storage-variables';
 import { CmmAlertModalModel, CmmAlertToastrModel } from '../data/dialogs/models/dialogs.model';
 import { USE_SPINNER } from '../data/utils/models/utils.model';

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from '../../../environments/environment';
+import { environment } from 'src/environments/environment';
 import { CmmTimerSessionService } from '../../../services/timer-session.service';
 import { CmmEnvironmentNames } from '../../../data/constants/general-variables';
 // import { environment } from 'src/environments/environment';

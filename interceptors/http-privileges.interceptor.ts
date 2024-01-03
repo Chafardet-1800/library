@@ -10,7 +10,7 @@ import { Injectable } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable, takeUntil, throwError } from 'rxjs';
 import { catchError, finalize, map } from 'rxjs/operators';
-import { environment } from '../environments/environment';
+import { environment } from 'src/environments/environment';
 import {
   authTokenVariable,
   privilegesVariable,
