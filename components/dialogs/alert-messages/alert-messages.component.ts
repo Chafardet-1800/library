@@ -7,7 +7,7 @@ import {
   dialogError,
   dialogInfo,
   dialogWarning,
-} from '../../../../assets/images/images-routes';
+} from '../../../assets/images/images-routes';
 import { CmmAlertModalModel } from '../../../data/dialogs/models/dialogs.model';
 
 @Component({

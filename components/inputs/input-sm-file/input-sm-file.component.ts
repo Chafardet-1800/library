@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 import { FormControl, NG_VALUE_ACCESSOR, NgControl, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
-import { documentImages } from '../../../../assets/images/images-routes';
+import { documentImages } from '../../../assets/images/images-routes';
 import { CmmCustomInput, CustomFieldErrorMatcher, imgFileTypes } from '../../../data/forms/models/input.models';
 import { CmmErrorMessagesObject, CmmReplaceStringIndicator } from '../../../data/forms/models/inputs-messages';
 
