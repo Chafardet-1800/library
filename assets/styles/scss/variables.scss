@@ -35,7 +35,7 @@ $v-cc-light-gray: #cccaca;
 $dynamic_border_radios_button: 20px;
 
 // Seteo este color como una variable para que pueda ser seteado de forma dinámica
-$dynamic_border_radios: 10px;
+$dynamic_border_radius: 10px;
 
 // Creo variables que puedan ser modificadas en JS
 :root {
@@ -53,6 +53,6 @@ $dynamic_border_radios: 10px;
   --mdc-protected-button-container-shape: #{$dynamic_border_radios_button};
 
   // Variable que define el radio del borde para la clase de bootstrap
-  --bs-border-radius: #{$dynamic_border_radios};
+  --bs-border-radius: #{$dynamic_border_radius};
 
 }
