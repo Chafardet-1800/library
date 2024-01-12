@@ -24,7 +24,7 @@
       <div *ngIf="filtersForm" class="container-fluid">
 
           <!-- Titulo filtros -->
-          <div class="row cc-title-txt pt-2 align-items-center">
+          <div class="row nd-title-txt pt-2 align-items-center">
               <!-- Iconos -->
               <div class="col-12 p-2">
                   <div class="row w-100 m-0 px-1 py-2 flex-row" [ngClass]="showDownloadButton?'justify-content-between':'justify-content-end'">
@@ -160,7 +160,7 @@
                                 <input matStartDate formControlName="startDate" placeholder="Fecha de inicio" readonly>
                                 <input matEndDate formControlName="endDate" placeholder="Fecha de fin" readonly>
                               </mat-date-range-input>
-                              <mat-datepicker-toggle [class]="filtersForm.controls['startDate'].value ? 'cc-txt-primary' : ''" matSuffix [for]="rangePicker"></mat-datepicker-toggle>
+                              <mat-datepicker-toggle [class]="filtersForm.controls['startDate'].value ? 'nd-txt-primary' : ''" matSuffix [for]="rangePicker"></mat-datepicker-toggle>
                               <!-- Botón de limpiar -->
                               <button *ngIf="filtersForm.controls['startDate']?.value" matSuffix mat-icon-button (click)="clearDate('startDate', 'endDate')">
                                 <mat-icon>delete_outline</mat-icon>
@@ -168,7 +168,7 @@
                               <mat-date-range-picker #rangePicker>
                                   <mat-date-range-picker-actions>
                                     <button mat-button matDateRangePickerCancel>Cancelar</button>
-                                    <button mat-raised-button matDateRangePickerApply (click)="sendRequest()" class="cc-btn-primary" style="font-weight: 600;">Filtrar</button>
+                                    <button mat-raised-button matDateRangePickerApply (click)="sendRequest()" class="nd-btn-primary" style="font-weight: 600;">Filtrar</button>
                                   </mat-date-range-picker-actions>
                               </mat-date-range-picker>
                           </mat-form-field>
@@ -193,7 +193,7 @@
       <ng-container [matColumnDef]="column" *ngFor="let column of columnFieldsList">
 
           <!-- Celda con el Nombre de columna -->
-          <th mat-header-cell *matHeaderCellDef [ngClass]="getClassColumn(column)" class="fs-12 cc-txt text-nowrap">
+          <th mat-header-cell *matHeaderCellDef [ngClass]="getClassColumn(column)" class="fs-12 nd-txt text-nowrap">
               {{ getTextColumn(column) }}
           </th>
 

@@ -2,6 +2,12 @@
 
 ## Notas: Para poder usar los interceptors es necesario descomentar el llamado al servicio en la seccion del catch error para 400, 401, 403. Para el timerSession es necesario descomentar el llamado a refreshSession cuando se necesite, pero hay que crear el service de auth en el proyecto que corresponda.
 
+## [0.0.011] - 2024-1-11 - Anibal. Ch
+
+### Fix
+
+- Cambio de nombres para las variables y clases
+<!-- /////////////////////////////////////////////////////////////////////////////// -->
 ## [0.0.295] - 2023-12-22 - Anibal. Ch
 
 ### Fix
@@ -1838,7 +1844,7 @@
 
 ### Added
 
--Cambio de nombre para cc-text
+-Cambio de nombre para nd-text
 
 <!-- /////////////////////////////////////////////////////////////////////////////// -->
 

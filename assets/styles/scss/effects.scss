@@ -23,11 +23,11 @@ h1 {
 
 p {
   font-size: 13px !important;
-  color: $v-cc-txt;
+  color: $v-nd-txt;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: $v-cc-white;
+  background-color: $v-nd-white;
 }
 
 //Aqui se oculto para no afectar el input select
@@ -38,7 +38,7 @@ p {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: $v-cc-primary; //Color del scrol
+  background-color: $v-nd-primary; //Color del scrol
   border-radius: 1px;
 }
 
@@ -47,130 +47,130 @@ p {
 --------------------------------------------------------------------------------------------------------------------------------------*/
 
 // Primary
-.cc-btn-primary {
-  background-color: $v-cc-primary !important;
-  color: $v-cc-white !important;
+.nd-btn-primary {
+  background-color: $v-nd-primary !important;
+  color: $v-nd-white !important;
   &:hover {
-    background-color: $v-cc-primary-selected !important;
+    background-color: $v-nd-primary-selected !important;
   }
 }
 
-.cc-btn-primary-outline {
-  background-color: $v-cc-white !important;
-  color: $v-cc-primary !important;
-  border: 2px solid $v-cc-primary !important;
+.nd-btn-primary-outline {
+  background-color: $v-nd-white !important;
+  color: $v-nd-primary !important;
+  border: 2px solid $v-nd-primary !important;
   &:hover {
-    background-color: $v-cc-primary !important;
-    color: $v-cc-white !important;
+    background-color: $v-nd-primary !important;
+    color: $v-nd-white !important;
   }
 }
 
-.cc-btn-primary-disabled {
-  background-color: $v-cc-primary-disabled;
-  color: $v-cc-white;
+.nd-btn-primary-disabled {
+  background-color: $v-nd-primary-disabled;
+  color: $v-nd-white;
 }
 
 // Secondary
-.cc-btn-secondary {
-  background-color: $v-cc-secondary !important;
-  color: $v-cc-white !important;
+.nd-btn-secondary {
+  background-color: $v-nd-secondary !important;
+  color: $v-nd-white !important;
   &:hover {
-    background-color: $v-cc-secondary-selected !important;
+    background-color: $v-nd-secondary-selected !important;
   }
 }
 
-.cc-btn-secondary-outline {
-  background-color: $v-cc-white;
-  color: $v-cc-secondary;
-  border: 2px solid $v-cc-secondary;
+.nd-btn-secondary-outline {
+  background-color: $v-nd-white;
+  color: $v-nd-secondary;
+  border: 2px solid $v-nd-secondary;
   &:hover {
-    background-color: $v-cc-secondary;
-    color: $v-cc-white;
+    background-color: $v-nd-secondary;
+    color: $v-nd-white;
   }
 }
 
-.cc-btn-secondary-disabled {
-  background-color: $v-cc-secondary-disabled;
-  color: $v-cc-white;
+.nd-btn-secondary-disabled {
+  background-color: $v-nd-secondary-disabled;
+  color: $v-nd-white;
 }
 
 // Notificaciones
-.cc-btn-success {
-  background-color: $v-cc-success;
-  color: $v-cc-white;
+.nd-btn-success {
+  background-color: $v-nd-success;
+  color: $v-nd-white;
   &:hover {
-    background-color: $v-cc-primary-selected;
+    background-color: $v-nd-primary-selected;
   }
 }
 
-.cc-btn-error {
-  background-color: $v-cc-error !important;
-  color: $v-cc-white !important;
+.nd-btn-error {
+  background-color: $v-nd-error !important;
+  color: $v-nd-white !important;
 }
 
-.cc-btn-error-outline {
-  background-color: $v-cc-white !important;
-  color: $v-cc-error !important;
-  border: 2px solid $v-cc-error !important;
+.nd-btn-error-outline {
+  background-color: $v-nd-white !important;
+  color: $v-nd-error !important;
+  border: 2px solid $v-nd-error !important;
   &:hover {
-    background-color: $v-cc-error !important;
-    color: $v-cc-white !important;
+    background-color: $v-nd-error !important;
+    color: $v-nd-white !important;
   }
 }
 
-.cc-btn-warning {
-  background-color: $v-cc-warning !important;
-  color: $v-cc-white !important;
+.nd-btn-warning {
+  background-color: $v-nd-warning !important;
+  color: $v-nd-white !important;
 }
 
-.cc-btn-warning-outline {
-  background-color: $v-cc-white !important;
-  color: $v-cc-warning !important;
-  border: 2px solid $v-cc-warning !important;
+.nd-btn-warning-outline {
+  background-color: $v-nd-white !important;
+  color: $v-nd-warning !important;
+  border: 2px solid $v-nd-warning !important;
   &:hover {
-    background-color: $v-cc-warning !important;
-    color: $v-cc-white !important;
+    background-color: $v-nd-warning !important;
+    color: $v-nd-white !important;
   }
 }
 
-.cc-btn-info {
-  background-color: $v-cc-info;
-  color: $v-cc-white;
+.nd-btn-info {
+  background-color: $v-nd-info;
+  color: $v-nd-white;
 }
 
 // Colores neutros de uso especifico
-.cc-btn-white {
-  background-color: $v-cc-white;
-  color: $v-cc-txt;
+.nd-btn-white {
+  background-color: $v-nd-white;
+  color: $v-nd-txt;
 }
 
-.cc-btn-light-white {
-  background-color: $v-cc-light-white;
-  color: $v-cc-txt;
+.nd-btn-light-white {
+  background-color: $v-nd-light-white;
+  color: $v-nd-txt;
 }
 
-.cc-btn-dark-gray {
-  background-color: $v-cc-dark-gray;
-  color: $v-cc-white;
+.nd-btn-dark-gray {
+  background-color: $v-nd-dark-gray;
+  color: $v-nd-white;
 }
 
-.cc-btn-light-gray {
-  background-color: $v-cc-light-gray;
-  color: $v-cc-white;
+.nd-btn-light-gray {
+  background-color: $v-nd-light-gray;
+  color: $v-nd-white;
 }
 
-.cc-btn-medium-gray {
-  background-color: $v-cc-medium-gray;
-  color: $v-cc-white;
+.nd-btn-medium-gray {
+  background-color: $v-nd-medium-gray;
+  color: $v-nd-white;
 }
 
-.cc-btn-medium-gray-outline {
-  background-color: $v-cc-white !important;
-  color: $v-cc-medium-gray !important;
-  border: 2px solid $v-cc-medium-gray !important;
+.nd-btn-medium-gray-outline {
+  background-color: $v-nd-white !important;
+  color: $v-nd-medium-gray !important;
+  border: 2px solid $v-nd-medium-gray !important;
   &:hover {
-    background-color: $v-cc-medium-gray !important;
-    color: $v-cc-white !important;
+    background-color: $v-nd-medium-gray !important;
+    color: $v-nd-white !important;
   }
 }
 
@@ -185,7 +185,7 @@ END BUTTON
 --------------------------------------------------------------------------------------------------------------------------------------*/
 
 .ccng-border {
-  border: 1px solid $v-cc-primary;
+  border: 1px solid $v-nd-primary;
 }
 
 .card-border {
@@ -228,7 +228,7 @@ END CARDS
 --------------------------------------------------------------------------------------------------------------------------------------*/
 
 .dark-backdrop {
-  background: $v-cc-secondary !important;
+  background: $v-nd-secondary !important;
   opacity: 0.9 !important;
 }
 

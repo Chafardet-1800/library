@@ -4,32 +4,33 @@
 
 
 // Paleta de colores del proyecto
-$v-cc-primary: var(--v-cc-dynamic-primary);
-$v-cc-primary-disabled: #daf2ed;
-$v-cc-primary-selected: var(--v-cc-dynamic-primary-selected);
-$v-cc-secondary: #6b9cf4;
-$v-cc-secondary-disabled: #eff4fd;
-$v-cc-secondary-selected: #4484e0;
+$v-nd-primary: #336ab2;
+$v-nd-primary-disabled: #7b96ba;
+$v-nd-primary-selected: #2e5f9e;
+$v-nd-secondary: #c26ca9;
+$v-nd-secondary-disabled: #c094b3;
+$v-nd-secondary-selected: #ac5694;
+$v-nd-gradient: linear-gradient(90deg, rgba(194,108,169,1) 0%, rgba(51,106,178,1) 100%);
 // Notificaciones
-$v-cc-success: #14c6a4;
-$v-cc-error: #ff0000;
-$v-cc-warning: #fdc713;
-$v-cc-info: #03a9f4;
+$v-nd-success: #14c6a4;
+$v-nd-error: #ff0000;
+$v-nd-warning: #fdc713;
+$v-nd-info: #03a9f4;
 // Textos
-$v-cc-txt: #595959;
-$v-cc-back-txt: #a09f9f;
-$v-cc-title-txt: #afafaf;
+$v-nd-txt: #28285B;
+$v-nd-back-txt: #434362;
+$v-nd-title-txt: #404070;
 // Fondos
-$v-cc-background-page: #f1f4f8;
-$v-cc-menu: #ffffff;
-$v-cc-navbar: #444444;
+$v-nd-background-page: #f1f4f8;
+$v-nd-menu: #ffffff;
+$v-nd-navbar: #444444;
 // Colores neutros de uso especifico
-$v-cc-white: #ffffff;
-$v-cc-light-white: #f1f4f8;
-$v-cc-black: #000000;
-$v-cc-dark-gray: #595959;
-$v-cc-medium-gray: #a09f9f;
-$v-cc-light-gray: #cccaca;
+$v-nd-white: #ffffff;
+$v-nd-light-white: #f1f4f8;
+$v-nd-black: #000000;
+$v-nd-dark-gray: #595959;
+$v-nd-medium-gray: #a09f9f;
+$v-nd-light-gray: #cccaca;
 
 // Seteo este color como una variable para que pueda ser seteado de forma dinámica
 $dynamic_border_radios_button: 20px;
@@ -41,10 +42,10 @@ $dynamic_border_radius: 10px;
 :root {
 
   // Variable que indica el color principal al seleccionar
-  --v-cc-dynamic-primary: #14c6a4;
+  --v-nd-dynamic-primary: #14c6a4;
 
   // Variable que indoca el color principal al estar seleccionado
-  --v-cc-dynamic-primary-selected: #0db292;
+  --v-nd-dynamic-primary-selected: #0db292;
 
   // Variable que define el radio del borde para los botones
   --mdc-text-button-container-shape: #{$dynamic_border_radios_button};
@@ -56,3 +57,6 @@ $dynamic_border_radius: 10px;
   --bs-border-radius: #{$dynamic_border_radius};
 
 }
+
+// background: rgb(255,255,255);
+// background: linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 48%, rgba(217,204,237,1) 75%, rgba(244,211,186,1) 100%);

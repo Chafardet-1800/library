@@ -96,23 +96,23 @@ body {
   Tono del texto (negrita, normal, claro)
 --------------------------------------------------------------------------------------------------------------------------------------*/
 
-.cc-txt-normal {
+.nd-txt-normal {
   font-weight: 600 !important;
 }
 
-.cc-txt-bold {
+.nd-txt-bold {
   font-weight: 900 !important;
 }
 
-.cc-txt-light {
+.nd-txt-light {
   font-weight: lighter;
 }
 
-.cc-txt-a {
+.nd-txt-a {
   text-decoration: none;
 }
 
-.cc-txt-break {
+.nd-txt-break {
   word-break: break-all;
 }
 
@@ -177,10 +177,10 @@ body {
 --------------------------------------------------------------------------------------------------------------------------------------*/
 
 @media screen and (max-width: 380px) {
-  .cc-txt-sm-h5 {
+  .nd-txt-sm-h5 {
     font-size: 0.9rem;
   }
-  .cc-txt-sm-p {
+  .nd-txt-sm-p {
     font-size: 0.85rem;
   }
 }
@@ -190,66 +190,66 @@ body {
 --------------------------------------------------------------------------------------------------------------------------------------*/
 
 // Primary
-.cc-txt-primary {
-  color: $v-cc-primary;
+.nd-txt-primary {
+  color: $v-nd-primary;
 }
 
-.cc-txt-primary-disabled {
-  color: $v-cc-primary-disabled;
+.nd-txt-primary-disabled {
+  color: $v-nd-primary-disabled;
 }
 
-.cc-txt-primary-selected {
-  color: $v-cc-primary-selected;
+.nd-txt-primary-selected {
+  color: $v-nd-primary-selected;
 }
 
 // Secondary
-.cc-txt-secondary {
-  color: $v-cc-secondary;
+.nd-txt-secondary {
+  color: $v-nd-secondary;
 }
 
-.cc-txt-secondary-disabled {
-  color: $v-cc-secondary-disabled;
+.nd-txt-secondary-disabled {
+  color: $v-nd-secondary-disabled;
 }
 
-.cc-txt-secondary-selected {
-  color: $v-cc-secondary-selected;
+.nd-txt-secondary-selected {
+  color: $v-nd-secondary-selected;
 }
 
 // Notificaciones
-.cc-txt-success {
-  color: $v-cc-success !important;
+.nd-txt-success {
+  color: $v-nd-success !important;
 }
 
-.cc-txt-error {
-  color: $v-cc-error !important;
+.nd-txt-error {
+  color: $v-nd-error !important;
 }
 
-.cc-txt-warning {
-  color: $v-cc-warning !important;
+.nd-txt-warning {
+  color: $v-nd-warning !important;
 }
 
-.cc-txt-info {
-  color: $v-cc-info !important;
+.nd-txt-info {
+  color: $v-nd-info !important;
 }
 
 // Colores de textos
-.cc-txt {
-  color: $v-cc-txt !important;
+.nd-txt {
+  color: $v-nd-txt !important;
 }
 
-.cc-back-txt {
-  color: $v-cc-back-txt !important;
+.nd-back-txt {
+  color: $v-nd-back-txt !important;
 }
 
-.cc-title-txt {
-  color: $v-cc-title-txt !important;
+.nd-title-txt {
+  color: $v-nd-title-txt !important;
   p {
-    color: $v-cc-back-txt !important;
+    color: $v-nd-back-txt !important;
   }
 }
 
-.cc-txt-white {
-  color: $v-cc-white !important;
+.nd-txt-white {
+  color: $v-nd-white !important;
 }
 
 /*--------------------------------------------------------------------------------------------------------------------------------------
