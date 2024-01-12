@@ -2,13 +2,19 @@
 
 ## Notas: Para poder usar los interceptors es necesario descomentar el llamado al servicio en la seccion del catch error para 400, 401, 403. Para el timerSession es necesario descomentar el llamado a refreshSession cuando se necesite, pero hay que crear el service de auth en el proyecto que corresponda.
 
-## [0.0.012] - 2024-1-11 - Anibal. Ch
+## [0.0.298] - 2023-12-22 - Anibal. Ch
+
+### Fix
+
+- Se agrego una limitante para que la tabla no emita requesthttp sin haber recibido una respuesta primero
+<!-- /////////////////////////////////////////////////////////////////////////////// -->
+## [0.0.297] - 2024-1-11 - Anibal. Ch
 
 ### Add
 
 - Agrego clases y variable gradiente
 <!-- /////////////////////////////////////////////////////////////////////////////// -->
-## [0.0.011] - 2024-1-11 - Anibal. Ch
+## [0.0.296] - 2024-1-11 - Anibal. Ch
 
 ### Fix
 

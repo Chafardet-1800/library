@@ -95,13 +95,43 @@ p {
 }
 
 // Secondary
-.nd-btn-secondary {
-  background-color: $v-nd-gradient !important;
+.nd-btn-gradient {
+  // background: linear-gradient(90deg, $v-nd-secondary 0%, $v-nd-primary 38%, rgba(51,106,178,0) 66%) $v-nd-primary !important;
+  // transition: background-color 1s;
+  position: relative;
+  z-index: 10;
+  display: block;
+  background: transparent;
   color: $v-nd-white !important;
+
   &:hover {
-    background-color: $v-nd-gradient-selected !important;
-    transition: all ease-in-out 250ms;
+    // background-color: $v-nd-primary-selected !important;
   }
+}
+
+.nd-btn-gradient:before {
+  content: "";
+  position: absolute;
+  transition: opacity 1s ease-in-out;
+  top:0; left: 0; right: 0; bottom: 0; z-index:-1;
+  background: -webkit-linear-gradient(90deg, $v-nd-secondary,  $v-nd-primary);
+  background: -moz-linear-gradient(90deg, $v-nd-secondary,  $v-nd-primary);
+  background: -o-linear-gradient(90deg, $v-nd-secondary,  $v-nd-primary);
+  background: linear-gradient(90deg, $v-nd-secondary,  $v-nd-primary);
+}
+.nd-btn-gradient:hover:before {
+  opacity: 0;
+}
+.nd-btn-gradient:after {
+  content: ""; opacity: 0;
+  transition: opacity .80s ease-in-out;
+  position: absolute;
+  top:0; left: 0; right: 0; bottom: 0; z-index:-1;
+  background: linear-gradient(90deg, $v-nd-secondary 0%, $v-nd-primary 38%, $v-nd-primary-selected 66%) !important;
+
+}
+.nd-btn-gradient:hover:after {
+  opacity: 1;
 }
 
 // Notificaciones
