@@ -94,6 +94,16 @@ p {
   color: $v-nd-white;
 }
 
+// Secondary
+.nd-btn-secondary {
+  background-color: $v-nd-gradient !important;
+  color: $v-nd-white !important;
+  &:hover {
+    background-color: $v-nd-gradient-selected !important;
+    transition: all ease-in-out 250ms;
+  }
+}
+
 // Notificaciones
 .nd-btn-success {
   background-color: $v-nd-success;
