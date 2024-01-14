@@ -1,6 +1,17 @@
 <!-- Botón en estado normal, muestra texto o ícono con texto -->
-<button *ngIf="!showSpinner" [disabled]="buttonDisabled" type="{{type}}" mat-button class="w-100 ccng-bold" [ngClass]="{'nd-btn-error': buttonType == 'cancel', 'nd-btn-primary': buttonType == 'success', 'nd-btn-warning': buttonType == 'warning', 'nd-btn-error-outline': buttonType == 'cancelOutline', 'nd-btn-primary-outline': buttonType == 'successOutline', 'nd-btn-warning-outline': buttonType == 'warningOutline'}"
-    (keydown.enter)="$event.preventDefault()" (click)="submit.emit()" style="height: 45px;">
+<button *ngIf="!showSpinner" [disabled]="buttonDisabled" type="{{type}}" mat-button
+(keydown.enter)="$event.preventDefault()" (click)="submit.emit()"
+class="w-100 ccng-bold" style="height: 45px;"
+[ngClass]="{
+  'nd-btn-primary': buttonType == 'success',
+  'nd-btn-error': buttonType == 'cancel',
+  'nd-btn-warning': buttonType == 'warning',
+  'nd-btn-gradient': buttonType == 'gradient',
+  'nd-btn-primary-outline': buttonType == 'successOutline',
+  'nd-btn-error-outline': buttonType == 'cancelOutline',
+  'nd-btn-warning-outline': buttonType == 'warningOutline',
+  'nd-btn-medium-gray-outline': buttonType == 'defaultOutline'
+}">
 
     <!-- Contenido del botón -->
     <span class="fs-16 d-flex align-items-center">

@@ -6,7 +6,7 @@
 // @import '~bootstrap/dist/css/bootstrap.min.css';
 *:not(.material-icons) {
   font-family: "Lato" !important;
-  font-weight: 600 !important;
+  font-weight: 600;
   box-shadow: none !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -215,8 +215,41 @@ body {
   color: $v-nd-secondary-selected;
 }
 
-// Secondary
-.nd-txt-gradient {
+// terciario
+.nd-txt-tertiary {
+  color: $v-nd-tertiary;
+}
+
+.nd-txt-secondary-disabled {
+  color: $v-nd-tertiary-disabled;
+}
+
+.nd-txt-secondary-selected {
+  color: $v-nd-tertiary-selected;
+}
+
+// gradient
+.nd-txt-gradient{
+  /* Fallback: Set a background color. */
+  background-color: $v-nd-primary;
+
+  /* Create the gradient. */
+  background-image: $v-nd-gradient;
+
+  /* Set the background size and repeat properties. */
+  background-size: 100%;
+  background-repeat: repeat;
+
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+.nd-txt-gradient-hover {
 
   /* Fallback: Set a background color. */
   background-color: $v-nd-primary;

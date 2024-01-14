@@ -1,6 +1,6 @@
 {
   "name": "library",
-  "version": "0.0.012",
+  "version": "0.0.299",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

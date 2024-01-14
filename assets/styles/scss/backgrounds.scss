@@ -56,7 +56,11 @@
 
 // Primary
 .nd-bg-gradient {
-  background: $v-nd-primary;
+  background: $v-nd-gradient;
+}
+
+.nd-bg-gradient-secondary {
+  background: $v-nd-gradient-secondary;
 }
 
 // Notificaciones
