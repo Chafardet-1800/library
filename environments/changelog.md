@@ -2,6 +2,12 @@
 
 ## Notas: Para poder usar los interceptors es necesario descomentar el llamado al servicio en la seccion del catch error para 400, 401, 403. Para el timerSession es necesario descomentar el llamado a refreshSession cuando se necesite, pero hay que crear el service de auth en el proyecto que corresponda.
 
+## [0.0.300] - 2023-1-13 - Anibal. Ch
+
+### Add
+
+- Gradientes para botones
+<!-- /////////////////////////////////////////////////////////////////////////////// -->
 ## [0.0.299] - 2023-1-13 - Anibal. Ch
 
 ### Add

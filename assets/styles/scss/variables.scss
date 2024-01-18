@@ -10,12 +10,14 @@ $v-nd-primary-selected: #2e5f9e;
 $v-nd-secondary: #c26ca9;
 $v-nd-secondary-disabled: #c094b3;
 $v-nd-secondary-selected: #ac5694;
-$v-nd-gradient: linear-gradient(90deg, rgba(194,108,169,1) 0%, rgba(51,106,178,1) 100%);
-$v-nd-gradient-selected: linear-gradient(90deg, rgba(194,108,169,1) 0%, rgba(51,106,178,1) 38%);
-$v-nd-gradient-secondary: linear-gradient(90deg, rgba(194,108,169,1) 0%,  rgb(243, 149, 77) 49%, rgba(244,150,75,1) 50%, rgba(232,147,81,1) 59%, rgba(51,106,178,1) 100%);
 $v-nd-tertiary: #f3954d;
 $v-nd-tertiary-disabled: #edb081;
 $v-nd-tertiary-selected: #f47b1f;
+$v-nd-gradient: linear-gradient(90deg, rgba(194,108,169,1) 0%, rgba(51,106,178,1) 100%);
+$v-nd-gradient-selected: linear-gradient(90deg, rgba(194,108,169,1) 0%, rgba(51,106,178,1) 38%);
+$v-nd-gradient-secondary: linear-gradient(90deg, rgba(194,108,169,1) 0%,  rgb(243, 149, 77) 49%, rgba(244,150,75,1) 50%, rgba(232,147,81,1) 59%, rgba(51,106,178,1) 100%);
+$v-nd-gradient-tertiary: linear-gradient(90deg, rgb(243, 149, 77) 0%, rgba(244,150,75,1) 50%, rgba(232,147,81,1) 59%, rgba(51,106,178,1) 100%);
+
 
 // Notificaciones
 $v-nd-success: #14c6a4;

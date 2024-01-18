@@ -120,6 +120,30 @@ p {
   transform: scale( 2, 1 );
 }
 
+// tertiary
+.nd-btn-gradient-tertiary {
+  position: relative;
+  z-index: 10;
+  display: block;
+  background: transparent;
+  overflow: hidden !important;
+  color: $v-nd-white !important;
+}
+
+.nd-btn-gradient-tertiary:before {
+  content: "";
+  position: absolute;
+  transition: transform 250ms ease;
+  top:0; left: 0; right: 0; bottom: 0; z-index:-1;
+  background: -webkit-linear-gradient(90deg, $v-nd-tertiary,  $v-nd-primary);
+  background: -moz-linear-gradient(90deg, $v-nd-tertiary,  $v-nd-primary);
+  background: -o-linear-gradient(90deg, $v-nd-tertiary,  $v-nd-primary);
+  background: linear-gradient(90deg, $v-nd-tertiary,  $v-nd-primary);
+}
+.nd-btn-gradient-tertiary:hover:before {
+  transform: scale( 2, 1 );
+}
+
 // Notificaciones
 .nd-btn-success {
   background-color: $v-nd-success;
