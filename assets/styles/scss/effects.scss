@@ -431,3 +431,41 @@ END CARDS
 .curuba-shadow{
   box-shadow: 0px 0px 800px 60px $v-nd-tertiary !important;
 }
+
+
+.input-borderless {
+
+  .mdc-text-field--outlined:not(.mdc-text-field--disabled)
+  .mdc-notched-outline .mdc-notched-outline__leading,
+  .mdc-text-field--outlined:not(.mdc-text-field--disabled)
+  .mdc-notched-outline .mdc-notched-outline__notch,
+  .mdc-text-field--outlined:not(.mdc-text-field--disabled)
+  .mdc-notched-outline .mdc-notched-outline__trailing{
+    border-width: 0 !important;
+  }
+
+}
+
+.input-large {
+
+  .mat-mdc-form-field:not(.mat-form-field-no-animations) .mdc-text-field__input{
+    font-size: large !important;
+  }
+
+  .mat-mdc-select-value-text{
+    font-size: large !important;
+  }
+
+}
+
+.input-X-large {
+
+  .mat-mdc-form-field:not(.mat-form-field-no-animations) .mdc-text-field__input{
+    font-size: x-large !important;
+  }
+
+  .mat-mdc-select-value-text{
+    font-size: x-large !important;
+  }
+
+}
