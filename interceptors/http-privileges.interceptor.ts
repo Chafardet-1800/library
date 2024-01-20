@@ -24,7 +24,7 @@ import { setSideNav } from '../data/privileges/reducer/privileges.actions';
 import { cmmSideNav } from '../data/privileges/reducer/privileges.selectos';
 import { USE_SPINNER } from '../data/utils/models/utils.model';
 import { setSpinner } from '../data/utils/reducer/utils.actions';
-import version from '../environments/package.json';
+import version from 'package.json';
 import { CmmDataService } from '../services/data.service';
 import { CmmDialogService } from '../services/dialogs.service';
 import { CmmTimerSessionService } from '../services/timer-session.service';

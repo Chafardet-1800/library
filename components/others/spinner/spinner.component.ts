@@ -7,10 +7,6 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./spinner.component.scss'],
 })
 export class CmmSpinnerComponent implements OnInit {
-  /**
-   * Variable que indica si quiero el spinner circulo o el spinner chinchin :))
-   */
-  @Input() useSpinnerChinchin: boolean = true;
 
   constructor(public overlay: Overlay) {}
 

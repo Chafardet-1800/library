@@ -65,7 +65,8 @@ export class CmmHttpInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
 
     // Guardamos el token de la session
-    const token: string | null = sessionStorage.getItem(authTokenVariable);
+    const token: string | null = localStorage.getItem(authTokenVariable);
+    console.log(token);
 
     //* Aumento el contador de requests
     this.initiatedRequests++
@@ -150,7 +151,7 @@ export class CmmHttpInterceptor implements HttpInterceptor {
             if (myBody.hasOwnProperty('token') && myBody.token) {
 
               // Seteo el nuevo token
-              sessionStorage.setItem(authTokenVariable, myBody.token);
+              localStorage.setItem(authTokenVariable, myBody.token);
 
             }
 
