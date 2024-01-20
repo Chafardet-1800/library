@@ -10,7 +10,7 @@ export class CmmAuthGuard  {
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
 
     // En caso de que el usuario tenga un token y no tenga que actualizar contraceña
-    if (sessionStorage.getItem(authTokenVariable) && !sessionStorage.getItem(authTemporalSession)) {
+    if (localStorage.getItem(authTokenVariable) && !localStorage.getItem(authTemporalSession)) {
 
       // Indicamos que puede pasar
       return true;
@@ -18,7 +18,7 @@ export class CmmAuthGuard  {
     };
 
     // En cualquier otro caso lo redirigimos al login
-    this.router.navigate(['auth/login']);
+    this.router.navigate(['auth']);
 
     // Indicamos que no puede pasar
     return false;
