@@ -15,7 +15,7 @@ import { authTokenVariable } from '../data/constants/local-storage-variables';
 import { CmmAlertModalModel, CmmAlertToastrModel } from '../data/dialogs/models/dialogs.model';
 import { USE_SPINNER } from '../data/utils/models/utils.model';
 import { setSpinner } from '../data/utils/reducer/utils.actions';
-import version from '../environments/package.json';
+import version from '../package.json';
 import { CmmDataService } from '../services/data.service';
 import { CmmDialogService } from '../services/dialogs.service';
 import { CmmTimerSessionService } from '../services/timer-session.service';

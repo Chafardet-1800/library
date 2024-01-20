@@ -269,11 +269,39 @@ body {
   -moz-background-clip: text;
   -moz-text-fill-color: transparent;
 
+  mat-icon{
+    /* Fallback: Set a background color. */
+    background-color: $v-nd-primary;
+
+    /* Create the gradient. */
+    background-image: $v-nd-txt;
+
+    /* Set the background size and repeat properties. */
+    background-size: 100%;
+    background-repeat: repeat;
+
+    /* Use the text as a mask for the background. */
+    /* This will show the gradient as a text color rather than element bg. */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+  }
+
   &:hover {
 
     /* Create the gradient. */
     background-image: $v-nd-gradient;
     transition: all linear 250ms;
+
+    mat-icon{
+
+          /* Create the gradient. */
+          background-image: $v-nd-gradient;
+          transition: all linear 250ms;
+
+    }
 
   }
 }
