@@ -10,10 +10,11 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, throwError } from 'rxjs';
 import { catchError, finalize, map, takeUntil } from 'rxjs/operators';
+import { CC_PROJECT_INITIALS } from 'src/app/app.component';
 import { environment } from 'src/environments/environment';
 import { authTokenVariable } from '../data/constants/local-storage-variables';
 import { CmmAlertModalModel, CmmAlertToastrModel } from '../data/dialogs/models/dialogs.model';
-import { USE_SPINNER } from '../data/utils/models/utils.model';
+import { DROP_DOBLE_SPINNER, SET_DOBLE_SPINNER, USE_SPINNER } from '../data/utils/models/utils.model';
 import { setSpinner } from '../data/utils/reducer/utils.actions';
 import version from '../package.json';
 import { CmmDataService } from '../services/data.service';
@@ -31,14 +32,14 @@ export class CmmHttpInterceptor implements HttpInterceptor {
   environmentVersion = environment.CC_VERSION;
 
   /**
-   * Varaible que contiene la version del common en la que tiene el proyecto
+   * Varaible que contiene la version del commun en la que tiene el proyecto
    */
   cmmVersion = version.version;
 
   /**
    * Variable que contiene el nombre del proyecto
    */
-  projectInitials = 'f-bus';
+  projectInitials = CC_PROJECT_INITIALS;
 
   //? Manejo de spinner
 
@@ -65,8 +66,7 @@ export class CmmHttpInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
 
     // Guardamos el token de la session
-    const token: string | null = localStorage.getItem(authTokenVariable);
-    console.log(token);
+    const token: string | null = sessionStorage.getItem(authTokenVariable);
 
     //* Aumento el contador de requests
     this.initiatedRequests++
@@ -74,10 +74,18 @@ export class CmmHttpInterceptor implements HttpInterceptor {
     //* Verifico si la petición requiere o no un spinner
     if(this.isSpinnerRequired(request.context)) {
 
-      //* Activo el spinner y aumento el contador
-      this.activateSpinner()
+      //* Verifico si la petición coloca 2 peticiones al spinner
+      if(this.setDobleSpinner(request.context)){
 
-    }
+        //* Aumento el contador de requests
+        this.initiatedRequests++;
+
+      };
+
+      //* Activo el spinner y aumento el contador
+      this.activateSpinner();
+
+    };
 
     // Si hay token lo seteamos
     if (token != '' && token != null && token != undefined && token != 'N/A') {
@@ -127,6 +135,14 @@ export class CmmHttpInterceptor implements HttpInterceptor {
         //* Incremento el contador de requests finalizados
         this.finishedRequests++
 
+        //* Verifico si la petición quita 2 peticiones al spinner
+        if(this.dropDobleSpinner(request.context)){
+
+          //* Aumento el contador de peticiones quitadas
+          this.finishedRequests++;
+
+        };
+
         //* Verifico si todas las peticiones se terminaron
         if(this.initiatedRequests == this.finishedRequests) {
 
@@ -151,7 +167,7 @@ export class CmmHttpInterceptor implements HttpInterceptor {
             if (myBody.hasOwnProperty('token') && myBody.token) {
 
               // Seteo el nuevo token
-              localStorage.setItem(authTokenVariable, myBody.token);
+              sessionStorage.setItem(authTokenVariable, myBody.token);
 
             }
 
@@ -364,6 +380,24 @@ export class CmmHttpInterceptor implements HttpInterceptor {
   isSpinnerRequired(requestContext: HttpContext) {
     //* Obtengo el context que me indica si uso o no el spinner y retorno su valor
     return requestContext.get(USE_SPINNER)
+  }
+
+  /**
+   * Retorna si la petición coloca 2 peticiones al spinner
+   * @param headers
+   */
+  setDobleSpinner(requestContext: HttpContext) {
+    //* Obtengo el context que me indica si uso o no el spinner y retorno su valor
+    return requestContext.get(SET_DOBLE_SPINNER)
+  }
+
+  /**
+   * Retorna si la petición quita 2 peticiones al spinner
+   * @param headers
+   */
+  dropDobleSpinner(requestContext: HttpContext) {
+    //* Obtengo el context que me indica si uso o no el spinner y retorno su valor
+    return requestContext.get(DROP_DOBLE_SPINNER)
   }
 
   /**

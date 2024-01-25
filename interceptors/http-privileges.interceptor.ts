@@ -10,6 +10,7 @@ import { Injectable } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable, takeUntil, throwError } from 'rxjs';
 import { catchError, finalize, map } from 'rxjs/operators';
+import { CC_PROJECT_INITIALS } from 'src/app/app.component';
 import { environment } from 'src/environments/environment';
 import {
   authTokenVariable,
@@ -22,9 +23,9 @@ import {
 } from '../data/privileges/models/privileges.models';
 import { setSideNav } from '../data/privileges/reducer/privileges.actions';
 import { cmmSideNav } from '../data/privileges/reducer/privileges.selectos';
-import { USE_SPINNER } from '../data/utils/models/utils.model';
+import { DROP_DOBLE_SPINNER, SET_DOBLE_SPINNER, USE_SPINNER } from '../data/utils/models/utils.model';
 import { setSpinner } from '../data/utils/reducer/utils.actions';
-import version from 'package.json';
+import version from '../package.json';
 import { CmmDataService } from '../services/data.service';
 import { CmmDialogService } from '../services/dialogs.service';
 import { CmmTimerSessionService } from '../services/timer-session.service';
@@ -39,14 +40,14 @@ export class CmmHttpPrivilegesInterceptor implements HttpInterceptor {
   environmentVersion = environment.CC_VERSION;
 
   /**
-   * Varaible que contiene la version del common en la que tiene el proyecto
+   * Varaible que contiene la version del commun en la que tiene el proyecto
    */
   cmmVersion = version.version;
 
   /**
    * Variable que contiene el nombre del proyecto
    */
-  projectInitials = 'f-bus';
+  projectInitials = CC_PROJECT_INITIALS;
 
   //? Logica de privilegios
 
@@ -100,15 +101,23 @@ export class CmmHttpPrivilegesInterceptor implements HttpInterceptor {
     const token: string | null = sessionStorage.getItem(authTokenVariable);
 
     //* Aumento el contador de requests
-    this.initiatedRequests++
+    this.initiatedRequests++;
 
     //* Verifico si la petición requiere o no un spinner
     if(this.isSpinnerRequired(request.context)) {
 
-      //* Activo el spinner y aumento el contador
-      this.activateSpinner()
+      //* Verifico si la petición coloca 2 peticiones al spinner
+      if(this.setDobleSpinner(request.context)){
 
-    }
+        //* Aumento el contador de requests
+        this.initiatedRequests++;
+
+      };
+
+      //* Activo el spinner y aumento el contador
+      this.activateSpinner();
+
+    };
 
     // Si hay token lo seteamos
     if (token != '' && token != null && token != undefined && token != 'N/A') {
@@ -156,6 +165,14 @@ export class CmmHttpPrivilegesInterceptor implements HttpInterceptor {
 
         //* Incremento el contador de requests finalizados
         this.finishedRequests++
+
+        //* Verifico si la petición quita 2 peticiones al spinner
+        if(this.dropDobleSpinner(request.context)){
+
+          //* Aumento el contador de peticiones quitadas
+          this.finishedRequests++;
+
+        };
 
         //* Verifico si todas las peticiones se terminaron
         if(this.initiatedRequests == this.finishedRequests) {
@@ -497,6 +514,24 @@ export class CmmHttpPrivilegesInterceptor implements HttpInterceptor {
   isSpinnerRequired(requestContext: HttpContext) {
     //* Obtengo el context que me indica si uso o no el spinner y retorno su valor
     return requestContext.get(USE_SPINNER)
+  }
+
+  /**
+   * Retorna si la petición coloca 2 peticiones al spinner
+   * @param headers
+   */
+  setDobleSpinner(requestContext: HttpContext) {
+    //* Obtengo el context que me indica si uso o no el spinner y retorno su valor
+    return requestContext.get(SET_DOBLE_SPINNER)
+  }
+
+  /**
+   * Retorna si la petición quita 2 peticiones al spinner
+   * @param headers
+   */
+  dropDobleSpinner(requestContext: HttpContext) {
+    //* Obtengo el context que me indica si uso o no el spinner y retorno su valor
+    return requestContext.get(DROP_DOBLE_SPINNER)
   }
 
   /**
