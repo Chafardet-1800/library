@@ -12,7 +12,7 @@ import { CmmCustomInput, CustomFieldErrorMatcher } from '../../../data/forms/mod
 import {
   CmmErrorMessagesObject,
   CmmReplaceStringIndicator,
-} from '../../../data/forms/models/inputs-messages';
+} from 'src/app/common/data/forms/models/inputs-messages';
 
 @Component({
   selector: 'cmm-cmp-i-text',

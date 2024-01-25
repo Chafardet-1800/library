@@ -4,6 +4,13 @@
   }
 }
 
+//* De esta manera la cajita de selección no hace overlap con el input en el modo select
+::ng-deep {
+  .overlay_pane_cdk_margin {
+    padding-top: 1.4rem !important;
+  }
+}
+
 .option_bg{
   background-color: white;
   border: none;

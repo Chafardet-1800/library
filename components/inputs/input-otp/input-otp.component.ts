@@ -9,12 +9,12 @@ import {
 } from '@angular/core';
 import { FormControl, NG_VALUE_ACCESSOR, NgControl, Validators } from '@angular/forms';
 import { timer } from 'rxjs';
-import { CmmCustomInput, CustomFieldErrorMatcher } from '../../../data/forms/models/input.models';
+import { CmmCustomInput, CustomFieldErrorMatcher } from 'src/app/common/data/forms/models/input.models';
 import {
   CmmErrorMessagesObject,
   CmmReplaceStringIndicator,
-} from '../../../data/forms/models/inputs-messages';
-import { CmmDataService } from '../../../services/data.service';
+} from 'src/app/common/data/forms/models/inputs-messages';
+import { CmmDataService } from 'src/app/common/services/data.service';
 
 @Component({
   selector: 'cmm-cmp-i-otp',

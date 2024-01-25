@@ -16,8 +16,8 @@ import { DateAdapter, ErrorStateMatcher, MAT_DATE_FORMATS, MAT_DATE_LOCALE } fro
 // import * as moment from 'moment';
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-moment-adapter';
 import { } from '@angular/material/core';
-import { CmmCustomInput, CustomFieldErrorMatcher } from '../../../data/forms/models/input.models';
-import { CmmErrorMessagesObject, CmmReplaceStringIndicator } from '../../../data/forms/models/inputs-messages';
+import { CmmCustomInput, CustomFieldErrorMatcher } from 'src/app/common/data/forms/models/input.models';
+import { CmmErrorMessagesObject, CmmReplaceStringIndicator } from 'src/app/common/data/forms/models/inputs-messages';
 
 @Component({
   selector: 'cmm-cmp-i-date',
@@ -125,13 +125,18 @@ export class CmmInputDateComponent implements OnInit, OnChanges, OnDestroy, CmmC
   //? Lógica de manejo de fechas
 
   /**
+   * Indica si vamos a setear las fechas máximo y minimo manualmente
+   */
+  @Input() setMaxAndMin: boolean = false
+
+  /**
    * Variable que establece la fecha de inicio del campo de fecha
    */
-  startDate: any;
+  @Input() startDate: any;
   /**
    * Variable que establece la fecha mínima del campo de fecha
    */
-  minDate!: Date;
+  @Input() minDate!: Date;
 
   /**
    * Variable que recibe el filtro
@@ -189,23 +194,20 @@ export class CmmInputDateComponent implements OnInit, OnChanges, OnDestroy, CmmC
   //? Métodos de ciclo de vida
 
   ngOnInit(): void {
-    let dateAdult = new Date();
 
-    //*Seteo la fecha mínima aceptada
-    this.minDate = new Date(
-      new Date().getFullYear() - 120,
-      dateAdult.getMonth(),
-      dateAdult.getDate()
-    );
+    //* Seteo el rango de fechas permitido
+    this.setMaxAndMinDates()
 
-    //*Seteo el startDate con los valores que tenga
-    if (this.typeFilterDate == 1 || this.typeFilterDate == 2) {
-      this.startDate = new Date();
-    }
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['typeFilterDate']) {
+
+      //* Solo configuro esto si no voy a setear las fechas manualmente
+      if(this.setMaxAndMin) {
+        return
+      }
+
       //* Seteo la startDate dependiendo del tipo de filtro
       switch (this.typeFilterDate) {
         case 0:
@@ -293,7 +295,8 @@ export class CmmInputDateComponent implements OnInit, OnChanges, OnDestroy, CmmC
     this.onTouch()
 
     //*Formateo la fecha en formato DD/MM/YYYY o MM/DD/YYYY
-    let newDate = new Date(this.currentValue).toLocaleDateString(this.toLocaleDateString)
+    //* Veo si hay un valor en el input para enviar la fecha al formControl
+    let newDate = this.currentValue? new Date(this.currentValue).toLocaleDateString(this.toLocaleDateString): ''
 
     //* Emito el evento de change formControl con la fecha formateada
     this.onChange(newDate)
@@ -364,6 +367,30 @@ export class CmmInputDateComponent implements OnInit, OnChanges, OnDestroy, CmmC
   /**///////////////////////////////////////////////////////////////////////////////  */
 
   //? Lógica de manejo de fechas en rango
+
+  /**
+   * Setea las fechas minima y máxima
+   */
+  setMaxAndMinDates() {
+     //* Solo configuro esto si no voy a setear las fechas manualmente
+     if(this.setMaxAndMin) {
+      return
+    }
+
+    let dateAdult = new Date();
+
+    //*Seteo la fecha mínima aceptada
+    this.minDate = new Date(
+      new Date().getFullYear() - 120,
+      dateAdult.getMonth(),
+      dateAdult.getDate()
+    );
+
+    //*Seteo el startDate con los valores que tenga
+    if (this.typeFilterDate == 1 || this.typeFilterDate == 2) {
+      this.startDate = new Date();
+    }
+  }
 
   createRangeDateGroup() {
 

@@ -31,7 +31,7 @@
         [errorStateMatcher]="errorMatcher()"
         [matAutocomplete]="auto"
         (blur)="onTouch()"
-        (input)="filterValue()"
+        (input)="filterCurrentValue()"
         >
 
         <!-- Botón de eliminar selección -->
@@ -70,7 +70,7 @@
 
     <!-- *Si es solo input de selección -->
 
-    <mat-select *ngIf="selectMode == 'select'" class="p-0 ccng-bgsecondary h-100" [hideSingleSelectionIndicator]="true" [errorStateMatcher]="errorMatcher()" [placeholder]="placeholder" [(ngModel)]="valueSelected" (blur)="onTouch()">
+    <mat-select *ngIf="selectMode == 'select'" class="p-0 ccng-bgsecondary h-100" [hideSingleSelectionIndicator]="true" [errorStateMatcher]="errorMatcher()" [placeholder]="placeholder" [required]="required" [disabled]="disabled" [(ngModel)]="valueSelected" (blur)="onTouch()">
 
       <!-- Cada una de las opciones -->
       <mat-option class="p-0 px-2 option_bg hiddeScrollBar" *ngFor="let option of optionsList" [value]="option[optionName]" (onSelectionChange)="selectValue($event)">

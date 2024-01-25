@@ -14,11 +14,13 @@ import { MatAutocomplete } from '@angular/material/autocomplete';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MAT_SELECT_CONFIG } from '@angular/material/select';
-import { CmmSelectDialogModel } from '../../../data/dialogs/models/dialogs.model';
-import { CmmCustomInput, CustomFieldErrorMatcher } from '../../../data/forms/models/input.models';
-import { CmmErrorMessagesObject, CmmReplaceStringIndicator } from '../../../data/forms/models/inputs-messages';
-import { CmmDialogService } from '../../../services/dialogs.service';
-import { validOption } from '../../../validators/format.validator';
+import { CmmSelectDialogModel } from 'src/app/common/data/dialogs/models/dialogs.model';
+import { CmmCustomInput, CustomFieldErrorMatcher } from 'src/app/common/data/forms/models/input.models';
+import { CmmErrorMessagesObject, CmmReplaceStringIndicator } from 'src/app/common/data/forms/models/inputs-messages';
+import { CmmDialogService } from 'src/app/common/services/dialogs.service';
+import {
+  validOption
+} from 'src/app/common/validators/format.validator';
 
 export type selectModes = 'autocomplete' | 'select' | 'dialog'
 
@@ -473,7 +475,7 @@ export class CmmInputSelectComponent implements CmmCustomInput {
    */
   setInitialValue() {
     //* Seteo el valor escogido de acuerdo al valor que ya tenía el formControl
-    this.choosenSearchKeyValue = this.optionsList.filter(option => option[this.optionName] == this.currentValue)[0][this.optionKey]
+    this.choosenSearchKeyValue = this.optionsList.filter(option => option[this.optionName] == this.currentValue)?.[0]?.[this.optionKey]
 
     //* Si debo mostrar imágenes obtengo la imagen escogida
     if (this.displayImages) {
@@ -530,15 +532,14 @@ export class CmmInputSelectComponent implements CmmCustomInput {
    * Filtra el valor escrito
    * @param event
    */
-  filterValue() {
-    let valueLength = this.currentValue.length
+  filterCurrentValue() {
 
     //*Borro estos valores porque la selección debe cambiar cada vez que escriba
     this.choosenImageRoute = ''
     this.choosenSearchKeyValue = ''
 
     //* Filtro las opciones de acuerdo al valor que está escrito
-    this.filteredList = this.optionsList.filter(option => (option[this.optionName].substring(0, valueLength)).toLowerCase() == this.currentValue.toLowerCase())
+    this.filteredList = this.filterList()
 
     //* Si la búsqueda coincide 100% con una de las opciones, entonces lleno la variable
     if (this.filteredList.length == 1 && this.filteredList[0][this.optionName].toLowerCase() == this.currentValue.toLowerCase()) {
@@ -556,6 +557,15 @@ export class CmmInputSelectComponent implements CmmCustomInput {
     } else if (this.emitUnfilteredValues) {
       this.emitValue(true)
     }
+  }
+
+  /**
+   * Filtra la lista de opciones totales de acuerdo al valor escrito
+   */
+  filterList() {
+
+    return this.optionsList.filter(option => (option[this.optionName].toLowerCase().includes(this.currentValue.toLowerCase())))
+
   }
 
   /**
