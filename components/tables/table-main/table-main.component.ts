@@ -219,11 +219,6 @@ export class CmmTableMainComponent implements OnInit, OnChanges {
   hideFilters: boolean = false;
 
   /**
-   * Variable que indica si se muestran o no los filtros
-   */
-  inprogress: boolean = false;
-
-  /**
    * Paginado
    */
   pageSize: number = 0;
@@ -371,7 +366,6 @@ export class CmmTableMainComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-
     this.columnFieldsList = this.columnsHeaderList!.map(
       (column: {
         text: string;
@@ -387,15 +381,6 @@ export class CmmTableMainComponent implements OnInit, OnChanges {
 
     this.pageSize = this.filterFull?.limit ?? 10;
     this.pageIndex = this.filterFull?.page ?? 0;
-
-    // Si se esta suministrando data nueva a la tabla
-    if(this.rowListData.filteredData.length){
-
-      // Indicamos que no estamos esperando ninguna respuesta
-      this.inprogress = false;
-
-    }
-
   }
 
   /**
@@ -478,11 +463,6 @@ export class CmmTableMainComponent implements OnInit, OnChanges {
    */
   sendRequest(resetPage?: boolean, deleteDates?: boolean) {
 
-    // Siempre que estemos en proceso de recibir una respuesta nos detenemos aqui
-    if(this.inprogress){
-      return
-    }
-
     // Inicializo mi objeto que va a enviar con limit y page que siempre lo va a tener
     if(resetPage){
       this.sendRequestObj= {
@@ -527,29 +507,13 @@ export class CmmTableMainComponent implements OnInit, OnChanges {
       this.filtersForm.controls['endDate'].patchValue('')
     }
 
-    // Indicamos que estamos en proceso de recibir una respuesta
-    this.inprogress = true;
+    // Si el filtro que se habia aplicado antes es el mismo que se desea aplicar ahora, nos detenemos
+    if(JSON.stringify(this.filterFull) == JSON.stringify(this.sendRequestObj)){
+      return
+    };
 
     // emito el evento al componente para que haga la peticion
     this.requesthttp.emit(this.sendRequestObj);
-
-  }
-
-  /**
-   * Con esta funcion cada vez que escriba en el search, seteo el page en 0
-   */
-  setInitialPage() {
-    if (!this.sendRequestObj) {
-      this.sendRequestObj = {
-        limit: this.pageSize || 10,
-        page: this.pageIndex || 0,
-        search: this.filterdata.value.search,
-      };
-    } else {
-      this.pageIndex = 0;
-      this.sendRequestObj.page = this.pageIndex || 0;
-      this.sendRequestObj.search = this.filterdata.value.search;
-    }
   }
 
   /**

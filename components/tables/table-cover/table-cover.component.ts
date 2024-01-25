@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { coverEmptyState } from '../../../assets/images/images-routes';
+import { coverEmptyState } from 'src/app/common/assets/images/images-routes';
 
 @Component({
   selector: 'cmm-cmp-t-cover',

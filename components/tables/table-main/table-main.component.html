@@ -13,7 +13,7 @@
               <div class="row">
                   <mat-form-field appearance="outline" [subscriptSizing]="'dynamic'" class="col-12 p-0 px-sm-2">
                       <mat-label>Buscar</mat-label>
-                      <input type="text" maxlength="100" formControlName="search" (change)="sendRequest(true)" (keyup)="setInitialPage()" (keyup.enter)="sendRequest(true)" matInput id="busqueda" [placeholder]="placeholder" />
+                      <input type="text" maxlength="100" formControlName="search" (change)="sendRequest(true)" (keyup.enter)="sendRequest(true)" matInput id="busqueda" [placeholder]="placeholder" />
                       <mat-icon matSuffix style="cursor: pointer" (click)="sendRequest(true)">search</mat-icon>
                   </mat-form-field>
               </div>
@@ -24,7 +24,7 @@
       <div *ngIf="filtersForm" class="container-fluid">
 
           <!-- Titulo filtros -->
-          <div class="row nd-title-txt pt-2 align-items-center">
+          <div class="row cc-title-txt pt-2 align-items-center">
               <!-- Iconos -->
               <div class="col-12 p-2">
                   <div class="row w-100 m-0 px-1 py-2 flex-row" [ngClass]="showDownloadButton?'justify-content-between':'justify-content-end'">
