@@ -38,6 +38,11 @@ export class CmmButtonComponent {
    * Variable que dice el tipo de boton que es
    */
   @Input() buttonType: string = 'success';
+
+  /**
+   * Variable que dice el tipo de boton que es
+   */
+  @Input() buttonclass: string = '';
   /**
    * Variable que envia el evento de click al componente
    */
