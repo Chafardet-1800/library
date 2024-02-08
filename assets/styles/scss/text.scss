@@ -258,7 +258,7 @@ body {
 
   /* Use the text as a mask for the background. */
   /* This will show the gradient as a text color rather than element bg. */
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 
   -moz-background-clip: text;
@@ -279,7 +279,7 @@ body {
 
   /* Use the text as a mask for the background. */
   /* This will show the gradient as a text color rather than element bg. */
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 
   -moz-background-clip: text;
@@ -298,7 +298,7 @@ body {
 
     /* Use the text as a mask for the background. */
     /* This will show the gradient as a text color rather than element bg. */
-    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 
     -moz-background-clip: text;
