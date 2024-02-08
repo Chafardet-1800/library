@@ -5,7 +5,7 @@
 @import "./variables.scss";
 // @import '~bootstrap/dist/css/bootstrap.min.css';
 *:not(.material-icons) {
-  font-family: "Lato" !important;
+  font-family: "poppins" !important;
   font-weight: 600;
   box-shadow: none !important;
   -webkit-font-smoothing: antialiased;
@@ -13,7 +13,7 @@
 }
 
 body {
-  font-family: "Lato-Regular";
+  font-family: "poppins-Regular";
 }
 
 @media (max-width: 767px) {
@@ -69,26 +69,26 @@ body {
 }
 
 @font-face {
-  font-family: "Lato";
-  src: url("../../fonts/Lato/Lato-Regular.ttf") format("truetype");
+  font-family: "poppins";
+  src: url("../../fonts/poppins/poppins-Regular.ttf") format("truetype");
   font-weight: 600;
 }
 
 @font-face {
-  font-family: "Lato";
-  src: url("../../fonts/Lato/Lato-Bold.ttf") format("truetype");
+  font-family: "poppins";
+  src: url("../../fonts/poppins/poppins-Bold.ttf") format("truetype");
   font-weight: 700;
 }
 
 @font-face {
-  font-family: "Lato";
-  src: url("../../fonts/Lato/Lato-Black.ttf") format("truetype");
+  font-family: "poppins";
+  src: url("../../fonts/poppins/poppins-Black.ttf") format("truetype");
   font-weight: 900;
 }
 
 @font-face {
-  font-family: "Lato";
-  src: url("../../fonts/Lato/Lato-Light.ttf") format("truetype");
+  font-family: "poppins";
+  src: url("../../fonts/poppins/poppins-Light.ttf") format("truetype");
   font-weight: lighter;
 }
 
