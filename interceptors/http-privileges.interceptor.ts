@@ -4,7 +4,7 @@ import {
   HttpEvent,
   HttpHandler,
   HttpInterceptor,
-  HttpRequest,
+  HttpRequest
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Store, select } from '@ngrx/store';
@@ -23,9 +23,9 @@ import {
 } from '../data/privileges/models/privileges.models';
 import { setSideNav } from '../data/privileges/reducer/privileges.actions';
 import { cmmSideNav } from '../data/privileges/reducer/privileges.selectos';
-import { DROP_DOBLE_SPINNER, SET_DOBLE_SPINNER, USE_SPINNER } from '../data/utils/models/utils.model';
+import { EXTENDED_SPINNER, USE_SPINNER } from '../data/utils/models/utils.model';
 import { setSpinner } from '../data/utils/reducer/utils.actions';
-import version from '../package.json';
+import version from 'package.json';
 import { CmmDataService } from '../services/data.service';
 import { CmmDialogService } from '../services/dialogs.service';
 import { CmmTimerSessionService } from '../services/timer-session.service';
@@ -73,6 +73,11 @@ export class CmmHttpPrivilegesInterceptor implements HttpInterceptor {
    */
   finishedRequests: number = 0
 
+  /**
+   * indica si la animación del spinner se extenderá indefinidamente
+   */
+  extendedSpinner: boolean | undefined = false
+
   constructor(
     private store: Store,
     private dataService: CmmDataService,
@@ -98,7 +103,7 @@ export class CmmHttpPrivilegesInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
 
     // Guardamos el token de la session
-    const token: string | null = sessionStorage.getItem(authTokenVariable);
+    const token: string | null = localStorage.getItem(authTokenVariable);
 
     //* Aumento el contador de requests
     this.initiatedRequests++;
@@ -106,13 +111,13 @@ export class CmmHttpPrivilegesInterceptor implements HttpInterceptor {
     //* Verifico si la petición requiere o no un spinner
     if(this.isSpinnerRequired(request.context)) {
 
-      //* Verifico si la petición coloca 2 peticiones al spinner
-      if(this.setDobleSpinner(request.context)){
+      //* Veo que el estado del context no sea undefined
+      if(this.isExtendedSpinner(request.context) != undefined) {
 
-        //* Aumento el contador de requests
-        this.initiatedRequests++;
+        //* Veo si se requiere una duración indefinida del spinner
+        this.extendedSpinner = this.isExtendedSpinner(request.context)
 
-      };
+      }
 
       //* Activo el spinner y aumento el contador
       this.activateSpinner();
@@ -166,22 +171,10 @@ export class CmmHttpPrivilegesInterceptor implements HttpInterceptor {
         //* Incremento el contador de requests finalizados
         this.finishedRequests++
 
-        //* Verifico si la petición quita 2 peticiones al spinner
-        if(this.dropDobleSpinner(request.context)){
+        //* Actualizo el estado del spinner
+        this.updateSpinnerState()
 
-          //* Aumento el contador de peticiones quitadas
-          this.finishedRequests++;
-
-        };
-
-        //* Verifico si todas las peticiones se terminaron
-        if(this.initiatedRequests == this.finishedRequests) {
-
-          //* Desactivo el spinner
-          this.deactivateSpinner()
-
-        }}
-      ),
+      }),
 
       // Revisamos la respuesta de la peticion
       map((event: any) => {
@@ -222,6 +215,12 @@ export class CmmHttpPrivilegesInterceptor implements HttpInterceptor {
 
       // En caso de un error
       catchError((error: HttpErrorResponse) => {
+
+        //* Cancelo la duración indefinida del spinner
+        this.extendedSpinner = false
+
+        //* Actualizo el estado del spinner
+        this.updateSpinnerState()
 
         // Si el error es de una peticion de archivo
         if (this.isBlobError(error)) {
@@ -517,21 +516,28 @@ export class CmmHttpPrivilegesInterceptor implements HttpInterceptor {
   }
 
   /**
-   * Retorna si la petición coloca 2 peticiones al spinner
-   * @param headers
+   * Retorna si la petición requiere una duración indefinida del spinner
+   * @param requestContext
+   * @returns
    */
-  setDobleSpinner(requestContext: HttpContext) {
-    //* Obtengo el context que me indica si uso o no el spinner y retorno su valor
-    return requestContext.get(SET_DOBLE_SPINNER)
+  isExtendedSpinner(requestContext: HttpContext) {
+    //* Obtengo el context que me indica si el spinner debe durar de forma indefinida
+    return requestContext.get(EXTENDED_SPINNER)
   }
 
   /**
-   * Retorna si la petición quita 2 peticiones al spinner
-   * @param headers
+   * Veo el estado del contador de request
    */
-  dropDobleSpinner(requestContext: HttpContext) {
-    //* Obtengo el context que me indica si uso o no el spinner y retorno su valor
-    return requestContext.get(DROP_DOBLE_SPINNER)
+  updateSpinnerState() {
+
+    //* Verifico si todas las peticiones se terminaron
+    if(this.initiatedRequests == this.finishedRequests && this.extendedSpinner == false) {
+
+      //* Desactivo el spinner
+      this.deactivateSpinner()
+
+    }
+
   }
 
   /**
