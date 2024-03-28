@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CmmModuleActionOption } from '../../../data/privileges/models/privileges.models';
+import { CmmModuleActionOption } from 'src/app/common/data/privileges/models/privileges.models';
 @Component({
   selector: 'cmp-cmm-options-menu',
   templateUrl: './cmm-options-menu.component.html',

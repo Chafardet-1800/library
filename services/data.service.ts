@@ -1,14 +1,18 @@
 'use strict';
 
 import { DatePipe } from '@angular/common';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HostListener, Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Subject, timer } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { BehaviorSubject, Observable, Subject, timer } from 'rxjs';
 import { repeat, takeUntil } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { authTokenVariable, privilegesVariable } from '../data/constants/local-storage-variables';
 import { CmmActionListModel, CmmSideNavModel } from '../data/privileges/models/privileges.models';
 import { CmmStatusDictionaryModel, CmmStatusModel, CmmStatusTypeGroupsModel } from '../data/tables/models/tables.model';
+import { setErrorState, setSpinner } from '../data/utils/reducer/utils.actions';
 
 @Injectable()
 export class CmmDataService {
@@ -64,10 +68,11 @@ export class CmmDataService {
 
   }
 
-
   constructor(
     private date: DatePipe,
-    private router: Router
+    private http: HttpClient,
+    private router: Router,
+    private store: Store
   ) {}
 
   //? Lógica de formateo de data
@@ -429,7 +434,7 @@ export class CmmDataService {
     }
 
     //* Obtengo todas las partes de la fecha
-    
+
     let date = new Date(currentDate)
 
     let day = JSON.stringify(date.getDate())
@@ -437,7 +442,7 @@ export class CmmDataService {
     let year = JSON.stringify(date.getFullYear())
 
     //* Añado '0' al día o mes en caso de que no lo tenga
-    
+
     if (day.length == 1) {
       day = '0' + day;
     }
@@ -468,12 +473,12 @@ export class CmmDataService {
         break;
       case 'dmyh':
         //* Transformo la fecha directamente y obtengo la hora
-        newDate = this.date.transform(date, 'dd/MM/yyyy HH:mm a','ES');
+        newDate = this.date.transform(date, 'dd/MM/yyyy h:mm a');
         //* Junto todas las partes de la fecha en el array
         break;
       case 'mdyh':
         //* Transformo la fecha directamente y obtengo la hora
-        newDate = this.date.transform(date, 'MM/dd/yyyy HH:mm a');
+        newDate = this.date.transform(date, 'MM/dd/yyyy h:mm a');
         break;
       default:
         //* Junto todas las partes de la fecha en el array
@@ -567,6 +572,105 @@ export class CmmDataService {
    */
   CmmOnCancelPendingRequests() {
     return this.pendingHTTPRequests$.asObservable();
+  }
+
+  //? Lógica para solicitudes de imagenes y archivos
+
+  /**
+   * Funcion para obtener imagenes que requieran algun token de autorizacion
+   * @param url Ruta de la imagen a solicitar
+   * @param fileId Id del elemento html al que se le va a asignar el archivo como src
+   */
+  CmmGetFileWhitAutorization(url: string, fileId?: string): Observable<string> {
+
+    var subject = new Subject<string>();
+
+    // Hago la solicitud del archivo al endpoint
+    const response = this.http.get<any>(
+      environment.CC_GATEWAY_URL + '/v1/files/?urlName=' + url,
+      {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+        observe: 'response',
+        responseType: 'blob' as 'json',
+      }
+    )
+
+    // Al recibir la respuesta de la peticion
+    response.subscribe({
+      next: (data: any) => {
+
+        // Create an object URL from the data.
+        const blob = data.body;
+
+        // Guardo la url del sitio en el que se gaurdo el archivo recibido
+        const urlResponse = URL.createObjectURL(blob);
+
+        if(fileId){
+
+          // Update the source of the file.
+          const fileElement = document.getElementById(fileId)!;
+
+          // Seteamos el parametro 'src' con la ruta obtenida en el elemento html indicado
+          fileElement.setAttribute( 'src', urlResponse);
+
+          // Cuando se cargue el elemento con el archivo lo elimino del navegador para que no pese
+          fileElement.onload = () => URL.revokeObjectURL(urlResponse);
+        }
+
+        subject.next(urlResponse);
+
+      }
+    });
+
+    return subject.asObservable();
+
+  }
+
+  /**
+   * servicio para descargar un archivo que requiera un token de seguridad
+   * @param url Ruta base del archivo que se quiere descargar
+   * @param fileName Nombre que se desea colocar al archivo
+   */
+  CmmDownloadFileWhitAutorization(url: string, fileName: string) {
+
+    // Hago la solicitud del archivo al endpoint
+    const response = this.http.get<any>(
+      environment.CC_GATEWAY_URL + '/v1/files/?urlName=' + url,
+      {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+        observe: 'response',
+        responseType: 'blob' as 'json',
+      }
+    )
+
+    // Al recibir la respuesta de la peticion
+    response.subscribe({
+      next: (data: any) => {
+
+        // Create an object URL from the data.
+        const blob = data.body;
+
+        // Guardo la url del sitio en el que se gaurdo el archivo recibido
+        const urlResponse = URL.createObjectURL(blob);
+
+        // Guardo un elemento html de tipo link
+        const link = document.createElement('a');
+
+        // Le coloco la ruta del archivo que se encuentra en la informacion del blob
+        link.href = urlResponse;
+
+        // Le asigno la propiedad de descarga con el nombre del archivo
+        link.download = fileName;
+
+        // Ejecuto la funcionalidad del elemento que cree par poder descargar el archivo
+        link.click();
+
+        // Elimino el archivo de la data del navegador para que no pese
+        URL.revokeObjectURL(urlResponse);
+
+      }
+    })
+
   }
 
   //? Lógica de errores de input y formulario
@@ -694,4 +798,32 @@ export class CmmDataService {
     window.parent.postMessage(message,'*');
 
   }
+
+  //? Lógica de errores de cliente
+
+  /**
+   * Setea el estado de catchError con su mensaje y todo
+   */
+  CmmSetCatchError(errorTrace:{error?: any, trackingCode: string}) {
+
+    let errorMessage: string = ''
+
+    //* Si al final consigo el trackingCode
+    if(errorTrace.trackingCode) {
+      errorMessage = 'Ha ocurrido algo inesperado: ' + errorTrace.trackingCode +  '. Por favor intente más tarde'
+    } else {
+      errorMessage = 'Ha ocurrido algo inesperado, Por favor intente más tarde'
+    }
+
+    //* Actualizo el estado de error
+    this.store.dispatch(new setErrorState({hasError:true, errorMessage: errorMessage}))
+
+    //* Desactivo el spinner
+    this.store.dispatch(new setSpinner(false))
+
+    //* Muestro el error en consola
+    console.error(errorTrace.error)
+
+  }
+
 }

@@ -2,7 +2,7 @@
 @import "../../styles/scss/variables.scss";
 
 //*Seteo este color como una variable para que pueda ser seteado de forma dinámica
-$dynamic_primary: var(--v-nd-dynamic-primary);
+$dynamic_primary: var(--v-dynamic-primary);
 
 @include mat.core();
 

@@ -4,27 +4,20 @@
   padding: 1.2rem 1rem 1.2rem 0.5rem;
 }
 
-.nd-bl-error {
-  border-left: 20px solid $v-nd-error;
+.bl-error {
+  border-left: 20px solid $v-error;
 }
 
-.nd-bl-success {
-  border-left: 20px solid $v-nd-success;
+.bl-success {
+  border-left: 20px solid $v-success;
 }
 
-.nd-bl-info {
-  border-left: 20px solid $v-nd-info;
+.bl-info {
+  border-left: 20px solid $v-info;
 }
 
-.nd-bl-warning {
-  border-left: 20px solid $v-nd-warning;
-}
-
-.containerMessage {
-  display: grid;
-  grid-template-columns: max-content 1fr max-content;
-  column-gap: 1rem;
-  transition: all 0.3s ease;
+.bl-warning {
+  border-left: 20px solid $v-warning;
 }
 
 .closeButton {
@@ -38,10 +31,4 @@
 .closeButton > * {
   font-size: 20px;
   color: rgb(44, 44, 44);
-}
-
-@media (max-width: 400px) {
-  .containerMessage {
-    grid-template-columns: 80% 20%;
-  }
 }

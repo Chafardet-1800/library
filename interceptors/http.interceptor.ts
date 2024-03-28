@@ -9,14 +9,14 @@ import {
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, takeUntil, throwError } from 'rxjs';
-import { catchError, finalize, map } from 'rxjs/operators';
+import { catchError, finalize, map, timeout } from 'rxjs/operators';
 import { CC_PROJECT_INITIALS } from 'src/app/app.component';
 import { environment } from 'src/environments/environment';
 import {
   authTokenVariable
 } from '../data/constants/local-storage-variables';
 import { CmmAlertModalModel, CmmAlertToastrModel } from '../data/dialogs/models/dialogs.model';
-import { EXTENDED_SPINNER, USE_SPINNER } from '../data/utils/models/utils.model';
+import { CANCEL_ON_TIMEOUT, EXTENDED_SPINNER, MaxRequestTime, USE_SPINNER } from '../data/utils/models/utils.model';
 import { setSpinner } from '../data/utils/reducer/utils.actions';
 import version from 'package.json';
 import { CmmDataService } from '../services/data.service';
@@ -73,7 +73,7 @@ export class CmmHttpInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
 
     // Guardamos el token de la session
-    const token: string | null = localStorage.getItem(authTokenVariable);
+    const token: string | null = sessionStorage.getItem(authTokenVariable);
 
     //* Aumento el contador de requests
     this.initiatedRequests++
@@ -132,6 +132,9 @@ export class CmmHttpInterceptor implements HttpInterceptor {
 
     // Peticiones
     return next.handle(request).pipe(
+
+      //* Detenemos la petición si dura mucho
+      timeout(request.context.get(CANCEL_ON_TIMEOUT)? MaxRequestTime : 0),
 
       // Manejamos todas las peticiones hasta que se nos indique detenernos
       takeUntil(this.dataService.CmmOnCancelPendingRequests()),
@@ -255,6 +258,16 @@ export class CmmHttpInterceptor implements HttpInterceptor {
       // Abrimos la alerta con el mensaje
       this.dialogService.CmmAlertModal(messagesData);
 
+    } else if(responseAPI.name as string == 'TimeoutError') {
+
+      // Armamos la data de la alerta
+      const messagesData: CmmAlertToastrModel = {
+        typeIcon: 'error',
+        text: 'No se ha podido procesar su solicitud, revise su conexión a internet.'
+      };
+
+      this.dialogService.CmmAlertToastr(messagesData);
+
     }
 
     // Otros errores
@@ -305,6 +318,16 @@ export class CmmHttpInterceptor implements HttpInterceptor {
 
       // Abrimos la alerta con el mensaje
       this.dialogService.CmmAlertModal(messagesData);
+
+    } else if(responseAPI.name as string == 'TimeoutError') {
+
+      // Armamos la data de la alerta
+      const messagesData: CmmAlertToastrModel = {
+        typeIcon: 'error',
+        text: 'No se ha podido procesar su solicitud, revise su conexión a internet.'
+      };
+
+      this.dialogService.CmmAlertToastr(messagesData);
 
     }
 

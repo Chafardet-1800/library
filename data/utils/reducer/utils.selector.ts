@@ -8,3 +8,8 @@ export const spinner = createSelector(
   SelectUtilsState,
   UtilsState => UtilsState.utils.spinner,
 )
+
+export const errorState = createSelector(
+  SelectUtilsState,
+  UtilsState => UtilsState.utils.errorState,
+)

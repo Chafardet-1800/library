@@ -39,11 +39,11 @@
 .mat-menu-item.cdk-keyboard-focused:not([disabled]),
 .mat-menu-item.cdk-program-focused:not([disabled]),
 .mat-menu-item:hover:not([disabled]) {
-  background: $v-nd-white;
+  background: $v-white;
 }
 
 .mat-form-field-appearance-outline .mat-form-field-outline {
-  background-color: $v-nd-white;
+  background-color: $v-white;
   border-radius: 5px;
 }
 
@@ -55,7 +55,7 @@
 --------------------------------------------------------------------------------------------------------------------------------------*/
 .default_expansio_background_color {
   .mat-expansion-panel-body{
-    background-color: $v-nd-light-white;
+    background-color: $v-light-white;
   }
 }
 
@@ -72,32 +72,18 @@
   INPUTS
 --------------------------------------------------------------------------------------------------------------------------------------*/
 
-.ccng-input
-  .mat-form-field
-  .mat-form-field-appearance-outline
-  .mat-form-field-outline-end {
-  border-radius: 0 !important;
-}
-
-.ccng-input
-  .mat-form-field
-  .mat-form-field-appearance-outline
-  .mat-form-field-outline-start {
-  border-radius: 0 !important;
-}
-
 .first-input .mat-form-field-appearance-outline .mat-form-field-outline-end {
   border-radius: 0 !important;
 }
 
 //* No entiendo por qué ponerlo gris
 // .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading, .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch, .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing{
-//    border-color: $v-nd-light-gray !important;
+//    border-color: $v-light-gray !important;
 // }
 
 .input-size {
   font-size: 13px !important;
-  color: $v-nd-txt;
+  color: $v-txt;
 }
 
 //* Así se ven más bonitos los inputs
@@ -160,17 +146,17 @@
 }
 
 ::ng-deep .mat-focused .mat-form-field-label {
-  color: $v-nd-primary !important;
+  color: $v-primary !important;
 }
 
 ::ng-deep.mat-form-field-ripple {
-  background-color: $v-nd-primary !important;
+  background-color: $v-primary !important;
 }
 
 ::ng-deep
   .mat-form-field-appearance-outline.mat-focused
   .mat-form-field-outline-thick {
-  color: $v-nd-primary !important;
+  color: $v-primary !important;
 }
 
 /*--------------------------------------------------------------------------------------------------------------------------------------
@@ -178,7 +164,7 @@
 --------------------------------------------------------------------------------------------------------------------------------------*/
 
 .mat-mdc-checkbox.mat-accent .mdc-checkbox--selected ~ .mdc-checkbox__ripple {
-  background-color: $v-nd-primary !important;
+  background-color: $v-primary !important;
 }
 
 .mdc-checkbox__background{
@@ -189,8 +175,8 @@
   .mdc-checkbox
   .mdc-checkbox__native-control:enabled:checked
   ~ .mdc-checkbox__background {
-  background-color: $v-nd-primary !important;
-  border: $v-nd-primary !important;
+  background-color: $v-primary !important;
+  border: $v-primary !important;
   height: 16px;
   width: 16px;
   // padding: 10px;
@@ -203,7 +189,7 @@
   .mdc-checkbox__checkmark {
   height: 70%;
   margin-top: 1.5px;
-  color: $v-nd-white !important ;
+  color: $v-white !important ;
 }
 
 /*--------------------------------------------------------------------------------------------------------------------------------------
@@ -214,7 +200,7 @@
   Paginator
 --------------------------------------------------------------------------------------------------------------------------------------*/
 .mat-mdc-paginator-container{
-  color: $v-nd-txt;
+  color: $v-txt;
   font-size: 14px;
 }
 
@@ -231,7 +217,7 @@
     }
   }
   .mat-mdc-select-trigger {
-    border-bottom: 1px solid $v-nd-txt;
+    border-bottom: 1px solid $v-txt;
   }
 }
 
@@ -265,11 +251,11 @@
 --------------------------------------------------------------------------------------------------------------------------------------*/
 
 .mat-calendar-body-selected {
-  background-color: $v-nd-primary !important;
+  background-color: $v-primary !important;
 }
 
 .mat-datepicker-toggle-active {
-  color: $v-nd-primary !important;
+  color: $v-primary !important;
 }
 
 .mat-calendar-body-today {
@@ -277,7 +263,7 @@
 }
 
 .mat-calendar-body-selected {
-  background-color: $v-nd-primary !important;
+  background-color: $v-primary !important;
 }
 
 .mat-mdc-form-field-icon-prefix, .mat-mdc-form-field-icon-suffix{
@@ -286,17 +272,17 @@
 }
 
 .mat-calendar-body-in-range::before {
-  background-color: $v-nd-primary-disabled !important;
+  background-color: $v-primary-disabled !important;
 }
 
 .mat-calendar-body-cell:hover {
   .mat-calendar-body-cell-content {
-    background-color: $v-nd-primary-disabled !important;
+    background-color: $v-primary-disabled !important;
   }
 }
 
 .mat-datepicker-content {
-  border: 1px solid $v-nd-light-gray;
+  border: 1px solid $v-light-gray;
   box-shadow: 0px 0px 5px 1px rgb(0 0 0 / 12%) !important;
 }
 
@@ -313,7 +299,7 @@
 --------------------------------------------------------------------------------------------------------------------------------------*/
 
 .mat-select-panel.mat-primary {
-  background-color: $v-nd-light-white !important;
+  background-color: $v-light-white !important;
   box-shadow: 0px 0px 5px 1px rgb(0 0 0 / 12%) !important;
 }
 
@@ -323,11 +309,11 @@
 }
 
 .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
-  color: $v-nd-black !important;
+  color: $v-black !important;
 }
 
 .mdc-menu-surface.mat-mdc-select-panel{
-  border: 1px solid $v-nd-light-gray;
+  border: 1px solid $v-light-gray;
   box-shadow: 0px 0px 5px 1px rgb(0 0 0 / 12%) !important;
 }
 
@@ -335,7 +321,7 @@
 // .cdk-overlay-pane:not(.mat-mdc-autocomplete-panel-above)
 .mdc-menu-surface.mat-mdc-select-panel {
   padding: 0 !important;
-  border: 1px solid $v-nd-light-gray;
+  border: 1px solid $v-light-gray;
   box-shadow: 0px 0px 5px 1px rgb(0 0 0 / 12%) !important;
 }
 
@@ -343,37 +329,37 @@
 // .cdk-overlay-pane:not(.mat-mdc-autocomplete-panel-above)
 .mdc-menu-surface.mat-mdc-autocomplete-panel{
   padding: 0 !important;
-  border: 1px solid $v-nd-light-gray;
+  border: 1px solid $v-light-gray;
   box-shadow: 0px 0px 5px 1px rgb(0 0 0 / 12%) !important;
 }
 
 .mat-autocomplete-panel,
 .mat-autocomplete-panel .mat-option.mat-selected:not(.mat-active):not(:hover),
 .mat-select-panel.mat-primary {
-  background: $v-nd-light-white;
+  background: $v-light-white;
 }
 
 .mat-select-panel mat-option.mat-option {
-  border-top: 1px solid $v-nd-black;
+  border-top: 1px solid $v-black;
   height: unset;
 }
 
 .mat-select-panel.mat-option.mat-option:hover {
-  background-color: $v-nd-light-white;
+  background-color: $v-light-white;
 }
 
 .mat-option {
-  border-top: 1px solid $v-nd-white !important;
+  border-top: 1px solid $v-white !important;
   height: auto !important;
 }
 
 .mat-option-text.mat-option-text {
   white-space: normal;
-  color: $v-nd-black !important;
+  color: $v-black !important;
 }
 
 .mat-option:hover {
-  background-color: $v-nd-white;
+  background-color: $v-white;
 }
 
 .mat-mdc-select-arrow{
@@ -437,7 +423,7 @@ mat-dialog-container {
 --------------------------------------------------------------------------------------------------------------------------------------*/
 
 .mat-mdc-menu-content {
-  border: 1px solid $v-nd-light-gray;
+  border: 1px solid $v-light-gray;
   border-radius:  var(--mat-menu-container-shape);
   box-shadow: 0px 0px 5px 1px rgb(0 0 0 / 12%) !important;
 }
@@ -447,14 +433,14 @@ mat-dialog-container {
 }
 
 .mat-menu-content {
-  background-color: $v-nd-light-white;
-  border: 0.5 solid $v-nd-black;
+  background-color: $v-light-white;
+  border: 0.5 solid $v-black;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
 }
 
 .mat-menu-item:hover:not([disabled]) {
-  background-color: $v-nd-black !important;
+  background-color: $v-black !important;
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------
  END Estilo del menu
@@ -465,48 +451,48 @@ mat-dialog-container {
 --------------------------------------------------------------------------------------------------------------------------------------*/
 
 .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
-  border-color: $v-nd-primary;
+  border-color: $v-primary;
 }
 
 .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle,
 .mat-radio-outer-circle {
-  border-color: $v-nd-primary !important;
+  border-color: $v-primary !important;
 }
 
 .mat-radio-button.mat-accent .mat-radio-inner-circle {
-  background-color: $v-nd-primary !important;
+  background-color: $v-primary !important;
 }
 
 .blueRadio.mat-radio-button.mat-accent.mat-radio-checked
   .mat-radio-outer-circle {
-  border-color: $v-nd-secondary;
+  border-color: $v-secondary;
 }
 
 .blueRadio.mat-radio-button.mat-accent.mat-radio-checked
   .mat-radio-outer-circle,
 .blueRadio .mat-radio-outer-circle {
-  border-color: $v-nd-secondary !important;
+  border-color: $v-secondary !important;
 }
 
 .blueRadio.mat-radio-button.mat-accent .mat-radio-inner-circle {
-  background-color: $v-nd-secondary !important;
+  background-color: $v-secondary !important;
 }
 
 .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple) {
-  background-color: $v-nd-light-white !important;
+  background-color: $v-light-white !important;
 }
 
 .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
-  border-color: $v-nd-primary;
+  border-color: $v-primary;
 }
 
 .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle,
 .mat-radio-outer-circle {
-  border-color: $v-nd-primary !important;
+  border-color: $v-primary !important;
 }
 
 .mat-radio-button.mat-accent .mat-radio-inner-circle {
-  background-color: $v-nd-primary !important;
+  background-color: $v-primary !important;
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------
  END Estilo de los radios/Button

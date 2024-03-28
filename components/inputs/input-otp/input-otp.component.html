@@ -15,7 +15,7 @@
         <!-- Input -->
         <input matInput type="text" [placeholder]="placeholder" [required]="required" cmm-di-number-format
         [onlyNumber]="onlyNumber" [allowCopy]="allowCopy" [allowCut]="allowCut" [allowClicWithMouse]="allowClicWithMouse" [readonly]="readOnly" [minlength]="minLength" [maxlength]="maxLength"
-          [(ngModel)]="currentValue" [errorStateMatcher]="errorMatcher()" [disabled]="disabled" (blur)="onTouch()"
+          [(ngModel)]="currentValue" [errorStateMatcher]="errorMatcher()" [disabled]="!tokenRequested || disabled" (blur)="onTouch()"
           (input)="emitValue()" />
 
         <!-- Mensajes de error del input -->

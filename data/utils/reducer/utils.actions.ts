@@ -1,8 +1,11 @@
 import { Action } from "@ngrx/store";
+import { CmmErrorStateModel } from "../models/utils.model";
 
 export enum UtilsActionTypes {
   //*Acción de setear spinner
-  SetSpinner = '[Set spinner] Set spinner'
+  SetSpinner = '[Set spinner] Set spinner',
+  SetErrorState = '[Set errorState] Set errorState',
+  ClearErrorState = '[Clear errorState] Clear errorState'
 }
 
 export class setSpinner implements Action {
@@ -12,5 +15,18 @@ export class setSpinner implements Action {
   }
 }
 
+export class setErrorState implements Action {
+  readonly type = UtilsActionTypes.SetErrorState;
 
-export type UtilsActions = setSpinner
+  constructor(public payload: CmmErrorStateModel) {
+  }
+}
+export class clearErrorState implements Action {
+  readonly type = UtilsActionTypes.ClearErrorState;
+
+  constructor(public payload: CmmErrorStateModel) {
+  }
+}
+
+
+export type UtilsActions = setSpinner | setErrorState | clearErrorState

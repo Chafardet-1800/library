@@ -23,11 +23,11 @@ h1 {
 
 p {
   font-size: 13px !important;
-  color: $v-nd-txt;
+  color: $v-txt;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: $v-nd-white;
+  background-color: $v-white;
 }
 
 //Aqui se oculto para no afectar el input select
@@ -38,7 +38,7 @@ p {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: $v-nd-primary; //Color del scrol
+  background-color: $v-primary; //Color del scrol
   border-radius: 1px;
 }
 
@@ -47,180 +47,180 @@ p {
 --------------------------------------------------------------------------------------------------------------------------------------*/
 
 // Primary
-.nd-btn-primary {
-  background-color: $v-nd-primary !important;
-  color: $v-nd-white !important;
+.btn-primary {
+  background-color: $v-primary !important;
+  color: $v-white !important;
   &:hover {
-    background-color: $v-nd-primary-selected !important;
+    background-color: $v-primary-selected !important;
   }
 }
 
-.nd-btn-primary-outline {
-  background-color: $v-nd-white !important;
-  color: $v-nd-primary !important;
-  border: 2px solid $v-nd-primary !important;
+.btn-primary-outline {
+  background-color: $v-white !important;
+  color: $v-primary !important;
+  border: 2px solid $v-primary !important;
   &:hover {
-    background-color: $v-nd-primary !important;
-    color: $v-nd-white !important;
+    background-color: $v-primary !important;
+    color: $v-white !important;
   }
 }
 
-.nd-btn-primary-disabled {
-  background-color: $v-nd-primary-disabled;
-  color: $v-nd-white;
+.btn-primary-disabled {
+  background-color: $v-primary-disabled;
+  color: $v-white;
 }
 
 // Secondary
-.nd-btn-secondary {
-  background-color: $v-nd-secondary !important;
-  color: $v-nd-white !important;
+.btn-secondary {
+  background-color: $v-secondary !important;
+  color: $v-white !important;
   &:hover {
-    background-color: $v-nd-secondary-selected !important;
+    background-color: $v-secondary-selected !important;
   }
 }
 
-.nd-btn-secondary-outline {
-  background-color: $v-nd-white;
-  color: $v-nd-secondary;
-  border: 2px solid $v-nd-secondary;
+.btn-secondary-outline {
+  background-color: $v-white;
+  color: $v-secondary;
+  border: 2px solid $v-secondary;
   &:hover {
-    background-color: $v-nd-secondary;
-    color: $v-nd-white;
+    background-color: $v-secondary;
+    color: $v-white;
   }
 }
 
-.nd-btn-secondary-disabled {
-  background-color: $v-nd-secondary-disabled;
-  color: $v-nd-white;
+.btn-secondary-disabled {
+  background-color: $v-secondary-disabled;
+  color: $v-white;
 }
 
 // Secondary
-.nd-btn-gradient {
-  // background: linear-gradient(90deg, $v-nd-secondary 0%, $v-nd-primary 38%, rgba(51,106,178,0) 66%) $v-nd-primary !important;
+.btn-gradient {
+  // background: linear-gradient(90deg, $v-secondary 0%, $v-primary 38%, rgba(51,106,178,0) 66%) $v-primary !important;
   // transition: background-color 1s;
   position: relative;
   z-index: 10;
   display: block;
   background: transparent;
   overflow: hidden !important;
-  color: $v-nd-white !important;
+  color: $v-white !important;
 }
 
-.nd-btn-gradient:before {
+.btn-gradient:before {
   content: "";
   position: absolute;
   transition: transform 250ms ease;
   top:0; left: 0; right: 0; bottom: 0; z-index:-1;
-  background: -webkit-linear-gradient(90deg, $v-nd-secondary,  $v-nd-primary);
-  background: -moz-linear-gradient(90deg, $v-nd-secondary,  $v-nd-primary);
-  background: -o-linear-gradient(90deg, $v-nd-secondary,  $v-nd-primary);
-  background: linear-gradient(90deg, $v-nd-secondary,  $v-nd-primary);
+  background: -webkit-linear-gradient(90deg, $v-secondary,  $v-primary);
+  background: -moz-linear-gradient(90deg, $v-secondary,  $v-primary);
+  background: -o-linear-gradient(90deg, $v-secondary,  $v-primary);
+  background: linear-gradient(90deg, $v-secondary,  $v-primary);
 }
-.nd-btn-gradient:hover:before {
+.btn-gradient:hover:before {
   transform: scale( 2, 1 );
 }
 
 // tertiary
-.nd-btn-gradient-tertiary {
+.btn-gradient-tertiary {
   position: relative;
   z-index: 10;
   display: block;
   background: transparent;
   overflow: hidden !important;
-  color: $v-nd-white !important;
+  color: $v-white !important;
 }
 
-.nd-btn-gradient-tertiary:before {
+.btn-gradient-tertiary:before {
   content: "";
   position: absolute;
   transition: transform 250ms ease;
   top:0; left: 0; right: 0; bottom: 0; z-index:-1;
-  background: -webkit-linear-gradient(90deg, $v-nd-tertiary,  $v-nd-primary);
-  background: -moz-linear-gradient(90deg, $v-nd-tertiary,  $v-nd-primary);
-  background: -o-linear-gradient(90deg, $v-nd-tertiary,  $v-nd-primary);
-  background: linear-gradient(90deg, $v-nd-tertiary,  $v-nd-primary);
+  background: -webkit-linear-gradient(90deg, $v-tertiary,  $v-primary);
+  background: -moz-linear-gradient(90deg, $v-tertiary,  $v-primary);
+  background: -o-linear-gradient(90deg, $v-tertiary,  $v-primary);
+  background: linear-gradient(90deg, $v-tertiary,  $v-primary);
 }
-.nd-btn-gradient-tertiary:hover:before {
+.btn-gradient-tertiary:hover:before {
   transform: scale( 2, 1 );
 }
 
 // Notificaciones
-.nd-btn-success {
-  background-color: $v-nd-success;
-  color: $v-nd-white;
+.btn-success {
+  background-color: $v-success;
+  color: $v-white;
   &:hover {
-    background-color: $v-nd-primary-selected;
+    background-color: $v-primary-selected;
   }
 }
 
-.nd-btn-error {
-  background-color: $v-nd-error !important;
-  color: $v-nd-white !important;
+.btn-error {
+  background-color: $v-error !important;
+  color: $v-white !important;
 }
 
-.nd-btn-error-outline {
-  background-color: $v-nd-white !important;
-  color: $v-nd-error !important;
-  border: 2px solid $v-nd-error !important;
+.btn-error-outline {
+  background-color: $v-white !important;
+  color: $v-error !important;
+  border: 2px solid $v-error !important;
   &:hover {
-    background-color: $v-nd-error !important;
-    color: $v-nd-white !important;
+    background-color: $v-error !important;
+    color: $v-white !important;
   }
 }
 
-.nd-btn-warning {
-  background-color: $v-nd-warning !important;
-  color: $v-nd-white !important;
+.btn-warning {
+  background-color: $v-warning !important;
+  color: $v-white !important;
 }
 
-.nd-btn-warning-outline {
-  background-color: $v-nd-white !important;
-  color: $v-nd-warning !important;
-  border: 2px solid $v-nd-warning !important;
+.btn-warning-outline {
+  background-color: $v-white !important;
+  color: $v-warning !important;
+  border: 2px solid $v-warning !important;
   &:hover {
-    background-color: $v-nd-warning !important;
-    color: $v-nd-white !important;
+    background-color: $v-warning !important;
+    color: $v-white !important;
   }
 }
 
-.nd-btn-info {
-  background-color: $v-nd-info;
-  color: $v-nd-white;
+.btn-info {
+  background-color: $v-info;
+  color: $v-white;
 }
 
 // Colores neutros de uso especifico
-.nd-btn-white {
-  background-color: $v-nd-white;
-  color: $v-nd-txt;
+.btn-white {
+  background-color: $v-white;
+  color: $v-txt;
 }
 
-.nd-btn-light-white {
-  background-color: $v-nd-light-white;
-  color: $v-nd-txt;
+.btn-light-white {
+  background-color: $v-light-white;
+  color: $v-txt;
 }
 
-.nd-btn-dark-gray {
-  background-color: $v-nd-dark-gray;
-  color: $v-nd-white;
+.btn-dark-gray {
+  background-color: $v-dark-gray;
+  color: $v-white;
 }
 
-.nd-btn-light-gray {
-  background-color: $v-nd-light-gray;
-  color: $v-nd-white;
+.btn-light-gray {
+  background-color: $v-light-gray;
+  color: $v-white;
 }
 
-.nd-btn-medium-gray {
-  background-color: $v-nd-medium-gray;
-  color: $v-nd-white;
+.btn-medium-gray {
+  background-color: $v-medium-gray;
+  color: $v-white;
 }
 
-.nd-btn-medium-gray-outline {
-  background-color: $v-nd-white !important;
-  color: $v-nd-medium-gray !important;
-  border: 2px solid $v-nd-medium-gray !important;
+.btn-medium-gray-outline {
+  background-color: $v-white !important;
+  color: $v-medium-gray !important;
+  border: 2px solid $v-medium-gray !important;
   &:hover {
-    background-color: $v-nd-medium-gray !important;
-    color: $v-nd-white !important;
+    background-color: $v-medium-gray !important;
+    color: $v-white !important;
   }
 }
 
@@ -233,14 +233,6 @@ END BUTTON
 /*--------------------------------------------------------------------------------------------------------------------------------------
  CARDS
 --------------------------------------------------------------------------------------------------------------------------------------*/
-
-.ccng-border {
-  border: 1px solid $v-nd-primary;
-}
-
-.card-border {
-  border-radius: 10px !important;
-}
 
 .card {
   border: none;
@@ -278,7 +270,7 @@ END CARDS
 --------------------------------------------------------------------------------------------------------------------------------------*/
 
 .dark-backdrop {
-  background: $v-nd-secondary !important;
+  background: $v-secondary !important;
   opacity: 0.9 !important;
 }
 
@@ -425,11 +417,11 @@ END CARDS
 }
 
 .purple-shadow{
-  box-shadow: 0px 0px 800px 60px $v-nd-secondary !important;
+  box-shadow: 0px 0px 800px 60px $v-secondary !important;
 }
 
 .curuba-shadow{
-  box-shadow: 0px 0px 800px 60px $v-nd-tertiary !important;
+  box-shadow: 0px 0px 800px 60px $v-tertiary !important;
 }
 
 .input-borderless {

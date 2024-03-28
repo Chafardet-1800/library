@@ -1,5 +1,5 @@
 <!-- Input de fecha para una sola fecha -->
-<mat-form-field *ngIf="selectDateMode == 'single'" [subscriptSizing]="subscriptSizing" class="md-inline-form w-100 input-size" appearance="outline">
+<mat-form-field *ngIf="selectDateMode == 'single'" [subscriptSizing]="subscriptSizing" class="md-inline-form w-100 input-size" appearance="outline" (click)="picker.open()">
 
   <!-- Label -->
   <mat-label>{{label}}</mat-label>
@@ -8,13 +8,13 @@
   <input class="cursor-pointer" matInput [matDatepicker]="picker" [(ngModel)]="currentValue" [matDatepickerFilter]="dateFilter"
     [required]="required" [errorStateMatcher]="errorMatcher()" [disabled]="disabled" [placeholder]="placeholder"
     [readonly]="readOnly" (blur)="onTouch()" (dateChange)="emitValue()" [min]="minDate" [max]="startDate"
-    (click)="picker.open()">
+    >
 
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker [startAt]="startDate"></mat-datepicker>
 
   <!-- Botón para borrar las fechas -->
-  <button *ngIf="currentValue" matSuffix mat-icon-button (click)="currentValue = '';emitValue()">
+  <button *ngIf="currentValue" type="button" matSuffix mat-icon-button (click)="currentValue = '';emitValue();$event.stopPropagation();">
     <mat-icon>delete_outline</mat-icon>
   </button>
 
@@ -37,14 +37,13 @@
 <!-- Input de fecha para un rango de fechas -->
 <form *ngIf="selectDateMode == 'range' && rangeControlsGroup" [formGroup]="rangeControlsGroup">
 
-  <mat-form-field class="md-inline-form w-100 input-size" [subscriptSizing]="subscriptSizing" appearance="outline">
+  <mat-form-field class="md-inline-form w-100 input-size" [subscriptSizing]="subscriptSizing" appearance="outline" (click)="rangePicker.open()">
 
     <!-- Label -->
     <mat-label>{{label}}</mat-label>
 
     <!-- Control para setear inputs de rango de fecha -->
-    <mat-date-range-input [required]="required" [rangePicker]="rangePicker" [max]="daterange"
-      (click)="rangePicker.open()">
+    <mat-date-range-input [required]="required" [rangePicker]="rangePicker" [max]="daterange">
 
       <!-- Input de primera fecha -->
       <input class="cursor-pointer" matStartDate formControlName="{{rangeControls[0]}}" placeholder="Fecha de inicio" readonly>
@@ -58,8 +57,8 @@
     <mat-datepicker-toggle matSuffix [for]="rangePicker"></mat-datepicker-toggle>
 
     <!-- Botón para borrar las fechas -->
-    <button *ngIf="rangeControlsGroup.controls[rangeControls[0]]?.value" matSuffix mat-icon-button
-      (click)="emitRangeDateChanges(true)">
+    <button *ngIf="rangeControlsGroup.controls[rangeControls[0]]?.value" type="button" matSuffix mat-icon-button
+      (click)="emitRangeDateChanges(true);$event.stopPropagation();">
       <mat-icon>delete_outline</mat-icon>
     </button>
 
@@ -68,7 +67,7 @@
       <!-- Comentado porque es más fácil escoger fechas sin esto -->
       <!-- <mat-date-range-picker-actions>
         <button mat-button matDateRangePickerCancel>Cancelar</button>
-        <button mat-raised-button matDateRangePickerApply class="cc-btn-primary" style="font-weight: 600;"
+        <button mat-raised-button matDateRangePickerApply class="btn-primary" style="font-weight: 600;"
           (click)="emitRangeDateChanges()">Filtrar</button>
       </mat-date-range-picker-actions> -->
     </mat-date-range-picker>

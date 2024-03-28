@@ -32,7 +32,7 @@ export interface CmmSelectDialogModel {
   title: string,
   optionsList: any[],
   label: string,
-  placehoder: string,
+  placeholder: string,
   searchKey: string,
   optionValue: string,
   siblingOptionValue: string,

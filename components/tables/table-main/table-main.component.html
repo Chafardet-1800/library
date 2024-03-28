@@ -4,7 +4,7 @@
   <div class="mb-4 bg-white rounded shadowBorder">
       <!-- Título de la tabla -->
       <div *ngIf="tableTitle" class="p-4 pb-0">
-        <h3>{{tableTitle}}</h3>
+        <h3 class="m-0">{{tableTitle}}</h3>
       </div>
 
       <!-- Filtro estatico search -->
@@ -24,35 +24,33 @@
       <div *ngIf="filtersForm" class="container-fluid">
 
           <!-- Titulo filtros -->
-          <div class="row cc-title-txt pt-2 align-items-center">
-              <!-- Iconos -->
-              <div class="col-12 p-2">
-                  <div class="row w-100 m-0 px-1 py-2 flex-row" [ngClass]="showDownloadButton?'justify-content-between':'justify-content-end'">
-                      <div *ngIf="showDownloadButton" style="max-width: 300px;">
-                          <cmm-cmp-b-button [button_text]="downloadButtonText" (submit)="downloadButton.emit()">
-                              <mat-icon class="me-1">save_alt</mat-icon>
-                          </cmm-cmp-b-button>
-                      </div>
+          <div class="d-flex flex-wrap align-items-center title-txt px-3 py-4 justify-content-between">
 
-                      <!-- Caja de botones de control de tabla -->
-                      <div class="mt-2 mt-md-0" style="width: fit-content;">
+            <!-- Boton de accion de la tabla -->
+            <cmm-cmp-b-button *ngIf="showDownloadButton" [button_text]="downloadButtonText"
+            (submit)="downloadButton.emit()" class="col-12 mb-3 m-md-0" style="max-width: 300px;">
+                <mat-icon class="me-1">save_alt</mat-icon>
+            </cmm-cmp-b-button>
 
-                          <!-- Icono de agregar -->
-                          <mat-icon *ngIf="!hideFilters && showAddButton" class="cursor-pointer me-4" [matTooltip]="addButtonText" (click)="addButtonEmit.emit()">add</mat-icon>
+            <!-- Contenedor para botones extras -->
+            <ng-content select="[actionButtons]"></ng-content>
 
-                          <!-- Icono de refrescar -->
-                          <mat-icon *ngIf="!hideFilters && showRefreshButton" class="cursor-pointer me-4" [matTooltip]="refreshButtonText" (click)="sendRequest(true)">refresh</mat-icon>
+            <!-- Caja de botones de control de tabla -->
+            <div class="mt-2 mt-md-0 ms-auto" style="width: fit-content;">
 
-                          <!-- Icono borrar filtros -->
-                          <mat-icon *ngIf="!hideFilters" class="cursor-pointer me-4" matTooltip="Vaciar filtro" (click)="clearFilter()">delete_outline</mat-icon>
+                <!-- Icono de agregar -->
+                <mat-icon *ngIf="!hideFilters && showAddButton" class="cursor-pointer ms-4" [matTooltip]="addButtonText" (click)="addButtonEmit.emit()">add</mat-icon>
 
-                          <!-- Icono ocultar filtros -->
-                          <mat-icon class="me-4 cursor-pointer" [matTooltip]="hideFilters ? 'Mostrar filtros' : 'Ocultar filtros'" (click)="hideFilters = !hideFilters">filter_list</mat-icon>
+                <!-- Icono de refrescar -->
+                <mat-icon *ngIf="!hideFilters && showRefreshButton" class="cursor-pointer ms-4" [matTooltip]="refreshButtonText" (click)="sendRequest(false, false, true)">refresh</mat-icon>
 
-                      </div>
+                <!-- Icono borrar filtros -->
+                <mat-icon *ngIf="!hideFilters" class="cursor-pointer ms-4" matTooltip="Vaciar filtro" (click)="clearFilter()">delete_outline</mat-icon>
 
-                  </div>
-              </div>
+                <!-- Icono ocultar filtros -->
+                <mat-icon class="ms-4 cursor-pointer" [matTooltip]="hideFilters ? 'Mostrar filtros' : 'Ocultar filtros'" (click)="hideFilters = !hideFilters">filter_list</mat-icon>
+
+            </div>
 
           </div>
 
@@ -138,15 +136,21 @@
                   <!-- Formulario de fecha normal -->
                   <div class="col-12 col-md-4 m-0 p-0" *ngFor="let item of filtersObject.dates">
                     <div class="row m-0">
-                        <mat-form-field appearance="outline" class="col-sm-12">
+                        <mat-form-field appearance="outline" class="col-sm-12" (click)="picker.open()">
+
                             <mat-label>{{item.label}}</mat-label>
-                            <input matInput [matDatepicker]="picker" [formControlName]="item.form" id="datestar" [max]="daterange" (dateChange)="sendRequest(true)" (click)="picker.open()" readonly />
+
+                            <input matInput [matDatepicker]="picker" [formControlName]="item.form" id="datestar" [max]="daterange" (dateChange)="sendRequest(true)" readonly />
+
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+
                             <!-- Botón de limpiar -->
-                            <button *ngIf="filtersForm.controls[item.form]?.value" matSuffix mat-icon-button (click)="clearDate(item.form)">
+                            <button *ngIf="filtersForm.controls[item.form]?.value" matSuffix mat-icon-button (click)="clearDate(item.form, item.controlToDeleted);$event.stopPropagation();">
                               <mat-icon>delete_outline</mat-icon>
                             </button>
+
                             <mat-datepicker #picker></mat-datepicker>
+
                         </mat-form-field>
                     </div>
                   </div>
@@ -154,24 +158,38 @@
                   <!-- Formularios de fechas (dates) normalmente fecha inicio y fecha fin -->
                   <div class="col-12 col-md-4 m-0 p-0" *ngFor="let item of filtersObject.rangeDates">
                       <div class="row m-0">
-                          <mat-form-field appearance="outline" (click)="rangePicker.open()">
-                              <mat-label>{{item.label}}</mat-label>
-                              <mat-date-range-input [rangePicker]="rangePicker" [max]="daterange">
-                                <input matStartDate formControlName="startDate" placeholder="Fecha de inicio" readonly>
-                                <input matEndDate formControlName="endDate" placeholder="Fecha de fin" readonly>
-                              </mat-date-range-input>
-                              <mat-datepicker-toggle [class]="filtersForm.controls['startDate'].value ? 'nd-txt-primary' : ''" matSuffix [for]="rangePicker"></mat-datepicker-toggle>
-                              <!-- Botón de limpiar -->
-                              <button *ngIf="filtersForm.controls['startDate']?.value" matSuffix mat-icon-button (click)="clearDate('startDate', 'endDate')">
-                                <mat-icon>delete_outline</mat-icon>
-                              </button>
-                              <mat-date-range-picker #rangePicker>
-                                  <mat-date-range-picker-actions>
-                                    <button mat-button matDateRangePickerCancel>Cancelar</button>
-                                    <button mat-raised-button matDateRangePickerApply (click)="sendRequest()" class="nd-btn-primary" style="font-weight: 600;">Filtrar</button>
-                                  </mat-date-range-picker-actions>
-                              </mat-date-range-picker>
-                          </mat-form-field>
+
+                        <!-- Input de rango de fechas -->
+                        <mat-form-field appearance="outline" (click)="rangePicker.open()">
+
+                          <mat-label>{{item.label}}</mat-label>
+
+                          <mat-date-range-input class="h-100" [rangePicker]="rangePicker" [max]="daterange">
+                            <input matStartDate formControlName="startDate" placeholder="Fecha de inicio" readonly>
+                            <input matEndDate formControlName="endDate" placeholder="Fecha de fin" readonly>
+                          </mat-date-range-input>
+
+                          <mat-datepicker-toggle [class]="filtersForm.controls['startDate'].value ? 'txt-primary' : ''" matSuffix [for]="rangePicker"></mat-datepicker-toggle>
+
+                          <!-- Botón de limpiar -->
+                          <button *ngIf="filtersForm.controls['startDate']?.value && deleteDatesOnInput" matSuffix mat-icon-button (click)="sendRequest(true, true);$event.stopPropagation();">
+                            <mat-icon>delete_outline</mat-icon>
+                          </button>
+
+                          <mat-date-range-picker #rangePicker>
+
+                              <mat-date-range-picker-actions>
+
+                                <button mat-button matDateRangePickerCancel>Cancelar</button>
+
+                                <button mat-raised-button matDateRangePickerApply (click)="sendRequest(true)" class="btn-primary" style="font-weight: 600;">Filtrar</button>
+
+                              </mat-date-range-picker-actions>
+
+                          </mat-date-range-picker>
+
+                        </mat-form-field>
+
                       </div>
                   </div>
 
@@ -193,7 +211,7 @@
       <ng-container [matColumnDef]="column" *ngFor="let column of columnFieldsList">
 
           <!-- Celda con el Nombre de columna -->
-          <th mat-header-cell *matHeaderCellDef [ngClass]="getClassColumn(column)" class="fs-12 nd-txt text-nowrap">
+          <th mat-header-cell *matHeaderCellDef [ngClass]="getClassColumn(column)" class="fs-12 txt text-nowrap">
               {{ getTextColumn(column) }}
           </th>
 

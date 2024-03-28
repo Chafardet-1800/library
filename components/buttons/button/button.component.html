@@ -3,15 +3,15 @@
 (keydown.enter)="$event.preventDefault()" (click)="submit.emit()"
 class="w-100 ccng-bold" style="height: 45px;"
 [ngClass]="{
-  'nd-btn-primary': buttonType == 'success',
-  'nd-btn-error': buttonType == 'cancel',
-  'nd-btn-warning': buttonType == 'warning',
-  'nd-btn-gradient': buttonType == 'gradient',
-  'nd-btn-gradient-tertiary': buttonType == 'gradient-tertiary',
-  'nd-btn-primary-outline': buttonType == 'successOutline',
-  'nd-btn-error-outline': buttonType == 'cancelOutline',
-  'nd-btn-warning-outline': buttonType == 'warningOutline',
-  'nd-btn-medium-gray-outline': buttonType == 'defaultOutline'
+  'btn-primary': buttonType == 'success',
+  'btn-error': buttonType == 'cancel',
+  'btn-warning': buttonType == 'warning',
+  'btn-gradient': buttonType == 'gradient',
+  'btn-gradient-tertiary': buttonType == 'gradient-tertiary',
+  'btn-primary-outline': buttonType == 'successOutline',
+  'btn-error-outline': buttonType == 'cancelOutline',
+  'btn-warning-outline': buttonType == 'warningOutline',
+  'btn-medium-gray-outline': buttonType == 'defaultOutline'
 }">
 
     <!-- Contenido del botón -->
@@ -29,7 +29,17 @@ class="w-100 ccng-bold" style="height: 45px;"
 </button>
 
 <!-- Botón con spinner -->
-<button *ngIf="showSpinner" type="{{type}}" mat-button class="ccng-bold w-100" [ngClass]="{'nd-btn-error': buttonType == 'cancel', 'nd-btn-primary': buttonType == 'success', 'nd-btn-warning': buttonType == 'warning', 'nd-btn-error-outline': buttonType == 'cancelOutline', 'nd-btn-primary-outline': buttonType == 'successOutline', 'nd-btn-warning-outline': buttonType == 'warningOutline'}"
+<button *ngIf="showSpinner" type="{{type}}" mat-button class="ccng-bold w-100" [ngClass]="{
+  'btn-primary': buttonType == 'success',
+  'btn-error': buttonType == 'cancel',
+  'btn-warning': buttonType == 'warning',
+  'btn-gradient': buttonType == 'gradient',
+  'btn-gradient-tertiary': buttonType == 'gradient-tertiary',
+  'btn-primary-outline': buttonType == 'successOutline',
+  'btn-error-outline': buttonType == 'cancelOutline',
+  'btn-warning-outline': buttonType == 'warningOutline',
+  'btn-medium-gray-outline': buttonType == 'defaultOutline'
+}"
     buttonType="button" disabled style="height: 45px;">
 
     <!-- Elemento que actúa de spinner -->

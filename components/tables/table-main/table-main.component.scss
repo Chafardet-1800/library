@@ -3,8 +3,8 @@
 // Clase para desaparecer la fila de detalle
 tr.example-detail-row {
   height: 0;
-  border-top: 1px solid $v-nd-light-gray !important;
-  background-color: $v-nd-background-page !important;
+  border-top: 1px solid $v-light-gray !important;
+  background-color: $v-background-page !important;
   transition: all 250ms ease-in-out;
 }
 
@@ -14,8 +14,8 @@ tr.example-detail-row {
   width: 100%;
   thead {
     th {
-      background: $v-nd-white;
-      color: $v-nd-txt;
+      background: $v-white;
+      color: $v-txt;
       border: none;
       padding: 10px;
       text-transform: uppercase;

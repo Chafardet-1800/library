@@ -2,8 +2,8 @@ import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Subject } from 'rxjs';
-import { CmmQuestionDialogModel } from '../../../data/dialogs/models/dialogs.model';
-import { CmmComponentFormModel } from '../../../data/forms/models/form.model';
+import { CmmQuestionDialogModel } from 'src/app/common/data/dialogs/models/dialogs.model';
+import { CmmComponentFormModel } from 'src/app/common/data/forms/models/form.model';
 
 @Component({
   selector: 'cmm-cmp-d-input-question-dialog',

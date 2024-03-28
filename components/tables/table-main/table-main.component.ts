@@ -51,12 +51,12 @@ export class CmmTableMainComponent implements OnInit, OnChanges {
   /**
    * Título de la tabla
    */
-  @Input() tableTitle: string = ''
+  @Input() tableTitle: string = '';
 
   /**
    * Indica si borraremos las fechas al momento de filtrar por Input de texto
    */
-  @Input() deleteDatesOnInput: boolean = false
+  @Input() deleteDatesOnInput: boolean = true;
 
   /**
    * Esta variable va a tener el objeto de cada columna (header) de la tabla
@@ -251,10 +251,31 @@ export class CmmTableMainComponent implements OnInit, OnChanges {
 
   //? Métodos de ciclo de vida
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.columnFieldsList = this.columnsHeaderList!.map(
+      (column: {
+        text: string;
+        field: string;
+        action: boolean;
+        cssClass: string;
+      }) => column.field
+    );
+
+    this.rowListData = new MatTableDataSource<any[]>(this.rowListData);
+
+    this.rowListData.sort = this.sort;
+
+    this.createFilterForm();
+
+    this.pageSize = this.filterFull?.limit ?? 10;
+    this.pageIndex = this.filterFull?.page ?? 0;
+  }
+
+  createFilterForm() {
+
     // formulario dinamico con los filtros,
-    // TO DO cada formcontrol debe tener su filterfull, es decir, debe existir ese parametro en el filterfull (reducer) para que tome ese valor
-    // /TO DO el punto de arriba debe hacerse al momento de hacer el correcto filter en cada componente
     if (this.filtersObject) {
       let group = {};
 
@@ -281,7 +302,9 @@ export class CmmTableMainComponent implements OnInit, OnChanges {
           // Le asigno al arreglo de controles un nuevo paramtero con el nombre del control
           (group as any)[input_template.form] = new FormControl(
             // Le coloco el valor inicial que venga, si viene
-            this.filterFull[input_template.form],
+            this.filterFull[input_template.form] ?
+            this.filterFull[input_template.form] :
+            '',
             // y la validaciones
             ValidatorsArray
           );
@@ -308,7 +331,9 @@ export class CmmTableMainComponent implements OnInit, OnChanges {
           // Le asigno al arreglo de controles un nuevo paramtero con el nombre del control
           (group as any)[input_template.form] = new FormControl(
             // Le coloco el valor inicial que venga, si viene
-            this.filterFull[input_template.form],
+            this.filterFull[input_template.form] ?
+            this.filterFull[input_template.form] :
+            '',
             // y la validaciones
             ValidatorsArray
           );
@@ -319,7 +344,10 @@ export class CmmTableMainComponent implements OnInit, OnChanges {
       if (this.filtersObject.selects) {
         this.filtersObject.selects.forEach((input_template: any) => {
           (group as any)[input_template.form] = new FormControl(
-            this.filterFull[input_template.form]
+            // Le coloco el valor inicial que venga, si viene
+            this.filterFull[input_template.form] ?
+            this.filterFull[input_template.form] :
+            '',
           );
         });
       }
@@ -327,9 +355,17 @@ export class CmmTableMainComponent implements OnInit, OnChanges {
       // Por cada objeto.form que venga de dates se crea un nuevo formcontrol
       if (this.filtersObject.dates) {
         this.filtersObject.dates.forEach((input_template: any) => {
+
+          let [day, month, year] = this.filterFull[input_template.form].split('/');
+
+          const dateObj = new Date( +day, +month - 1, +year);
+
           (group as any)[input_template.form] = new FormControl(
-            this.filterFull[input_template.form]
+            this.filterFull[input_template.form] ?
+            dateObj :
+            ''
           );
+
         });
       }
 
@@ -338,17 +374,23 @@ export class CmmTableMainComponent implements OnInit, OnChanges {
 
         this.filtersObject.rangeDates.forEach((input_template: any) => {
           (group as any)[input_template.start] = new FormControl(
-            this.filterFull[input_template.start]? new Date(this.filterFull[input_template.start]):''
+            this.filterFull[input_template.start]?
+            new Date(this.filterFull[input_template.start]):
+            ''
           );
 
+
           (group as any)[input_template.end] = new FormControl(
-            this.filterFull[input_template.end]? new Date(this.filterFull[input_template.end]):''
+            this.filterFull[input_template.end]?
+            new Date(this.filterFull[input_template.end]):
+            ''
           );
         });
       }
 
       //* Inicializo el formulario
       this.filtersForm = new UntypedFormGroup(group);
+
     }
 
     //* Si hay un objeto de filtro, entonces seteo los parámetros principales para la tabla
@@ -363,24 +405,7 @@ export class CmmTableMainComponent implements OnInit, OnChanges {
 
     //* Creo el máximo rango de fecha permitido (El día en el que estás leyendo esto OMG!!)
     this.daterange = new Date();
-  }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    this.columnFieldsList = this.columnsHeaderList!.map(
-      (column: {
-        text: string;
-        field: string;
-        action: boolean;
-        cssClass: string;
-      }) => column.field
-    );
-
-    this.rowListData = new MatTableDataSource<any[]>(this.rowListData);
-
-    this.rowListData.sort = this.sort;
-
-    this.pageSize = this.filterFull?.limit ?? 10;
-    this.pageIndex = this.filterFull?.page ?? 0;
   }
 
   /**
@@ -461,21 +486,21 @@ export class CmmTableMainComponent implements OnInit, OnChanges {
   /**
    * Funcion que emite el evento para hacer el request con filtros, los estaticos son limit page y los dinamicos estan el filtersForm
    */
-  sendRequest(resetPage?: boolean, deleteDates?: boolean) {
+  sendRequest(resetPage?: boolean, deleteDates?: boolean, refresh?: boolean) {
 
     // Inicializo mi objeto que va a enviar con limit y page que siempre lo va a tener
     if(resetPage){
       this.sendRequestObj= {
         limit: 10,
         page: 0,
-        search: this.filterdata.value.search,
+        search: this.filterdata.value.search?.trim(),
       }
     }
     else {
       this.sendRequestObj= {
         limit: this.pageSize,
         page: this.pageIndex,
-        search: this.filterdata.value.search,
+        search: this.filterdata.value.search?.trim(),
       }
     }
 
@@ -487,33 +512,46 @@ export class CmmTableMainComponent implements OnInit, OnChanges {
 
       //* Setea la fecha final igual a la inicial en caso de que no haya una fecha final
       if(this.filtersForm.controls['startDate']?.value &&
-      !this.filtersForm.controls['endDate']?.value){
+      this.filtersForm.controls['endDate'] &&
+      !this.filtersForm.controls['endDate'].value){
         this.filtersForm.controls['endDate'].patchValue(this.filtersForm.value.startDate)
       }
 
-      // por cada filtro que se haya aplicado, se guarda su valor en el form, si existe su valor lo agrego al sendRequestObj
+      // Iteramos por cada filtro que se haya aplicado
       Object.keys(this.filtersForm.controls).forEach((form) => {
+
+        // Evaluamos si ejecutar trim o no en caso de que sea un numero o no
+        const value = isNaN(parseInt(this.filtersForm.value[form])) ?
+                        String(this.filtersForm.value[form])?.trim() :
+                        this.filtersForm.value[form];
+
+        // Guardo el valor en sendRequestObj
         Object.assign(this.sendRequestObj, {
-          [form]: this.filtersForm.value[form],
+          [form]: value
         });
+
       });
     }
 
     //*En caso de filtrar por input, borro las fechas
-    if(deleteDates && this.deleteDatesOnInput){
-      this.sendRequestObj.endDate = ''
-      this.sendRequestObj.startDate = ''
-      this.filtersForm.controls['startDate'].patchValue('')
-      this.filtersForm.controls['endDate'].patchValue('')
+    if(
+      this.filtersForm?.controls['startDate'] && this.filtersForm?.controls['endDate'] &&
+      deleteDates && this.deleteDatesOnInput
+    ){
+      this.sendRequestObj.endDate = '';
+      this.sendRequestObj.startDate = '';
+      this.filtersForm.controls['startDate'].patchValue('');
+      this.filtersForm.controls['endDate'].patchValue('');
     }
 
-    // Si el filtro que se habia aplicado antes es el mismo que se desea aplicar ahora, nos detenemos
-    if(JSON.stringify(this.filterFull) == JSON.stringify(this.sendRequestObj)){
-      return
+    // Si el filtro que se habia aplicado antes es distinto del que se desea aplicar ahora o se refresca la tabla
+    if( JSON.stringify(this.filterFull) !== JSON.stringify(this.sendRequestObj) || refresh ){
+
+      // emito el evento al componente para que haga la peticion
+      this.requesthttp.emit(this.sendRequestObj);
+
     };
 
-    // emito el evento al componente para que haga la peticion
-    this.requesthttp.emit(this.sendRequestObj);
   }
 
   /**
@@ -537,10 +575,15 @@ export class CmmTableMainComponent implements OnInit, OnChanges {
    */
   clearDate(FormControlNamestart: string, FormControlNameEnd?: string){
 
-    //* Reseteo los inputs
-    this.filtersForm.controls[FormControlNamestart].reset()
+    //* Igualamos el valor a nada del primer campo indicado
+    this.filtersForm.controls[FormControlNamestart].patchValue('');
+
+    // En caso de que se indicara un segundo campo
     if(FormControlNameEnd){
-      this.filtersForm.controls[FormControlNameEnd].reset()
+
+      //* Igualamos el valor a nada del segundo campo indicado
+      this.filtersForm.controls[FormControlNameEnd].patchValue('');
+
     }
 
     //* Envío el request del filtro actualizado

@@ -3,7 +3,7 @@
  */
 
 //*Aquí se guarda el token
-export const authTokenVariable = 'nw-auth';
+export const authTokenVariable = 'auth';
 
 //*Aquí se guarda el tiempo de expiración
 export const authExpirationTime = 'et';
@@ -12,7 +12,7 @@ export const authExpirationTime = 'et';
 export const authTemporalSession = 'temporal';
 
 //*Aquí se guardan los privilegios
-export const privilegesVariable = 'nw-privileges';
+export const privilegesVariable = 'privileges';
 
 //*Aquí se guarda la información general del usuario
-export const userLoggedVariable = 'nw-user';
+export const userLoggedVariable = 'user';

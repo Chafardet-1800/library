@@ -5,25 +5,25 @@
 
       <!-- Imágenes por cada tipo de cover -->
 
-      <img *ngSwitchCase="'pending'" loading="lazy" [src]="coverPending" alt="" class="img_limits">
+      <img *ngSwitchCase="'pending'" loading="lazy" [src]="coverPending" alt="pending" class="img_limits">
 
-      <img *ngSwitchCase="'success'" loading="lazy" [src]="coverApproved" alt="" class="img_limits">
+      <img *ngSwitchCase="'success'" loading="lazy" [src]="coverApproved" alt="success" class="img_limits">
 
-      <img *ngSwitchCase="'successValidation'" loading="lazy" [src]="coverApprovedValidation" alt="" class="img_limits">
+      <img *ngSwitchCase="'successValidation'" loading="lazy" [src]="coverApprovedValidation" alt="successValidation" class="img_limits">
 
-      <img *ngSwitchCase="'warning'" loading="lazy" [src]="coverWarning" alt="" class="img_limits">
+      <img *ngSwitchCase="'warning'" loading="lazy" [src]="coverWarning" alt="warning" class="img_limits">
 
-      <img *ngSwitchCase="'error'" loading="lazy" [src]="coverRejected" alt="coverRejected">
+      <img *ngSwitchCase="'error'" loading="lazy" [src]="coverRejected" alt="error" class="img_limits">
 
-      <img *ngSwitchCase="'unavailable'" loading="lazy" [src]="coverAccessDenied" alt="coverAccessDenied" class="img_limits">
+      <img *ngSwitchCase="'unavailable'" loading="lazy" [src]="coverAccessDenied" alt="unavailable" class="img_limits">
 
-      <img *ngSwitchCase="'noPrivilege'" loading="lazy" [src]="coverNoPrivilege" alt="coverNoPrivilege" class="img_limits">
+      <img *ngSwitchCase="'noPrivilege'" loading="lazy" [src]="coverNoPrivilege" alt="noPrivilege" class="img_limits">
 
       <!-- Default -->
       <img *ngSwitchDefault loading="lazy" [src]="coverEmptyState" alt="coverNoPrivilege" class="default_img_limits">
 
       <!-- Titulo y texto -->
-      <div class="col-sm-12 mt-4 text-center nd-title-txt">
+      <div class="col-sm-12 mt-4 text-center title-txt">
 
         <!-- Título -->
         <h5>{{ title }}</h5>
@@ -37,12 +37,12 @@
       <span *ngIf="coverType == 'noPrivilege'" class="d-flex justify-content-center align-items-center mt-1">
 
         <!-- Título de privilegio -->
-        <p *ngIf="privilege" class="m-0 p-0 nd-title-txt">Privilegio:</p>
+        <p *ngIf="privilege" class="m-0 p-0 title-txt">Privilegio:</p>
 
         <!-- Contiene el nombre del privilegio que falta -->
         <mat-chip-listbox *ngIf="privilege">
 
-          <mat-chip class="nd-bg-error nd-txt-white mx-3" selected>{{getActionName(privilege)}}</mat-chip>
+          <mat-chip class="bg-error txt-white mx-3" selected>{{getActionName(privilege)}}</mat-chip>
 
         </mat-chip-listbox>
 

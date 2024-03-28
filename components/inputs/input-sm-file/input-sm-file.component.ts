@@ -61,6 +61,21 @@ export class CmmInputSmFileComponent implements CmmCustomInput {
   displayFileSize: boolean = true
 
   /**
+   * Indica si se quiere mostrar el input con el nombre del archivo y la imagen o solo la imagen
+   */
+  @Input() inputType: 'onlyImage' | 'Input&Image' = 'Input&Image';
+
+  /**
+   * Texto que se muestra cuando no hay una imagen en el campo y no se esta mostrando el input
+   */
+  @Input() coverText: string = 'Agregar';
+
+  /**
+   * Icono que se muestra cuando no hay una imagen en el campo y no se esta mostrando el input
+   */
+  @Input() icon: string = 'add';
+
+  /**
    * Tamaño máximo permitido en el input
    */
   @Input() maxFileSize: number | string = 12

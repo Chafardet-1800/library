@@ -96,23 +96,23 @@ body {
   Tono del texto (negrita, normal, claro)
 --------------------------------------------------------------------------------------------------------------------------------------*/
 
-.nd-txt-normal {
+.txt-normal {
   font-weight: 600 !important;
 }
 
-.nd-txt-bold {
+.txt-bold {
   font-weight: 900 !important;
 }
 
-.nd-txt-light {
+.txt-light {
   font-weight: lighter;
 }
 
-.nd-txt-a {
+.txt-a {
   text-decoration: none;
 }
 
-.nd-txt-break {
+.txt-break {
   word-break: break-all;
 }
 
@@ -193,10 +193,10 @@ body {
 --------------------------------------------------------------------------------------------------------------------------------------*/
 
 @media screen and (max-width: 380px) {
-  .nd-txt-sm-h5 {
+  .txt-sm-h5 {
     font-size: 0.9rem;
   }
-  .nd-txt-sm-p {
+  .txt-sm-p {
     font-size: 0.85rem;
   }
 }
@@ -206,51 +206,51 @@ body {
 --------------------------------------------------------------------------------------------------------------------------------------*/
 
 // Primary
-.nd-txt-primary {
-  color: $v-nd-primary;
+.txt-primary {
+  color: $v-primary;
 }
 
-.nd-txt-primary-disabled {
-  color: $v-nd-primary-disabled;
+.txt-primary-disabled {
+  color: $v-primary-disabled;
 }
 
-.nd-txt-primary-selected {
-  color: $v-nd-primary-selected;
+.txt-primary-selected {
+  color: $v-primary-selected;
 }
 
 // Secondary
-.nd-txt-secondary {
-  color: $v-nd-secondary;
+.txt-secondary {
+  color: $v-secondary;
 }
 
-.nd-txt-secondary-disabled {
-  color: $v-nd-secondary-disabled;
+.txt-secondary-disabled {
+  color: $v-secondary-disabled;
 }
 
-.nd-txt-secondary-selected {
-  color: $v-nd-secondary-selected;
+.txt-secondary-selected {
+  color: $v-secondary-selected;
 }
 
 // terciario
-.nd-txt-tertiary {
-  color: $v-nd-tertiary;
+.txt-tertiary {
+  color: $v-tertiary;
 }
 
-.nd-txt-tertiary-disabled {
-  color: $v-nd-tertiary-disabled;
+.txt-tertiary-disabled {
+  color: $v-tertiary-disabled;
 }
 
-.nd-txt-tertiary-selected {
-  color: $v-nd-tertiary-selected;
+.txt-tertiary-selected {
+  color: $v-tertiary-selected;
 }
 
 // gradient
-.nd-txt-gradient{
+.txt-gradient{
   /* Fallback: Set a background color. */
-  background-color: $v-nd-primary;
+  background-color: $v-primary;
 
   /* Create the gradient. */
-  background-image: $v-nd-gradient;
+  background-image: $v-gradient;
 
   /* Set the background size and repeat properties. */
   background-size: 100%;
@@ -265,13 +265,13 @@ body {
   -moz-text-fill-color: transparent;
 }
 
-.nd-txt-gradient-hover {
+.txt-gradient-hover {
 
   /* Fallback: Set a background color. */
-  background-color: $v-nd-primary;
+  background-color: $v-primary;
 
   /* Create the gradient. */
-  background-image: $v-nd-txt;
+  background-image: $v-txt;
 
   /* Set the background size and repeat properties. */
   background-size: 100%;
@@ -287,10 +287,10 @@ body {
 
   mat-icon{
     /* Fallback: Set a background color. */
-    background-color: $v-nd-primary;
+    background-color: $v-primary;
 
     /* Create the gradient. */
-    background-image: $v-nd-txt;
+    background-image: $v-txt;
 
     /* Set the background size and repeat properties. */
     background-size: 100%;
@@ -308,13 +308,13 @@ body {
   &:hover {
 
     /* Create the gradient. */
-    background-image: $v-nd-gradient;
+    background-image: $v-gradient;
     transition: all linear 250ms;
 
     mat-icon{
 
           /* Create the gradient. */
-          background-image: $v-nd-gradient;
+          background-image: $v-gradient;
           transition: all linear 250ms;
 
     }
@@ -323,40 +323,40 @@ body {
 }
 
 // Notificaciones
-.nd-txt-success {
-  color: $v-nd-success !important;
+.txt-success {
+  color: $v-success !important;
 }
 
-.nd-txt-error {
-  color: $v-nd-error !important;
+.txt-error {
+  color: $v-error !important;
 }
 
-.nd-txt-warning {
-  color: $v-nd-warning !important;
+.txt-warning {
+  color: $v-warning !important;
 }
 
-.nd-txt-info {
-  color: $v-nd-info !important;
+.txt-info {
+  color: $v-info !important;
 }
 
 // Colores de textos
-.nd-txt {
-  color: $v-nd-txt !important;
+.txt {
+  color: $v-txt !important;
 }
 
-.nd-back-txt {
-  color: $v-nd-back-txt !important;
+.back-txt {
+  color: $v-back-txt !important;
 }
 
-.nd-title-txt {
-  color: $v-nd-title-txt !important;
+.title-txt {
+  color: $v-title-txt !important;
   p {
-    color: $v-nd-back-txt !important;
+    color: $v-back-txt !important;
   }
 }
 
-.nd-txt-white {
-  color: $v-nd-white !important;
+.txt-white {
+  color: $v-white !important;
 }
 
 /*--------------------------------------------------------------------------------------------------------------------------------------

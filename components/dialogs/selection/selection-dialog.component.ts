@@ -2,8 +2,8 @@ import { Component, Inject } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Subject } from 'rxjs';
-import { CmmSelectDialogModel } from '../../../data/dialogs/models/dialogs.model';
-import { CmmComponentFormModel } from '../../../data/forms/models/form.model';
+import { CmmSelectDialogModel } from 'src/app/common/data/dialogs/models/dialogs.model';
+import { CmmComponentFormModel } from 'src/app/common/data/forms/models/form.model';
 
 @Component({
   selector: 'cmm-cmp-d-selection',
@@ -92,10 +92,10 @@ export class CmmSelectionDialogComponent implements CmmComponentFormModel {
 
     //*Me suscribo a los cambios del form de búsqueda para filtrar
     this.componentInput.valueChanges.subscribe(value => {
-      let valueLength = value.length
 
       //* Genero una lista con valores que incluyan lo que está siendo escrito
-      this.filteredList = this.data.optionsList.filter(option => (option[this.optionValue].substring(0,valueLength)).toLowerCase() == value.toLowerCase())
+      this.filteredList = this.data.optionsList.filter(option => (option[this.optionValue].toLowerCase().includes(value.toLowerCase())))
+
     })
 
   }

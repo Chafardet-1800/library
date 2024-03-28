@@ -1,5 +1,6 @@
 import {
   Component,
+  ElementRef,
   EventEmitter,
   HostListener,
   Injector,
@@ -217,6 +218,11 @@ export class CmmInputSelectComponent implements CmmCustomInput {
   @Input() replaceMessage = ''
 
   /**
+   * Indica si se muestran las opciones separadas por bordes
+   */
+  @Input() showOptionsBorder: boolean = false
+
+  /**
    * Ruta de la imagen escogida
    */
   choosenImageRoute: string = ''
@@ -232,9 +238,19 @@ export class CmmInputSelectComponent implements CmmCustomInput {
   choosenSearchKeyValue: string = ''
 
   /**
+   * Valor típico a escoger en listados de tipo de documento
+   */
+  typicalValue: string = 'v'
+
+  /**
    * Creo un selector para el elemento MatAutocomplete
    */
   @ViewChild(MatAutocomplete) myMatAutocomplete!: MatAutocomplete;
+
+  /**
+   * Referencia al input de autocomplete
+   */
+  @ViewChild('myAutocompleteInput') myAutocompleteInput!: ElementRef<HTMLElement>
 
   /**
    * Escucha el evento de presionar tecla
@@ -245,6 +261,15 @@ export class CmmInputSelectComponent implements CmmCustomInput {
     if (this.choosenSearchKeyValue && event.code != 'Backspace' && this.validateOnFilter) {
       event.preventDefault()
     }
+
+    //* Veo si el usuario presiona tab
+    if(event.key == 'Tab') {
+
+      //* En este caso desenfoco el input para ir al siguiente
+      this.myAutocompleteInput?.nativeElement?.blur()
+
+    }
+
   }
 
   constructor(
@@ -288,6 +313,10 @@ export class CmmInputSelectComponent implements CmmCustomInput {
           this.addFilterValidator()
         }
         this.required = this.control?.hasValidator(Validators.required)
+
+        //* Preselecciono el valor típico de listado de documento
+        this.preselectTypicalValue()
+
       })
     }
   }
@@ -316,6 +345,10 @@ export class CmmInputSelectComponent implements CmmCustomInput {
     //* Si hay valor inicial, entonces seteo la opción en el input
     if (this.currentValue) {
       this.filterInitialValue()
+    }
+    // Si no hay valor inicial, entonces limpio cualquier filtro que pudiera haber
+    else {
+      this.clearSelected();
     }
   }
 
@@ -472,8 +505,9 @@ export class CmmInputSelectComponent implements CmmCustomInput {
 
   /**
    * Se encarga de setear todos los valores en caso de que haya un valor preseleccionado
+   * @param sendToForm Indica si vamos a enviarle el valor preseleccionado al formControl
    */
-  setInitialValue() {
+  setInitialValue(sendToForm?: boolean) {
     //* Seteo el valor escogido de acuerdo al valor que ya tenía el formControl
     this.choosenSearchKeyValue = this.optionsList.filter(option => option[this.optionName] == this.currentValue)?.[0]?.[this.optionKey]
 
@@ -482,14 +516,18 @@ export class CmmInputSelectComponent implements CmmCustomInput {
       this.getFinalImage(this.choosenSearchKeyValue)
     }
 
-    //* Comentado porque si el valor está preseleccionado, entonces no hay necesidad de reenviarle el mismo valor al formControl
-    // this.emitValue()
+    //* Veo si es necesario enviar el valor preseleccionado al formControl
+    if(sendToForm) {
+      this.emitValue()
+    }
+
   }
 
   /**
    * Filtra el listado para setear el valor inicial
+   * @param sendToForm Indica si vamos a enviarle al formControl el valor preseleccionado
    */
-  filterInitialValue() {
+  filterInitialValue(sendToForm?: boolean) {
 
     //*No puedo aplicar esta lógica si no hay listado
     if (!this.optionsList.length) {
@@ -517,7 +555,7 @@ export class CmmInputSelectComponent implements CmmCustomInput {
         if(this.currentValue) {
 
           //*De esta forma emito el valor seleccionado inicialmente
-          this.setInitialValue()
+          this.setInitialValue(sendToForm)
 
         }
 
@@ -569,6 +607,32 @@ export class CmmInputSelectComponent implements CmmCustomInput {
   }
 
   /**
+   * Preselecciona el valor de tipo de documento en cualquier input que lo requiera
+   */
+  preselectTypicalValue() {
+
+    //* Veo si existe en el listado la opción típica
+    let typicalValueSelected = this.filteredList?.filter(option => option[this.optionName].toLowerCase() == this.typicalValue)[0]?.[this.optionKey]
+
+    //* Si hay opción típica seleccionada, la elijo
+    if(typicalValueSelected) {
+
+      //* Si no habia un valor preseleccionado, preselecciono este
+      if(!this.currentValue) {
+
+        //* Selecciono el valor preseleccionado
+        this.currentValue = this.filteredList.filter(option => option[this.optionName].toLowerCase() == this.typicalValue)[0]?.[this.optionKey]
+
+        //* Emito el valor de nuevo
+        this.filterInitialValue(true)
+
+      }
+
+    }
+
+  }
+
+  /**
    * Elimina la opción seleccionada
    */
   clearSelected() {
@@ -588,7 +652,7 @@ export class CmmInputSelectComponent implements CmmCustomInput {
     let data: CmmSelectDialogModel = {
       title: this.label,
       label: this.label,
-      placehoder: 'Ej: BS',
+      placeholder: 'Ej: BS',
       optionsList: this.optionsList,
       optionValue: this.optionName,
       searchKey: this.optionKey,

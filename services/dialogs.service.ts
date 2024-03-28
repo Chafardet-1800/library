@@ -45,7 +45,7 @@ export class CmmDialogService {
       horizontalPosition: 'right',
       verticalPosition: 'top',
       data: toastrData,
-      duration: 15000,
+      duration: 3000,
       panelClass: ['alertPrincipalStyle'],
     });
 

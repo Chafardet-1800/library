@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { CmmTimerSessionService } from '../../../services/timer-session.service';
-import { CmmEnvironmentNames } from '../../../data/constants/general-variables';
+import { CmmEnvironmentNames } from 'src/app/common/data/constants/general-variables';
 // import { environment } from 'src/environments/environment';
 
 @Component({
@@ -58,13 +58,13 @@ export class CmmVersionControlComponent implements OnInit {
 
     switch (this.env) {
       case 'Developer':
-        this.bgClass = 'nd-bg-environmentDev'
+        this.bgClass = 'bg-environmentDev'
         break;
       case 'Quality':
-        this.bgClass = 'nd-bg-environmentQA'
+        this.bgClass = 'bg-environmentQA'
         break;
       case 'Sandbox':
-        this.bgClass = 'nd-bg-environmentSandbox'
+        this.bgClass = 'bg-environmentSandbox'
         break;
       case 'Production':
         this.bgClass = 'd-none'
@@ -73,7 +73,7 @@ export class CmmVersionControlComponent implements OnInit {
         this.bgClass = 'ccng-bgdefault'
         break;
       case 'Pre-production':
-        this.bgClass = 'nd-bg-environmentPreProd'
+        this.bgClass = 'bg-environmentPreProd'
         break;
 
       default:

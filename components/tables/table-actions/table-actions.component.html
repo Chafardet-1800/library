@@ -5,7 +5,7 @@
   <div *ngSwitchCase="'expandDetail'">
 
     <!-- Ícono de expander detalle -->
-    <mat-icon class="rotate-arrowUp" [ngClass]="{'rotate-arrowUp': expandedElement}" [matTooltip]="element.value.tooltip" (click)="emitExpansion()">{{element.icon}}</mat-icon>
+    <mat-icon class="rotate-arrowUp cursor-pointer" [ngClass]="{'rotate-arrowUp': expandedElement}" [matTooltip]="element.value.tooltip" (click)="emitExpansion()">{{element.icon}}</mat-icon>
 
   </div>
 

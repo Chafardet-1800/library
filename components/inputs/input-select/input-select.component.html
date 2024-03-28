@@ -18,6 +18,7 @@
         <!-- Input de autocompletado -->
         <input type="text"
         class="autocomplete_input"
+        inputmode="search"
         [placeholder]="placeholder"
         cmm-di-number-format
         [onlyNumber]="onlyNumber"
@@ -30,6 +31,7 @@
         matInput
         [errorStateMatcher]="errorMatcher()"
         [matAutocomplete]="auto"
+        #myAutocompleteInput
         (blur)="onTouch()"
         (input)="filterCurrentValue()"
         >
@@ -46,7 +48,7 @@
       <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (closed)="onTouch()" [hideSingleSelectionIndicator]="true" (optionSelected)="selectAutocomplete($event)">
 
         <!-- Cada una de las opciones -->
-        <mat-option class="p-0 px-3 option_bg hiddeScrollBar" *ngFor="let option of filteredList" [value]="option[optionName]">
+        <mat-option class="p-0 px-3 option_bg hiddeScrollBar" [ngClass]="showOptionsBorder?'border-bottom':''" *ngFor="let option of filteredList" [value]="option[optionName]">
 
           <div class="d-flex justify-content-between align-items-center px-0">
 
@@ -73,7 +75,7 @@
     <mat-select *ngIf="selectMode == 'select'" class="p-0 ccng-bgsecondary h-100" [hideSingleSelectionIndicator]="true" [errorStateMatcher]="errorMatcher()" [placeholder]="placeholder" [required]="required" [disabled]="disabled" [(ngModel)]="valueSelected" (blur)="onTouch()">
 
       <!-- Cada una de las opciones -->
-      <mat-option class="p-0 px-2 option_bg hiddeScrollBar" *ngFor="let option of optionsList" [value]="option[optionName]" (onSelectionChange)="selectValue($event)">
+      <mat-option class="p-0 px-2 option_bg hiddeScrollBar" [ngClass]="showOptionsBorder?'border-bottom':''" *ngFor="let option of optionsList" [value]="option[optionName]" (onSelectionChange)="selectValue($event)">
 
         <div class="d-flex justify-content-between align-items-center px-3">
 

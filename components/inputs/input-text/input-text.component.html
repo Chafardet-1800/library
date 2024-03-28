@@ -5,7 +5,7 @@
   <mat-label>{{label}}</mat-label>
 
   <!-- Input -->
-  <input matInput type="text" [placeholder]="placeholder" [required]="required" cmm-di-number-format
+  <input matInput type="text" inputmode="search" [placeholder]="placeholder" [required]="required" cmm-di-number-format
     [onlyNumber]="onlyNumber" [allowCopy]="allowCopy" [allowCut]="allowCut" [allowClicWithMouse]="allowClicWithMouse" [readonly]="readOnly" [minlength]="minLength" [maxlength]="maxLength"
     [(ngModel)]="currentValue" [errorStateMatcher]="errorMatcher()" [disabled]="disabled" (blur)="onTouch()"
     (input)="emitValue()" />

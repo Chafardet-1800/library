@@ -1,21 +1,21 @@
-<div class="row justify-content-center m-0 w-100">
+<div *ngIf="inputType == 'Input&Image'" class="row justify-content-center m-0 w-100">
 
   <!-- Preview de la imagen -->
-  <div *ngIf="fileImageUrl" class="col-12 previewBox d-flex justify-content-center align-items-center m-0 my-2 mb-3 overflow-hidden p-0">
+  <div *ngIf="fileImageUrl" class="col-12 previewBox d-flex justify-content-center align-items-center m-0 my-2 mb-3 overflow-hidden p-0 rounded">
 
     <!-- Imagen del preview -->
-    <img [src]="fileImageUrl" height="150" class="imgFile" alt="" style="width: 200px; max-height:200px">
+    <img [src]="fileImageUrl" height="150" class="imgFile rounded" alt="" style="width: 200px; max-height:200px">
 
   </div>
 
   <!-- Input de archivo -->
-  <mat-form-field [subscriptSizing]="subscriptSizing" class="col-12 m-0 p-0" appearance="outline">
+  <mat-form-field [subscriptSizing]="subscriptSizing" class="col-12 m-0 p-0 cursor-pointer" appearance="outline" floatLabel="always" (click)="fileInput.click();">
 
     <!-- Label -->
     <mat-label>{{displayFileSize? label +' '+fileSize: label}}</mat-label>
 
     <!-- Input de tipo file (Oculto) -->
-    <input type="file" #fileInput class="position-absolute opacity-0 top-0 cursor-pointer" (change)="setFile($event)" (click)="resetInputFiles($event)">
+    <input type="file" #fileInput class="position-absolute opacity-0 top-0 cursor-pointer" (change)="setFile($event)" (click)="resetInputFiles($event);$event.stopPropagation()">
 
     <!-- Input del formfield -->
     <input
@@ -27,11 +27,10 @@
     [errorStateMatcher]="errorMatcher()"
     [(ngModel)]="fileName"
     (blur)="onTouch()"
-    (click)="fileInput.click()"
     >
 
       <!-- Botón de adjuntar archivo -->
-    <button class="cursor-pointer" matIconSuffix mat-icon-button (click)="fileName? removeFile():fileInput.click()">
+    <button type="button" class="cursor-pointer" matIconSuffix mat-icon-button (click)="fileName? removeFile():fileInput.click();$event.stopPropagation()">
       <mat-icon [matTooltip]="file? 'Reemplazar':'Adjuntar'">{{fileName? 'delete_outline':'attach_file'}}</mat-icon>
     </button>
 
@@ -58,5 +57,38 @@
     </mat-error>
 
   </mat-form-field>
+
+</div>
+
+<div *ngIf="inputType == 'onlyImage'" class=" position-relative rounded shadowBorder border">
+
+  <!-- Icono para eliminar el imagen del campo -->
+  <mat-icon *ngIf="fileImageUrl" class="position-absolute p-0 delete-icon cursor-pointer"
+  style="top: 0.3em; right: 0.3em; z-index: 2;" (click)="removeFile()">delete</mat-icon>
+
+  <!-- Contenedor de imagen y cover -->
+  <label class="row justify-content-center m-0 w-100 cursor-pointer">
+
+    <!-- Imagen del preview -->
+    <img *ngIf="fileImageUrl" [src]="fileImageUrl" class="w-100 p-0 rounded" alt="" style="aspect-ratio: 1/1;">
+
+    <!-- Cover si no hay imagen -->
+    <div *ngIf="!fileImageUrl" class="w-100 bg-light-white d-flex flex-column justify-content-center align-items-center" style="aspect-ratio: 1/1;">
+
+      <!-- Icono del cover -->
+      <mat-icon style="font-size: 32px !important; height: auto !important; width: auto !important;">
+        {{icon}}
+      </mat-icon>
+
+      <!-- texto del cover -->
+      <p class="fs-18 m-0">{{coverText}}</p>
+
+    </div>
+
+    <!-- Input de tipo file (Oculto) -->
+    <input type="file" #fileInput class="position-absolute opacity-0 top-0 cursor-pointer"
+    (change)="setFile($event)" (click)="resetInputFiles($event)">
+
+  </label>
 
 </div>

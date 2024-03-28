@@ -51,13 +51,13 @@ export const dialogError =
 /**
  * LOGOS
  */
-export const chinchinShapeLogo =
+export const logoShape =
   'assets/images/logos/chinchin_shape_logo.png';
 
-export const chinchinWhiteLogo =
+export const logoWhite =
   'assets/images/logos/chinchin_white_logo.png';
 
-export const chinchinBlackLogo =
+export const logoBlack =
   'assets/images/logos/chinchin_black_logo.svg';
 
 /**
