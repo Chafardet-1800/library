@@ -8,19 +8,19 @@
   Environments colors
 --------------------------------------------------------------------------------------------------------------------------------------*/
 
-.bg-environmentDev {
+.cmm-bg-environmentDev {
   background-color: $v-error;
 }
 
-.bg-environmentSandbox {
+.cmm-bg-environmentSandbox {
   background-color: $v-primary;
 }
 
-.bg-environmentQA {
+.cmm-bg-environmentQA {
   background-color: #f0df48a9;
 }
 
-.bg-environmentPreProd {
+.cmm-bg-environmentPreProd {
   background-color: #673c7d;
 }
 
@@ -29,129 +29,129 @@
 --------------------------------------------------------------------------------------------------------------------------------------*/
 
 // Primary
-.bg-primary {
+.cmm-bg-primary {
   background: $v-primary;
 }
 
-.bg-primary-disabled {
+.cmm-bg-primary-disabled {
   background: $v-primary-disabled;
 }
 
-.bg-primary-selected {
+.cmm-bg-primary-selected {
   background: $v-primary-selected;
 }
 
 // Secondary
-.bg-secondary {
+.cmm-bg-secondary {
   background: $v-secondary;
 }
 
-.bg-secondary-disabled {
+.cmm-bg-secondary-disabled {
   background: $v-secondary-disabled;
 }
 
-.bg-secondary-selected {
+.cmm-bg-secondary-selected {
   background: $v-secondary-selected;
 }
 
 // Primary
-.bg-gradient {
+.cmm-bg-gradient {
   background: $v-gradient;
 }
 
-.bg-gradient-secondary {
+.cmm-bg-gradient-secondary {
   background: $v-gradient-secondary;
 }
 
-.bg-gradient-tertiary {
+.cmm-bg-gradient-tertiary {
   background: $v-gradient-tertiary;
 }
 
 // Notificaciones
-.bg-success {
+.cmm-bg-success {
   background: $v-success;
 }
 
-.bg-success-outline {
+.cmm-bg-success-outline {
   background: $v-white;
   border: 0.1px solid $v-success;
   color: $v-success;
 }
 
-.bg-error {
+.cmm-bg-error {
   background: $v-error;
 }
 
-.bg-error-outline {
+.cmm-bg-error-outline {
   background: $v-white;
   border: 0.1px solid $v-error;
   color: $v-error;
 }
 
-.bg-warning {
+.cmm-bg-warning {
   background: $v-warning;
 }
 
-.bg-warning-outline {
+.cmm-bg-warning-outline {
   background: $v-white;
   border: 0.1px solid $v-warning;
   color:$v-warning;
 }
 
-.bg-info {
+.cmm-bg-info {
   background: $v-info;
 }
 
-.bg-info-outline {
+.cmm-bg-info-outline {
   background: $v-white;
   border: 0.1px solid $v-info;
   color: $v-info;
 }
 
-.bg-medium-gray {
+.cmm-bg-medium-gray {
   background: $v-medium-gray;
 }
 
-.bg-medium-gray-outline {
+.cmm-bg-medium-gray-outline {
   background: $v-white;
   border: 0.1px solid $v-txt;
   color: $v-txt;
 }
 
 // Fondos
-.bg-background-page {
+.cmm-bg-background-page {
   background: $v-background-page;
 }
 
-.bg-menu {
+.cmm-bg-menu {
   background: $v-menu;
 }
 
-.bg-navbar {
+.cmm-bg-navbar {
   background: $v-navbar;
 }
 
 // Colores neutros de uso especifico
-.bg-white {
+.cmm-bg-white {
   background: $v-white;
 }
 
-.bg-light-white {
+.cmm-bg-light-white {
   background: $v-light-white;
 }
 
-.bg-black {
+.cmm-bg-black {
   background: $v-black;
 }
 
-.bg-dark-gray {
+.cmm-bg-dark-gray {
   background: $v-dark-gray;
 }
 
-.bg-medium-gray {
+.cmm-bg-medium-gray {
   background: $v-medium-gray;
 }
 
-.bg-light-gray {
+.cmm-bg-light-gray {
   background: $v-light-gray;
 }

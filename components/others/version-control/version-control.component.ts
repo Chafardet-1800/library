@@ -58,13 +58,13 @@ export class CmmVersionControlComponent implements OnInit {
 
     switch (this.env) {
       case 'Developer':
-        this.bgClass = 'bg-environmentDev'
+        this.bgClass = 'cmm-bg-environmentDev'
         break;
       case 'Quality':
-        this.bgClass = 'bg-environmentQA'
+        this.bgClass = 'cmm-bg-environmentQA'
         break;
       case 'Sandbox':
-        this.bgClass = 'bg-environmentSandbox'
+        this.bgClass = 'cmm-bg-environmentSandbox'
         break;
       case 'Production':
         this.bgClass = 'd-none'
@@ -73,7 +73,7 @@ export class CmmVersionControlComponent implements OnInit {
         this.bgClass = 'ccng-bgdefault'
         break;
       case 'Pre-production':
-        this.bgClass = 'bg-environmentPreProd'
+        this.bgClass = 'cmm-bg-environmentPreProd'
         break;
 
       default:

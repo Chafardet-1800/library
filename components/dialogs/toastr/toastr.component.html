@@ -1,14 +1,14 @@
-<div class="align-items-center justify-content-between alert shadowBorder rounded h-100 d-flex cursor-pointer" [ngClass]="data.typeIcon == 'default' ? 'defaultNew' : data.typeIcon == 'success' ? 'bl-success bg-white': data.typeIcon == 'error' ? 'bl-error bg-white' : data.typeIcon == 'warning' ? 'bl-warning bg-white' :
-    data.typeIcon == 'info' ? 'bl-info bg-white' : ''" [ngStyle]="{opacity: showAlert, display: alertDisplay}" (click)="change()">
+<div class="align-items-center justify-content-between alert shadowBorder rounded h-100 d-flex cursor-pointer" [ngClass]="data.typeIcon == 'default' ? 'defaultNew' : data.typeIcon == 'success' ? 'bl-success cmm-bg-white': data.typeIcon == 'error' ? 'bl-error cmm-bg-white' : data.typeIcon == 'warning' ? 'bl-warning cmm-bg-white' :
+    data.typeIcon == 'info' ? 'bl-info cmm-bg-white' : ''" [ngStyle]="{opacity: showAlert, display: alertDisplay}" (click)="change()">
 
     <!-- Ícono que indica qué tipo de alarta es -->
     <div class="d-none d-md-flex align-items-center me-2">
 
         <mat-icon aria-hidden="false" aria-label="icon" [ngClass]="{'ccng-default': data.typeIcon == 'default',
-                'txt-success': data.typeIcon == 'success',
-                'txt-error': data.typeIcon == 'error',
-                'txt-warning': data.typeIcon == 'warning',
-                'txt-info': data.typeIcon == 'info' }" style="overflow: visible !important;" class="me-4 me-sm-0">
+                'cmm-txtsuccess': data.typeIcon == 'success',
+                'cmm-txterror': data.typeIcon == 'error',
+                'cmm-txtwarning': data.typeIcon == 'warning',
+                'cmm-txtinfo': data.typeIcon == 'info' }" style="overflow: visible !important;" class="me-4 me-sm-0">
 
             {{data.icon}}
         </mat-icon>
@@ -24,7 +24,7 @@
         </p>
 
         <!-- Error que muestra la alerta -->
-        <p class="m-0 fs-14 txt-bold" *ngIf="data.errorText">
+        <p class="m-0 fs-14 cmm-txtbold" *ngIf="data.errorText">
             {{ data.errorText }}
         </p>
 

@@ -1,7 +1,7 @@
 <section>
 
   <!-- filtros -->
-  <div class="mb-4 bg-white rounded shadowBorder">
+  <div class="mb-4 cmm-bg-white rounded shadowBorder">
       <!-- Título de la tabla -->
       <div *ngIf="tableTitle" class="p-4 pb-0">
         <h3 class="m-0">{{tableTitle}}</h3>
@@ -169,7 +169,7 @@
                             <input matEndDate formControlName="endDate" placeholder="Fecha de fin" readonly>
                           </mat-date-range-input>
 
-                          <mat-datepicker-toggle [class]="filtersForm.controls['startDate'].value ? 'txt-primary' : ''" matSuffix [for]="rangePicker"></mat-datepicker-toggle>
+                          <mat-datepicker-toggle [class]="filtersForm.controls['startDate'].value ? 'cmm-txtprimary' : ''" matSuffix [for]="rangePicker"></mat-datepicker-toggle>
 
                           <!-- Botón de limpiar -->
                           <button *ngIf="filtersForm.controls['startDate']?.value && deleteDatesOnInput" matSuffix mat-icon-button (click)="sendRequest(true, true);$event.stopPropagation();">
@@ -291,7 +291,7 @@
 <!-- Contenedor principal del cover -->
 <ng-template #coverTable>
 
-  <div class="bg-white shadowBorder rounded">
+  <div class="cmm-bg-white shadowBorder rounded">
 
     <!-- cover de la tabla -->
     <cmm-cmp-t-cover [messageCover]="coverMessage"></cmm-cmp-t-cover>

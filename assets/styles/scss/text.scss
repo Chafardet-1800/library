@@ -96,23 +96,23 @@ body {
   Tono del texto (negrita, normal, claro)
 --------------------------------------------------------------------------------------------------------------------------------------*/
 
-.txt-normal {
+.cmm-txt-normal {
   font-weight: 600 !important;
 }
 
-.txt-bold {
+.cmm-txt-bold {
   font-weight: 900 !important;
 }
 
-.txt-light {
+.cmm-txt-light {
   font-weight: lighter;
 }
 
-.txt-a {
+.cmm-txt-a {
   text-decoration: none;
 }
 
-.txt-break {
+.cmm-txt-break {
   word-break: break-all;
 }
 
@@ -193,10 +193,10 @@ body {
 --------------------------------------------------------------------------------------------------------------------------------------*/
 
 @media screen and (max-width: 380px) {
-  .txt-sm-h5 {
+  .cmm-txt-sm-h5 {
     font-size: 0.9rem;
   }
-  .txt-sm-p {
+  .cmm-txt-sm-p {
     font-size: 0.85rem;
   }
 }
@@ -206,46 +206,46 @@ body {
 --------------------------------------------------------------------------------------------------------------------------------------*/
 
 // Primary
-.txt-primary {
+.cmm-txt-primary {
   color: $v-primary;
 }
 
-.txt-primary-disabled {
+.cmm-txt-primary-disabled {
   color: $v-primary-disabled;
 }
 
-.txt-primary-selected {
+.cmm-txt-primary-selected {
   color: $v-primary-selected;
 }
 
 // Secondary
-.txt-secondary {
+.cmm-txt-secondary {
   color: $v-secondary;
 }
 
-.txt-secondary-disabled {
+.cmm-txt-secondary-disabled {
   color: $v-secondary-disabled;
 }
 
-.txt-secondary-selected {
+.cmm-txt-secondary-selected {
   color: $v-secondary-selected;
 }
 
 // terciario
-.txt-tertiary {
+.cmm-txt-tertiary {
   color: $v-tertiary;
 }
 
-.txt-tertiary-disabled {
+.cmm-txt-tertiary-disabled {
   color: $v-tertiary-disabled;
 }
 
-.txt-tertiary-selected {
+.cmm-txt-tertiary-selected {
   color: $v-tertiary-selected;
 }
 
 // gradient
-.txt-gradient{
+.cmm-txt-gradient{
   /* Fallback: Set a background color. */
   background-color: $v-primary;
 
@@ -265,7 +265,7 @@ body {
   -moz-text-fill-color: transparent;
 }
 
-.txt-gradient-hover {
+.cmm-txt-gradient-hover {
 
   /* Fallback: Set a background color. */
   background-color: $v-primary;
@@ -323,24 +323,24 @@ body {
 }
 
 // Notificaciones
-.txt-success {
+.cmm-txt-success {
   color: $v-success !important;
 }
 
-.txt-error {
+.cmm-txt-error {
   color: $v-error !important;
 }
 
-.txt-warning {
+.cmm-txt-warning {
   color: $v-warning !important;
 }
 
-.txt-info {
+.cmm-txt-info {
   color: $v-info !important;
 }
 
 // Colores de textos
-.txt {
+.cmm-txt {
   color: $v-txt !important;
 }
 
@@ -355,7 +355,7 @@ body {
   }
 }
 
-.txt-white {
+.cmm-txt-white {
   color: $v-white !important;
 }
 

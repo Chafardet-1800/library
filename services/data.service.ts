@@ -748,25 +748,25 @@ export class CmmDataService {
     switch (currentStatusType) {
 
       case 'success':
-        return { text: altStatusName? altStatusName:nameStatus, badge: '#14c6a4', imgClass: 'bg-confirmed' };
+        return { text: altStatusName? altStatusName:nameStatus, badge: '#14c6a4', imgClass: 'cmm-bg-confirmed' };
 
       case 'warning':
-        return { text: altStatusName? altStatusName:nameStatus, badge: '#fdc713', imgClass: 'bg-pending'};
+        return { text: altStatusName? altStatusName:nameStatus, badge: '#fdc713', imgClass: 'cmm-bg-pending'};
 
       case 'error':
-        return { text: altStatusName? altStatusName:nameStatus, badge: '#ff0000', imgClass: 'bg-rejected' };
+        return { text: altStatusName? altStatusName:nameStatus, badge: '#ff0000', imgClass: 'cmm-bg-rejected' };
 
       case 'info':
-        return { text: altStatusName? altStatusName:nameStatus, badge: '#03a9f4', imgClass: 'bg-confirmed' };
+        return { text: altStatusName? altStatusName:nameStatus, badge: '#03a9f4', imgClass: 'cmm-bg-confirmed' };
 
       case 'info_alt':
-        return { text: altStatusName? altStatusName:nameStatus, badge: '#03a9f4', imgClass: 'bg-missing' };
+        return { text: altStatusName? altStatusName:nameStatus, badge: '#03a9f4', imgClass: 'cmm-bg-missing' };
 
       case 'neutral':
         return { text: altStatusName? altStatusName:nameStatus, badge: '#444444', imgClass: '' };
 
       default:
-        return { text: altStatusName? altStatusName:nameStatus, badge: '#03a9f4', imgClass: 'bg-missing' };
+        return { text: altStatusName? altStatusName:nameStatus, badge: '#03a9f4', imgClass: 'cmm-bg-missing' };
 
     }
 
