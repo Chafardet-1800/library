@@ -169,7 +169,7 @@
                             <input matEndDate formControlName="endDate" placeholder="Fecha de fin" readonly>
                           </mat-date-range-input>
 
-                          <mat-datepicker-toggle [class]="filtersForm.controls['startDate'].value ? 'cmm-txtprimary' : ''" matSuffix [for]="rangePicker"></mat-datepicker-toggle>
+                          <mat-datepicker-toggle [class]="filtersForm.controls['startDate'].value ? 'cmm-txt-primary' : ''" matSuffix [for]="rangePicker"></mat-datepicker-toggle>
 
                           <!-- Botón de limpiar -->
                           <button *ngIf="filtersForm.controls['startDate']?.value && deleteDatesOnInput" matSuffix mat-icon-button (click)="sendRequest(true, true);$event.stopPropagation();">
@@ -211,7 +211,7 @@
       <ng-container [matColumnDef]="column" *ngFor="let column of columnFieldsList">
 
           <!-- Celda con el Nombre de columna -->
-          <th mat-header-cell *matHeaderCellDef [ngClass]="getClassColumn(column)" class="fs-12 txt text-nowrap">
+          <th mat-header-cell *matHeaderCellDef [ngClass]="getClassColumn(column)" class="fs-12 cmm-txt text-nowrap">
               {{ getTextColumn(column) }}
           </th>
 

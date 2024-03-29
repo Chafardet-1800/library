@@ -5,10 +5,10 @@
     <div class="d-none d-md-flex align-items-center me-2">
 
         <mat-icon aria-hidden="false" aria-label="icon" [ngClass]="{'ccng-default': data.typeIcon == 'default',
-                'cmm-txtsuccess': data.typeIcon == 'success',
-                'cmm-txterror': data.typeIcon == 'error',
-                'cmm-txtwarning': data.typeIcon == 'warning',
-                'cmm-txtinfo': data.typeIcon == 'info' }" style="overflow: visible !important;" class="me-4 me-sm-0">
+                'cmm-txt-success': data.typeIcon == 'success',
+                'cmm-txt-error': data.typeIcon == 'error',
+                'cmm-txt-warning': data.typeIcon == 'warning',
+                'cmm-txt-info': data.typeIcon == 'info' }" style="overflow: visible !important;" class="me-4 me-sm-0">
 
             {{data.icon}}
         </mat-icon>
@@ -16,7 +16,7 @@
     </div>
 
     <!-- Textos -->
-    <div class="text txt">
+    <div class="text cmm-txt">
 
         <!-- Texto principal de la alerta -->
         <p class="m-0 fs-16 ">
@@ -24,7 +24,7 @@
         </p>
 
         <!-- Error que muestra la alerta -->
-        <p class="m-0 fs-14 cmm-txtbold" *ngIf="data.errorText">
+        <p class="m-0 fs-14 cmm-txt-bold" *ngIf="data.errorText">
             {{ data.errorText }}
         </p>
 
