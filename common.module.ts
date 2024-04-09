@@ -37,7 +37,7 @@ import { CmmSafeUrlPipe } from './pipes/sanitize-url.pipe';
 import { CmmDataService } from './services/data.service';
 import { CmmDialogService } from './services/dialogs.service';
 import { CmmFooterVersionComponent } from './components/others/footers/footer-version/footer-version.component';
-import { CmmProductsKartComponent } from './components/others/cmm-products-kart/cmm-products-kart.component';
+import { CmmProductsKartComponent } from './components/ecommerce/cmm-products-kart/cmm-products-kart.component';
 
 @NgModule({
   declarations: [

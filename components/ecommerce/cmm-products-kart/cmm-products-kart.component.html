@@ -1,4 +1,4 @@
-<div class="d-flex flex-column p-3">
+<div class="row g-0 flex-column p-3">
 
     <!-- <span>
         Producto
@@ -62,7 +62,7 @@
 
     <!-- Prefactura -->
 
-    <div class="rounded border p-4">
+    <div class="rounded border p-4 col-12">
 
         <h4 class="cmm-txt-thin-bold cmm-txt-uppercase">total de la orden</h4>
 
@@ -92,6 +92,18 @@
             <span>{{preBill.totalPrice + ' ' + preBill.currency}}</span>
 
         </div>
+
+    </div>
+
+    <div class="row">
+
+        <button class="rounded">
+            REGRESAR
+        </button>
+
+        <button class="rounded">
+            PAGAR
+        </button>
 
     </div>
 
