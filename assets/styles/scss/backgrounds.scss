@@ -95,7 +95,7 @@
 .cmm-bg-warning-outline {
   background: $v-white;
   border: 0.1px solid $v-warning;
-  color:$v-warning;
+  color: $v-warning;
 }
 
 .cmm-bg-info {
@@ -154,4 +154,8 @@
 
 .cmm-bg-light-gray {
   background: $v-light-gray;
+}
+
+.cmm-bg-project-primary {
+  background: var(--v-dynamic-primary) !important;
 }

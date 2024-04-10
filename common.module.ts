@@ -38,6 +38,7 @@ import { CmmDataService } from './services/data.service';
 import { CmmDialogService } from './services/dialogs.service';
 import { CmmFooterVersionComponent } from './components/others/footers/footer-version/footer-version.component';
 import { CmmProductsKartComponent } from './components/ecommerce/cmm-products-kart/cmm-products-kart.component';
+import { CmmNewButtonComponent } from './components/ecommerce/cmm-new-button/cmm-new-button.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { CmmProductsKartComponent } from './components/ecommerce/cmm-products-ka
     CmmFooterComponent,
     CmmButtonComponent,
     CmmFooterVersionComponent,
-    CmmProductsKartComponent
+    CmmProductsKartComponent,
+    CmmNewButtonComponent
   ],
   imports: [
     MaterialModule,
@@ -115,6 +117,7 @@ import { CmmProductsKartComponent } from './components/ecommerce/cmm-products-ka
     CmmButtonComponent,
     CmmFooterVersionComponent,
     CmmProductsKartComponent,
+    CmmNewButtonComponent,
     FormsModule
   ],
 })
