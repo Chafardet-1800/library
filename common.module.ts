@@ -120,7 +120,8 @@ import { CmmCarouselComponent } from './components/ecommerce/cmm-carousel/cmm-ca
     CmmFooterVersionComponent,
     CmmProductsKartComponent,
     CmmNewButtonComponent,
-    FormsModule
+    FormsModule,
+    CmmCarouselComponent
   ],
 })
 

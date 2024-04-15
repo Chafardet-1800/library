@@ -7,56 +7,14 @@ import { Component, Input } from '@angular/core';
 })
 export class CmmCarouselComponent {
 
+  /**
+   * Id del carrusel
+   */
   @Input() carouselId: string = 'carousel'
 
   /**
-   * Producto seleccionado
+   * Indica si muestro los botones por defecto o no
    */
-  productSelected: any
-
-  /**
-   * Funcion para seleccionar el siguiente elemento del carrucel
-   */
-  nextElement() {
-    // selecciono el ultimo elemento de mi arreglo de imagenes
-    // const last: number = this.popularProducts.length - 1;
-
-    // // selecciono la imagen que corresponde
-    // const nextImg = ++this.productSelected;
-    // if (nextImg > last) {
-    //   this.selectTemplate(0);
-    // }
-    // else {
-    //   this.selectTemplate(nextImg);
-    // }
-  }
-
-  /**
-   * Funcion para seleccionar el anterior elemento del carrucel
-   */
-  prevElement() {
-    // selecciono el ultimo elemento de mi arreglo de imagenes
-    // const last: number = this.popularProducts.length - 1;
-
-    // // selecciono la imagen que corresponde
-    // const nextImg = this.productSelected - 1;
-    // if (nextImg < 0) {
-    //   this.selectTemplate(last);
-    // }
-    // else {
-    //   this.selectTemplate(nextImg);
-    // }
-  }
-
-  /**
-   * Funcion que selescciona el Templateo que se muestra en detalle segun la imagen que se seleccione
-   * @param idImg
-   */
-  selectTemplate(idImg: number) {
-
-    // Guardo el id de la imagen seleccionada
-    this.productSelected = idImg;
-
-  }
+  @Input() customButtons: boolean = false
 
 }

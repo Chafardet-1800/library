@@ -13,42 +13,57 @@
         <!-- contendor de imagenes -->
         <div class="carousel-inner h-100 w-100">
 
-          <ng-content>
+          <ng-content select="[carousel]">
           </ng-content>
 
-            <!-- Plantilla -->
-            <!-- <div *ngFor="let productSection of popularProducts, index as i" class="carousel-item h-100 w-100"
-                [ngClass]="{'active': i == 0}">
-
-                <div class="w-100 h-100 p-0 d-flex justify-content-center align-items-center" style="gap: 2rem;">
-
-                    <cmp-core-product-card *ngFor="let item of productSection" [data]="item"></cmp-core-product-card>
-
-                </div>
-
-            </div> -->
-
         </div>
 
-        <div class="d-flex align-items-center carousel-control-prev border-0" [attr.data-bs-target]="'#' +carouselId"
-            data-bs-slide="prev">
+        <!-- Contenedor de botones por defecto -->
+        <ng-container *ngIf="!customButtons">
 
-            <button class="rounded" style="background-color: #947676;height: 80px;width: 60px;" (click)="prevElement()">
-                <mat-icon class="text-white">arrow_back_ios</mat-icon>
-            </button>
+          <!-- botones -->
 
-        </div>
+          <div class="d-flex align-items-center carousel-control-prev border-0" [attr.data-bs-target]="'#' +carouselId"
+              data-bs-slide="prev">
 
-        <!-- botones -->
+              <button class="carousel-control-prev" type="button">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+              </button>
 
-        <div class="d-flex align-items-center carousel-control-next border-0" [attr.data-bs-target]="'#' +carouselId"
-            data-bs-slide="next">
+          </div>
 
-            <button class="carousel-control-next" type="button" class="rounded"
-                style="background-color: #947676;height: 80px;width: 60px;" (click)="nextElement()">
-                <mat-icon class="text-white">arrow_forward_ios</mat-icon>
-            </button>
+          <div class="d-flex align-items-center carousel-control-next border-0" [attr.data-bs-target]="'#' +carouselId"
+              data-bs-slide="next">
 
-        </div>
+              <button class="carousel-control-next" type="button">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+              </button>
+
+          </div>
+
+        </ng-container>
+
+        <!-- Contenedor de botones personalizados -->
+        <ng-container *ngIf="customButtons">
+
+          <!-- botones -->
+          <div class="d-flex align-items-center carousel-control-prev border-0" [attr.data-bs-target]="'#' +carouselId"
+              data-bs-slide="prev">
+
+            <ng-content select="[prev]"></ng-content>
+
+          </div>
+
+          <div class="d-flex align-items-center carousel-control-next border-0" [attr.data-bs-target]="'#' +carouselId"
+              data-bs-slide="next">
+
+            <ng-content select="[next]"></ng-content>
+
+          </div>
+
+        </ng-container>
+
 
     </div>
