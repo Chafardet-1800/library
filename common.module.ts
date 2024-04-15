@@ -39,6 +39,7 @@ import { CmmDialogService } from './services/dialogs.service';
 import { CmmFooterVersionComponent } from './components/others/footers/footer-version/footer-version.component';
 import { CmmProductsKartComponent } from './components/ecommerce/cmm-products-kart/cmm-products-kart.component';
 import { CmmNewButtonComponent } from './components/ecommerce/cmm-new-button/cmm-new-button.component';
+import { CmmCarouselComponent } from './components/ecommerce/cmm-carousel/cmm-carousel.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { CmmNewButtonComponent } from './components/ecommerce/cmm-new-button/cmm
     CmmButtonComponent,
     CmmFooterVersionComponent,
     CmmProductsKartComponent,
-    CmmNewButtonComponent
+    CmmNewButtonComponent,
+    CmmCarouselComponent
   ],
   imports: [
     MaterialModule,
