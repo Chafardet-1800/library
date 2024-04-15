@@ -1,4 +1,7 @@
-<button mat-button class="rounded w-100 p-3 fs-12 cmm-txt-thin-bold text-white"
-    [ngClass]="outlined? 'btn-project-primary-outline':'cmm-bg-project-primary'" style="height: 45px;">
+<button mat-button class="w-100 m-0 p-3 fs-12 cmm-txt-thin-bold text-white cursor-pointer"
+    [ngClass]="outlined? 'btn-project-primary-outline':'cmm-bg-project-primary'"
+    [ngStyle]="{'border-radius':config.customBorderRadius, 'height':config.customHeight}">
+
     <ng-content></ng-content>
+
 </button>

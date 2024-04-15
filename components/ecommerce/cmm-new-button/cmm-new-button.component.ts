@@ -12,4 +12,17 @@ export class CmmNewButtonComponent {
    */
   @Input() outlined: boolean = false
 
+  /**
+   * Configuración del botón
+   */
+  @Input() config: {
+    customBorderRadius?: string,
+    outlined?: boolean,
+    customHeight?: string
+  } = {
+      outlined: false,
+      customBorderRadius: '',
+      customHeight: '45px'
+    }
+
 }
