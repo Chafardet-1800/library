@@ -58,6 +58,9 @@ $dynamic_border_radius: 10px;
   // Variable que indoca el color principal al estar seleccionado
   --v-dynamic-primary-selected: #2e5f9e;
 
+  // Variable que indica el color secundario del proyecto
+  --v-dynamic-secondary: #2e5f9e;
+
   // Variable que define el radio del borde para los botones
   --mdc-text-button-container-shape: #{$dynamic_border_radios_button};
 
