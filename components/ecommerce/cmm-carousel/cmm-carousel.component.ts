@@ -17,4 +17,15 @@ export class CmmCarouselComponent {
    */
   @Input() customButtons: boolean = false
 
+  /**
+   * Configuración del carrusel de bootstrap
+   */
+  @Input() carouselConfig: {
+    bsTouch?: boolean,
+    bsPause?: boolean
+  } = {
+    bsPause: false,
+    bsTouch: true
+  }
+
 }
