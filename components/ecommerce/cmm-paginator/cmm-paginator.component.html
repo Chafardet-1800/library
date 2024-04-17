@@ -1,0 +1,24 @@
+<div class="row justify-content-end align-items-center flex-row">
+
+    <!-- Página y cantidad -->
+    <p class="m-0" style="width: fit-content;">
+        {{currentPage}}
+
+        DE
+
+        {{totalPages}}
+
+        PÁGINAS
+    </p>
+
+    <!-- Para cambiar de página -->
+    <div *ngFor="let slicePageIndex of slice" class="p-2 d-flex justify-content-center align-items-center mx-1 rounded"
+        style="background: gray;width: 30px;height: 30px;">
+        <span class="m-0">
+            {{slicePageIndex}}
+        </span>
+    </div>
+
+    <!-- Flechita para ir cambiar de grupo de páginas -->
+    <mat-icon class="p-0">chevron_right</mat-icon>
+</div>

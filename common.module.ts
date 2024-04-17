@@ -40,6 +40,7 @@ import { CmmFooterVersionComponent } from './components/others/footers/footer-ve
 import { CmmProductsKartComponent } from './components/ecommerce/cmm-products-kart/cmm-products-kart.component';
 import { CmmNewButtonComponent } from './components/ecommerce/cmm-new-button/cmm-new-button.component';
 import { CmmCarouselComponent } from './components/ecommerce/cmm-carousel/cmm-carousel.component';
+import { CmmPaginatorComponent } from './components/ecommerce/cmm-paginator/cmm-paginator.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { CmmCarouselComponent } from './components/ecommerce/cmm-carousel/cmm-ca
     CmmFooterVersionComponent,
     CmmProductsKartComponent,
     CmmNewButtonComponent,
-    CmmCarouselComponent
+    CmmCarouselComponent,
+    CmmPaginatorComponent
   ],
   imports: [
     MaterialModule,
