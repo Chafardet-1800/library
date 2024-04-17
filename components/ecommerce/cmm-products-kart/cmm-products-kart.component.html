@@ -16,7 +16,7 @@
 
     <div *ngFor="let product of products" class="col-12 mb-3">
 
-        <div class="border rounded w-100 d-flex justify-content-between align-items-center px-4 py-3">
+        <div class="border rounded w-100 d-flex flex-column flex-md-row justify-content-between align-items-center px-4 py-3">
 
             <!-- Producto -->
             <div class="d-flex justify-content-between" style="gap: 1rem;">
@@ -37,28 +37,32 @@
 
             </div>
 
-            <!-- Cantidad -->
-            <div class="border px-3 py-2 rounded d-flex justify-content-between fs-12" style="min-width: 120px;">
+            <!-- Controles -->
+            <div class="d-flex align-items-center gap-2 mt-3 mt-md-0">
+              <!-- Cantidad -->
+              <div class="border px-3 py-2 rounded d-flex justify-content-between fs-12" style="min-width: 120px;">
 
-                <mat-icon class="fs-16 cursor-pointer"
-                    style="width: 16px !important; height: 16px !important;">remove</mat-icon>
+                  <mat-icon class="fs-16 cursor-pointer"
+                      style="width: 16px !important; height: 16px !important;">remove</mat-icon>
 
-                <span class="cmm-txt-thin-bold">{{product.quantity}}</span>
+                  <span class="cmm-txt-thin-bold">{{product.quantity}}</span>
 
-                <mat-icon class="fs-16 cursor-pointer"
-                    style="width: 16px !important; height: 16px !important;">add</mat-icon>
+                  <mat-icon class="fs-16 cursor-pointer"
+                      style="width: 16px !important; height: 16px !important;">add</mat-icon>
 
+              </div>
+
+              <!-- Precio -->
+              <div class="cmm-txt-thin-bold cmm-txt-uppercase">
+
+                  {{product.price + ' ' + product.currency}}
+
+              </div>
+
+              <!-- Ícono de borrar -->
+              <mat-icon>delete</mat-icon>
             </div>
 
-            <!-- Precio -->
-            <div class="cmm-txt-thin-bold cmm-txt-uppercase">
-
-                {{product.price + ' ' + product.currency}}
-
-            </div>
-
-            <!-- Ícono de borrar -->
-            <mat-icon>delete</mat-icon>
 
         </div>
 
