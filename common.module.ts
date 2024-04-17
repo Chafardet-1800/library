@@ -123,7 +123,8 @@ import { CmmPaginatorComponent } from './components/ecommerce/cmm-paginator/cmm-
     CmmProductsKartComponent,
     CmmNewButtonComponent,
     FormsModule,
-    CmmCarouselComponent
+    CmmCarouselComponent,
+    CmmPaginatorComponent
   ],
 })
 
