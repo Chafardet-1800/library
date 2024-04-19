@@ -14,9 +14,9 @@ export class CmmPaginatorComponent {
    */
   slice = [1, 2, 3, 4, 5]
 
-  currentPage = 0
+  currentPage = 1
 
-  totalPages = 0
+  totalPages = 10
 
   /**
    * Avanza una página hacia alante
