@@ -11,14 +11,18 @@
         PÁGINAS
     </p>
 
+    <!-- Flechita para ir cambiar de grupo de páginas -->
+    <mat-icon *ngIf="slice[0] > 1" class="p-0 cursor-pointer" (click)="stepBack()">chevron_left</mat-icon>
+
     <!-- Para cambiar de página -->
     <div *ngFor="let slicePageIndex of slice" class="p-2 d-flex justify-content-center align-items-center mx-1 rounded"
-        style="background: gray;width: 30px;height: 30px;">
+        style="background: #DFDDDE;width: 30px;height: 30px;">
         <span class="m-0">
             {{slicePageIndex}}
         </span>
     </div>
 
     <!-- Flechita para ir cambiar de grupo de páginas -->
-    <mat-icon class="p-0">chevron_right</mat-icon>
+    <mat-icon class="p-0 cursor-pointer" (click)="stepForward()">chevron_right</mat-icon>
+
 </div>
