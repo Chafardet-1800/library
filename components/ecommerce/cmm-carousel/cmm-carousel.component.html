@@ -1,4 +1,4 @@
-<div [id]="carouselId" class="carousel slide d-flex align-items-center w-100"
+<div [id]="carouselId" class="carousel d-flex align-items-center w-100" [ngClass]="isMobile?'':'slide'"
   [attr.data-bs-touch]="carouselConfig.bsTouch" [attr.data-bs-pause]="carouselConfig.bsPause" style="max-width: 100%;">
 
   <!-- Indicadores de cantidade de porductos en el carrucel -->

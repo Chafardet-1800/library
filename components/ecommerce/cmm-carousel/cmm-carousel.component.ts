@@ -24,8 +24,29 @@ export class CmmCarouselComponent {
     bsTouch?: boolean,
     bsPause?: boolean
   } = {
-    bsPause: false,
-    bsTouch: true
+      bsPause: false,
+      bsTouch: true
+    }
+
+  /**
+   * Indica si estoy en un teléfono
+   */
+  isMobile: boolean = false
+
+  ngOnInit() {
+
+    this.testMobile()
+
+  }
+
+  /**
+   * Detecta si estoy en teléfono
+   */
+  testMobile() {
+
+    const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+    this.isMobile = regex.test(navigator.userAgent);
+
   }
 
 }
