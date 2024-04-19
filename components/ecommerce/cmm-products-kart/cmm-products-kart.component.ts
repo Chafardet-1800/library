@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'cmp-cmm-products-kart',
@@ -16,6 +17,12 @@ export class CmmProductsKartComponent {
    * Prefactura
    */
   @Input() preBill: any = []
+
+  constructor(
+    private router: Router
+  ) {
+
+  }
 
   ngOnInit() {
     console.log(this.products);
@@ -50,6 +57,15 @@ export class CmmProductsKartComponent {
 
     // xd
     this.products.splice(this.products.indexOf(product), 1)
+
+  }
+
+  /**
+   * Me lleva de nuevo a la vista de productos
+   */
+  navigateBack() {
+
+    this.router.navigate(['/products'])
 
   }
 
