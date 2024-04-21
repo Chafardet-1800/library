@@ -454,6 +454,10 @@ END CARDS
   transform: scale(1.5);
 }
 
+.small-scale:hover {
+  scale: 1.05;
+}
+
 .purple-shadow {
   box-shadow: 0px 0px 800px 60px $v-secondary !important;
 }
