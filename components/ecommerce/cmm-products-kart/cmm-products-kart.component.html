@@ -32,6 +32,15 @@
 
                     <span class="fs-12">{{'by ' + product.brandName}}</span>
 
+                    <!-- Información adicional -->
+                    <div *ngFor="let item of product.aditionalInfo | keyvalue" class="fs-12 d-flex gap-1">
+
+                        <span>{{item.key + ':'}}</span>
+
+                        <span class="cmm-txt-thin-bold">{{item.value}}</span>
+
+                    </div>
+
                     <span class="fs-12">{{'sku: ' + product.sku}}</span>
 
                 </div>
