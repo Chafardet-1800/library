@@ -11,7 +11,9 @@
 
     <!-- Variantes -->
     <div *ngFor="let variant of data.variants; index as i" class="color_box me-1 cursor-pointer"
-        [style.background-color]="variant" [ngClass]="i == choosenVariant?'scale-1':''" (click)="choosenVariant = i">
+        [style.background-color]="variant"
+        [ngClass]="[i == choosenVariant?'scale-1':'', config.colorBoxRounded? 'rounded': '', config.colorBoxBorder? 'color_box_border': '']"
+        (click)="choosenVariant = i">
     </div>
 
 </div>
