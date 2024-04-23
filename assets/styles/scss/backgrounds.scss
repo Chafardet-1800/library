@@ -161,5 +161,9 @@
 }
 
 .cmm-bg-project-secondary {
-  background: var(--v-dynamic-secondary);
+  background: var(--v-dynamic-secondary) !important;
+}
+
+.cmm-bg-project-tertiary {
+  background: var(--v-dynamic-tertiary) !important;
 }

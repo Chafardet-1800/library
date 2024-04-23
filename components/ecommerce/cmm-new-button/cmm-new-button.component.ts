@@ -19,6 +19,7 @@ export class CmmNewButtonComponent {
     customBorderRadius?: string,
     outlined?: boolean,
     customHeight?: string
+    customBg?: string
   } = {
       outlined: false,
       customBorderRadius: '',
