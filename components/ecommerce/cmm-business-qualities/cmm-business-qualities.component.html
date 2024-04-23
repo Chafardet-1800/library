@@ -1,0 +1,16 @@
+<!-- características del negocio con íconos -->
+<div class="w-100 row mx-auto py-4" style="background-color: #E7E7E7;">
+
+    <div *ngFor="let item of items; let last = last"
+        class="col-sm-4 d-flex flex-column align-items-center justify-content-center"
+        [ngStyle]="{'border-right':last?'':'1px solid black'}">
+
+        <img class="w-100" [src]="item.icon" style="max-width: 100px;">
+
+        <span class="text-center cmm-txt-thin-bold w-100" style="max-width: 150px;">{{item.info}}</span>
+
+        <p class="text-center" style="max-width: 150px;">{{item.text}}</p>
+
+    </div>
+
+</div>
