@@ -29,6 +29,11 @@ export class CmmCarouselComponent {
     }
 
   /**
+   * Indica si muestro los indicadores
+   */
+  @Input() showIndicators: boolean = false
+
+  /**
    * Indica si estoy en un teléfono
    */
   isMobile: boolean = false

@@ -1,15 +1,6 @@
 <div [id]="carouselId" class="carousel d-flex align-items-center w-100" [ngClass]="isMobile?'':'slide'"
   [attr.data-bs-touch]="carouselConfig.bsTouch" [attr.data-bs-pause]="carouselConfig.bsPause" style="max-width: 100%;">
 
-  <!-- Indicadores de cantidade de porductos en el carrucel -->
-  <!-- <div class="carousel-indicators w-100">
-
-            <button *ngFor="let button of popularProducts, index as i" type="button" data-bs-target="#carousel"
-                (click)="selectTemplate(i)" attr.data-bs-slide-to="{{i}}" [ngClass]="{'active': i == 0}"
-                aria-label="Slide 1"></button>
-
-        </div> -->
-
   <!-- contendor de imagenes -->
   <div class="carousel-inner h-100 w-100 py-2">
 
@@ -49,15 +40,13 @@
   <ng-container *ngIf="customButtons">
 
     <!-- botones -->
-    <div class="d-flex align-items-center carousel-control-prev border-0" [attr.data-bs-target]="'#' +carouselId"
-      data-bs-slide="prev">
+    <div class="d-flex align-items-center carousel-control-prev border-0">
 
       <ng-content select="[prev]"></ng-content>
 
     </div>
 
-    <div class="d-flex align-items-center carousel-control-next border-0" [attr.data-bs-target]="'#' +carouselId"
-      data-bs-slide="next">
+    <div class="d-flex align-items-center carousel-control-next border-0">
 
       <ng-content select="[next]"></ng-content>
 
@@ -65,5 +54,11 @@
 
   </ng-container>
 
+  <!-- Indicadores de cantidade de porductos en el carrucel -->
+  <div *ngIf="showIndicators" class="carousel-indicators w-100">
+
+    <ng-container></ng-container>
+
+  </div>
 
 </div>
