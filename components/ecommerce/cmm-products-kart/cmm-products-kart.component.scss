@@ -1,3 +1,46 @@
 .kartBorder {
     padding-bottom: 150px !important;
 }
+
+.kart_item {
+    height: 150px;
+}
+
+.kart_item_product {
+    width: 25%
+}
+
+.kart_item_controls {
+    width: 60%;
+}
+
+@media (max-width: 992px) {
+
+    .kart_item {
+        height: 200px;
+    }
+
+    .kart_item_product {
+        width: 40%
+    }
+}
+
+@media (max-width: 767px) {
+
+    .kart_item {
+        height: 230px;
+    }
+
+}
+
+@media (max-width: 767px) {
+
+    .kart_item_product {
+        width: 100%;
+    }
+
+    .kart_item_controls {
+        width: 100%;
+    }
+
+}

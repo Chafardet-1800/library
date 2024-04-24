@@ -18,6 +18,10 @@ export class CmmProductsKartComponent {
    */
   @Input() preBill: any = []
 
+  @Input() config: {
+    customButtonsBorderRadius?: string
+  } = {}
+
   constructor(
     private router: Router
   ) {
