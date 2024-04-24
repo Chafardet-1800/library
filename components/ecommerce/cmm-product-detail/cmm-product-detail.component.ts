@@ -21,7 +21,8 @@ export class CmmProductDetailComponent {
   /**
    * Configuración de apariencia
    */
-  @Input() config: { button?: { customBorderRadius?: string, outlined?: boolean, customHeight?: string, customBg?: string } } = {}
+  @Input() config: { button?: { customBorderRadius?: string, outlined?: boolean, customHeight?: string, customBg?: string }, colorBox?: { colorBoxRounded?: boolean, colorBoxBorder?: boolean } } = {
+  }
 
   constructor() { }
 
