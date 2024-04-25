@@ -1,0 +1,133 @@
+<div class="row justify-content-evenly align-items-center mt-5">
+
+  <div class="col-7">
+
+      <div class="row">
+
+          <div class="col-4">
+
+              <div class="row w-100 justify-content-center">
+
+                  <div *ngFor="let item of product.images" class="col-6">
+
+                      <img style="width: 100px;aspect-ratio: 16/12;" [src]="item" alt="">
+
+                  </div>
+
+              </div>
+
+          </div>
+
+          <div class="col-8 d-flex justify-content-center">
+
+              <img [src]="product.mainImage" alt="">
+
+          </div>
+
+      </div>
+
+  </div>
+
+  <div class="col-5 d-flex flex-column justify-content-center pe-4">
+
+      <h3 class="fs-32 cmm-txt-thin-bold">{{product.brand}}</h3>
+      <span class="fs-34 cmm-txt-thin-bold">{{product.name}}</span>
+
+      <!-- Detalles -->
+      <span class="fs-34 cmm-txt-thin-bold my-4">{{'REF. '+ product.price}}</span>
+
+      <div class="" style="max-width: 600px;">
+
+          <div class="d-flex justify-content-between">
+              <span class="cmm-txt-thin-bold">SKU</span>
+              <span>{{product.sku}}</span>
+          </div>
+
+          <div class="d-flex justify-content-between">
+              <span class="cmm-txt-thin-bold">Nro. de Parte</span>
+              <span>{{product.partNumber}}</span>
+          </div>
+
+          <div class="d-flex justify-content-between">
+              <span class="cmm-txt-thin-bold">Compra Máxima:</span>
+              <span>{{product.maximunPurchase + ' unidad'}}</span>
+          </div>
+
+          <div class="d-flex mt-4 flex-column">
+
+              <span class="mb-3">CANTIDAD:</span>
+
+              <!-- Caja para cambiar de cantidad -->
+              <div class="border d-flex align-items-center" style="width: fit-content;">
+
+                  <div class="border p-2">
+
+                      <mat-icon>expand_more</mat-icon>
+
+                  </div>
+
+                  <span class="px-5">{{product.quantity}}</span>
+
+                  <div class="border p-2">
+
+                      <mat-icon>expand_less</mat-icon>
+
+                  </div>
+
+              </div>
+
+          </div>
+
+          <div class="row g-0 mt-4 justify-content-between">
+
+              <!-- <cmp-core-button class="fs-12" style="width: fit-content;" customBgColor="#e81313">
+                  AGREGAR AL CARRITO
+              </cmp-core-button>
+
+              <cmp-core-button class="fs-12" style="width: fit-content;" customBgColor="#e81313">
+
+                  <span class="d-flex align-items-center">
+
+                      <mat-icon class="fs-14 me-1"
+                          style="width: 14px !important;height: 14px !important;">favorite</mat-icon>
+
+                      AGREGAR A FAVORITOS
+                  </span>
+
+              </cmp-core-button> -->
+
+          </div>
+
+      </div>
+
+
+  </div>
+
+  <mat-divider class="my-3"></mat-divider>
+
+  <div class="col-12 d-flex flex-column">
+
+      <h3 class="cmm-txt-thin-bold mb-3">DESCRIPCIÓN</h3>
+
+      <span class="cmm-txt-thin-bold mb-3">{{product.description}}</span>
+
+      <div class="mb-3">
+          <span class="cmm-txt-thin-bold">No. de Parte: </span>
+          <span>{{product.partNumber}}</span>
+      </div>
+
+      <span class="cmm-txt-thin-bold mb-3">Características:</span>
+
+      <div class="mb-3">
+          <span>{{'Dimensiones: ' + product.aditionalDetails.size}}</span>
+          <span>{{'Peso: ' + product.aditionalDetails.weight}}</span>
+      </div>
+
+      <span class="cmm-txt-thin-bold mb-3">Modelos de aplicación:</span>
+
+      <span *ngFor="let item of product.aditionalDetails.applicationModels">{{item}}</span>
+
+
+  </div>
+
+</div>
