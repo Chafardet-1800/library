@@ -22,6 +22,11 @@ export class CmmProductDetailGridComponent {
    */
   itemSize: number = 0
 
+  /**
+  * Indica si se muestran las cajitas con sombra
+  */
+  @Input() displayShadow: boolean = true
+
   @HostListener('window:resize', ['$event'])
   onResize(e: Event) {
 

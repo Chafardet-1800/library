@@ -12,8 +12,13 @@ export class CmmProductDetailV1Component {
 
   @Input() currency: string = 'REF.'
 
+  /**
+  * Indica si se muestran las cajitas con sombra
+  */
+  @Input() displayShadow: boolean = true
+
   constructor(
     public utilsService: CmmUtilsService
-  ){}
+  ) { }
 
 }

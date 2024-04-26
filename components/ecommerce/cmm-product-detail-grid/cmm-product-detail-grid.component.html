@@ -1,4 +1,5 @@
-<div class="d-flex flex-column-reverse justify-content-between flex-md-row w-100 h-100 image_grid gap-3 p-2 position-relative">
+<div
+    class="d-flex flex-column-reverse justify-content-between flex-md-row w-100 h-100 image_grid gap-3 p-2 position-relative">
 
     <!-- Sección de imágenes adicionales -->
     <div class="other_images_column d-flex flex-row flex-md-column px-1">
@@ -13,9 +14,9 @@
 
         <!-- Las imágenes -->
         <div *ngFor="let image of images; let i = index"
-            class="other_images_container bg-white shadowBorder cursor-pointer d-flex align-items-center justify-content-center my-1"
+            class="other_images_container bg-white cursor-pointer d-flex align-items-center justify-content-center my-1"
             (click)="currentImageIndex = i" (mouseover)="currentImageIndex = i"
-            [ngClass]="currentImageIndex == i?'choosen_border':''">
+            [ngClass]="[currentImageIndex == i?'choosen_border':'', displayShadow?'shadowBorder':'']">
 
             <img class="other_image" [src]="image" [alt]="image">
 
@@ -32,7 +33,8 @@
     </div>
 
     <!-- Sección de imagen principal -->
-    <div class="main_image_column bg-white shadowBorder d-flex justify-content-center align-items-center flex-grow-1">
+    <div class="main_image_column bg-white d-flex justify-content-center align-items-center flex-grow-1"
+        [ngClass]="displayShadow?'shadowBorder':''">
 
         <div class="main_image_container cursor-pointer d-flex justify-content-center align-items-center">
 
