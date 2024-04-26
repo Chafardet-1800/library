@@ -1,37 +1,91 @@
-<div class="row justify-content-evenly align-items-center mt-5">
+<div class="row w-100 g-0 justify-content-evenly align-items-center mt-5">
 
-    <div class="p-5 col-12">
+  <section class="col-12 d-flex justify-content-center">
 
-        <cmp-cmm-product-detail-grid class="w-100 d-flex" style="height: 600px;"
-            [images]="product.images"></cmp-cmm-product-detail-grid>
+    <div class="row w-100 g-0 justify-content-center h-100 align-items-center">
+
+      <cmp-cmm-product-detail-grid class="col-lg-8 d-flex h-100"
+        [images]="product.images"></cmp-cmm-product-detail-grid>
+
+      <div class="col-lg-4">
+
+        <h3 class="cmm-txt-thin-bold mb-3">{{product.brand}}</h3>
+
+        <h3 class="cmm-txt-thin-bold mb-3">{{product.name}}</h3>
+
+        <div class="d-flex w-100 gap-1 mb-3">
+
+          <span class="fs-24 cmm-txt-thin-bold">{{currency}}</span>
+
+          <span class="fs-24 cmm-txt-thin-bold">{{product.price}}</span>
+
+        </div>
+
+        <div *ngFor="let item of product.details | keyvalue:utilsService.keepOrder" class="w-100 d-flex justify-content-between">
+
+            <span class="fs-16 cmm-txt-thin-bold">{{item.key}}:</span>
+
+            <span>{{item.value}}</span>
+
+        </div>
+
+        <cmp-cmm-produt-detail-quantity class="W-100" [quantity]="product.quantity" (currenQuantity)="product.quantity = $event"></cmp-cmm-produt-detail-quantity>
+
+        <div class="W-100 my-5">
+
+          <div class="row w-100 g-0">
+
+            <div class="col-xl-6 pe-xl-1 mb-3 mb-xl-0">
+
+              <cmp-cmm-new-button>
+                <span class="cmm-txt-thin-bold">AGREGAR AL CARRITO</span>
+              </cmp-cmm-new-button>
+
+            </div>
+
+            <div class="col-xl-6 ps-xl-1">
+
+              <cmp-cmm-new-button>
+                <span class="cmm-txt-thin-bold">AGREGAR A FAVORITOS</span>
+              </cmp-cmm-new-button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
 
     </div>
 
-    <mat-divider class="my-3"></mat-divider>
+  </section>
 
-    <div class="col-12 d-flex flex-column">
+  <mat-divider class="my-3"></mat-divider>
 
-        <h3 class="cmm-txt-thin-bold mb-3">DESCRIPCIÓN</h3>
+  <div class="col-12 d-flex flex-column">
 
-        <span class="cmm-txt-thin-bold mb-3">{{product.description}}</span>
+      <h3 class="cmm-txt-thin-bold mb-3">DESCRIPCIÓN</h3>
 
-        <div class="mb-3">
-            <span class="cmm-txt-thin-bold">No. de Parte: </span>
-            <span>{{product.partNumber}}</span>
-        </div>
+      <span class="cmm-txt-thin-bold mb-3">{{product.description}}</span>
 
-        <span class="cmm-txt-thin-bold mb-3">Características:</span>
+      <div class="mb-3">
+          <span class="cmm-txt-thin-bold">No. de Parte: </span>
+          <span>{{product.partNumber}}</span>
+      </div>
 
-        <div class="mb-3">
-            <span>{{'Dimensiones: ' + product.aditionalDetails.size}}</span>
-            <span>{{'Peso: ' + product.aditionalDetails.weight}}</span>
-        </div>
+      <span class="cmm-txt-thin-bold mb-3">Características:</span>
 
-        <span class="cmm-txt-thin-bold mb-3">Modelos de aplicación:</span>
+      <div class="mb-3">
+          <span>{{'Dimensiones: ' + product.aditionalDetails.size}}</span>
+          <span>{{'Peso: ' + product.aditionalDetails.weight}}</span>
+      </div>
 
-        <span *ngFor="let item of product.aditionalDetails.applicationModels">{{item}}</span>
+      <span class="cmm-txt-thin-bold mb-3">Modelos de aplicación:</span>
+
+      <span *ngFor="let item of product.aditionalDetails.applicationModels">{{item}}</span>
 
 
-    </div>
+  </div>
 
 </div>

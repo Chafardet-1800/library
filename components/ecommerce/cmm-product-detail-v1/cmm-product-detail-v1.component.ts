@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { CmmUtilsService } from 'src/app/common/services/utils.service';
 
 @Component({
   selector: 'cmp-cmm-product-detail-v1',
@@ -8,5 +9,11 @@ import { Component, Input } from '@angular/core';
 export class CmmProductDetailV1Component {
 
   @Input() product: any
+
+  @Input() currency: string = 'REF.'
+
+  constructor(
+    public utilsService: CmmUtilsService
+  ){}
 
 }
