@@ -45,6 +45,7 @@ import { CmmProductCardComponent } from './components/ecommerce/cmm-product-card
 import { CmmBusinessQualitiesComponent } from './components/ecommerce/cmm-business-qualities/cmm-business-qualities.component';
 import { CmmProductDetailComponent } from './components/ecommerce/cmm-product-detail/cmm-product-detail.component';
 import { CmmProductDetailV1Component } from './components/ecommerce/cmm-product-detail-v1/cmm-product-detail-v1.component';
+import { CmmProductDetailGridComponent } from './components/ecommerce/cmm-product-detail-grid/cmm-product-detail-grid.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,8 @@ import { CmmProductDetailV1Component } from './components/ecommerce/cmm-product-
     CmmProductCardComponent,
     CmmBusinessQualitiesComponent,
     CmmProductDetailComponent,
-    CmmProductDetailV1Component
+    CmmProductDetailV1Component,
+    CmmProductDetailGridComponent
   ],
   imports: [
     MaterialModule,
@@ -135,7 +137,9 @@ import { CmmProductDetailV1Component } from './components/ecommerce/cmm-product-
     CmmPaginatorComponent,
     CmmProductCardComponent,
     CmmBusinessQualitiesComponent,
-    CmmProductDetailComponent
+    CmmProductDetailComponent,
+    CmmProductDetailV1Component,
+    CmmProductDetailGridComponent
   ],
 })
 
