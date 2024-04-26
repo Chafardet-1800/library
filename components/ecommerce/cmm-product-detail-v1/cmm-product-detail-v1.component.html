@@ -12,6 +12,8 @@
       <!-- Información del producto -->
       <div class="col-lg-5 px-3">
 
+        <!-- Datos básicos del producto -->
+
         <h3 class="cmm-txt-thin-bold mb-3">{{product.brand}}</h3>
 
         <h3 class="cmm-txt-thin-bold mb-3">{{product.name}}</h3>
@@ -24,6 +26,7 @@
 
         </div>
 
+        <!-- Detalles de producto, que pueden variar -->
         <div *ngFor="let item of product.details | keyvalue:utilsService.keepOrder"
           class="w-100 d-flex justify-content-between">
 
@@ -33,9 +36,11 @@
 
         </div>
 
+        <!-- Cantidad de producto -->
         <cmp-cmm-produt-detail-quantity class="W-100" [quantity]="product.quantity"
           (currenQuantity)="product.quantity = $event"></cmp-cmm-produt-detail-quantity>
 
+        <!-- Botones -->
         <div class="W-100 my-5">
 
           <div class="row w-100 g-0">
@@ -43,15 +48,18 @@
             <div class="col-xl-6 pe-xl-1 mb-3 mb-xl-0">
 
               <cmp-cmm-new-button>
-                <span class="cmm-txt-thin-bold">AGREGAR AL CARRITO</span>
+                <span class="cmm-txt-thin-bold fs-10">AGREGAR AL CARRITO</span>
               </cmp-cmm-new-button>
 
             </div>
 
             <div class="col-xl-6 ps-xl-1">
 
-              <cmp-cmm-new-button>
-                <span class="cmm-txt-thin-bold">AGREGAR A FAVORITOS</span>
+              <cmp-cmm-new-button [outlined]="true">
+                <div class="d-flex align-items-center justify-content-between w-100">
+                  <mat-icon>favorite_outline</mat-icon>
+                  <span class="cmm-txt-thin-bold fs-10">AGREGAR A FAVORITOS </span>
+                </div>
               </cmp-cmm-new-button>
 
             </div>
