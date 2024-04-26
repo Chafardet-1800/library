@@ -14,7 +14,8 @@
         <!-- Las imágenes -->
         <div *ngFor="let image of images; let i = index"
             class="other_images_container bg-white shadowBorder cursor-pointer d-flex align-items-center justify-content-center my-1"
-            (click)="currentImageIndex = i" (mouseover)="currentImageIndex = i">
+            (click)="currentImageIndex = i" (mouseover)="currentImageIndex = i"
+            [ngClass]="currentImageIndex == i?'choosen_border':''">
 
             <img class="other_image" [src]="image" [alt]="image">
 

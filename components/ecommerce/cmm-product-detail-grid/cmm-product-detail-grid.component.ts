@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
 
 @Component({
   selector: 'cmp-cmm-product-detail-grid',
@@ -12,15 +12,67 @@ export class CmmProductDetailGridComponent {
    */
   @Input({ required: true }) images: string[] = []
 
+  /**
+   * Index de la imagen que estoy mostrando
+   */
   currentImageIndex: number = 0
 
-  constructor() { }
+  /**
+   * Tamaño de las tarjeticas con otras imágenes
+   */
+  itemSize: number = 0
 
-  scrollUp() {
+  @HostListener('window:resize', ['$event'])
+  onResize(e: Event) {
+
+    this.calculateScrollPortion()
 
   }
 
+  constructor() { }
+
+  ngOnInit() {
+
+    this.calculateScrollPortion()
+
+  }
+
+  calculateScrollPortion() {
+
+    let totalHeight = document.querySelector('.other_images_column')?.clientHeight as number
+
+    let totalWidth = document.querySelector('.other_images_column')?.clientWidth as number
+
+    let totalChildren = document.querySelector('.other_images_column')?.children.length as number
+
+    if (window.innerWidth > 767) {
+
+      if (totalChildren != 0) {
+
+        this.itemSize = totalHeight / totalChildren
+      }
+
+
+    } else {
+
+      if (totalChildren != 0) {
+
+        this.itemSize = totalWidth / totalChildren
+      }
+
+
+    }
+
+  }
+
+  scrollUp() {
+
+    document.querySelector('.other_images_column')?.scrollBy({ top: -this.itemSize, left: 0, behavior: "smooth" })
+  }
+
   scrollDown() {
+
+    document.querySelector('.other_images_column')?.scrollBy({ top: this.itemSize, left: 0, behavior: "smooth" })
 
   }
 
