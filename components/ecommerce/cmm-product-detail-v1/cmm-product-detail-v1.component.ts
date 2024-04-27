@@ -17,6 +17,10 @@ export class CmmProductDetailV1Component {
   */
   @Input() displayShadow: boolean = true
 
+  toggleFavorite: boolean = false
+
+  @Input() buttonFavoriteMode: 'text' | 'icon' = 'text'
+
   constructor(
     public utilsService: CmmUtilsService
   ) { }
