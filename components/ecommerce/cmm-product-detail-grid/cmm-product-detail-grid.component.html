@@ -5,7 +5,8 @@
     <div class="other_images_column d-flex flex-row flex-md-column px-1">
 
         <!-- Botón de ir arriba -->
-        <div class="arrow_up_container d-none d-md-flex justify-content-center align-items-center cursor-pointer"
+        <div *ngIf="images.length > 1"
+            class="arrow_up_container d-none d-md-flex justify-content-center align-items-center cursor-pointer"
             (click)="scrollUp()">
 
             <mat-icon class="fs-30 text-white">keyboard_arrow_up</mat-icon>
@@ -16,14 +17,15 @@
         <div *ngFor="let image of images; let i = index"
             class="other_images_container bg-white cursor-pointer d-flex align-items-center justify-content-center my-1"
             (click)="currentImageIndex = i" (mouseover)="currentImageIndex = i"
-            [ngClass]="[currentImageIndex == i?'choosen_border':'', displayShadow?'shadowBorder':'']">
+            [ngClass]="[currentImageIndex == i && images.length > 1?'choosen_border':'', displayShadow?'shadowBorder':'']">
 
             <img class="other_image" [src]="image" [alt]="image">
 
         </div>
 
         <!-- Botón de ir abajo -->
-        <div class="arrow_down_container d-none d-md-flex justify-content-center align-items-center cursor-pointer"
+        <div *ngIf="images.length > 1"
+            class="arrow_down_container d-none d-md-flex justify-content-center align-items-center cursor-pointer"
             (click)="scrollDown()">
 
             <mat-icon class="fs-30 text-white">keyboard_arrow_down</mat-icon>
