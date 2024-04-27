@@ -99,8 +99,9 @@
 
     <h3 class="cmm-txt-thin-bold mb-3">DESCRIPCIÓN</h3>
 
-    <div *ngFor="let item of product.description | keyvalue:utilsService.keepOrder" class="mb-3 d-flex gap-2">
-      <span class="cmm-txt-thin-bold">{{item.key}} {{item.value?':':''}}</span>
+    <div *ngFor="let item of product.description | keyvalue:utilsService.keepOrder"
+      class="mb-3 d-flex flex-column flex-sm-row gap-2">
+      <span class="cmm-txt-thin-bold text-sm-nowrap">{{item.key}} {{item.value?':':''}}</span>
       <span class="">{{item.value}}</span>
     </div>
 
