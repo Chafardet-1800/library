@@ -93,30 +93,16 @@
 
   </section>
 
-  <mat-divider class="my-3"></mat-divider>
+  <mat-divider *ngIf="product.description" class="my-3"></mat-divider>
 
-  <div class="col-12 d-flex flex-column">
+  <div *ngIf="product.description" class="col-12 d-flex flex-column">
 
     <h3 class="cmm-txt-thin-bold mb-3">DESCRIPCIÓN</h3>
 
-    <span class="cmm-txt-thin-bold mb-3">{{product.description}}</span>
-
-    <div class="mb-3">
-      <span class="cmm-txt-thin-bold">No. de Parte: </span>
-      <span>{{product.partNumber}}</span>
+    <div *ngFor="let item of product.description | keyvalue:utilsService.keepOrder" class="mb-3 d-flex gap-2">
+      <span class="cmm-txt-thin-bold">{{item.key}} {{item.value?':':''}}</span>
+      <span class="">{{item.value}}</span>
     </div>
-
-    <span class="cmm-txt-thin-bold mb-3">Características:</span>
-
-    <div class="mb-3">
-      <span>{{'Dimensiones: ' + product.aditionalDetails.size}}</span>
-      <span>{{'Peso: ' + product.aditionalDetails.weight}}</span>
-    </div>
-
-    <span class="cmm-txt-thin-bold mb-3">Modelos de aplicación:</span>
-
-    <span *ngFor="let item of product.aditionalDetails.applicationModels">{{item}}</span>
-
 
   </div>
 
