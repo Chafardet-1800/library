@@ -1,0 +1,13 @@
+<div class="carousel_container d-flex justify-content-center align-items-center">
+
+    <mat-icon class="fs-40 carousel_default_button cursor-pointer" (click)="previousItem()">navigate_before</mat-icon>
+
+    <div class="carousel_items_parent d-flex">
+
+        <ng-content container class="w-100 h-100"></ng-content>
+
+    </div>
+
+    <mat-icon class="fs-40 carousel_default_button cursor-pointer" (click)="nextItem()">navigate_next</mat-icon>
+
+</div>

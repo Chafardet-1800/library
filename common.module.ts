@@ -47,6 +47,7 @@ import { CmmProductDetailComponent } from './components/ecommerce/cmm-product-de
 import { CmmProductDetailV1Component } from './components/ecommerce/cmm-product-detail-v1/cmm-product-detail-v1.component';
 import { CmmProductDetailGridComponent } from './components/ecommerce/cmm-product-detail-grid/cmm-product-detail-grid.component';
 import { CmmProdutDetailQuantityComponent } from './components/ecommerce/cmm-produt-detail-quantity/cmm-produt-detail-quantity.component';
+import { CmmNewCarouselComponent } from './components/ecommerce/cmm-new-carousel/cmm-new-carousel.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,8 @@ import { CmmProdutDetailQuantityComponent } from './components/ecommerce/cmm-pro
     CmmProductDetailComponent,
     CmmProductDetailV1Component,
     CmmProductDetailGridComponent,
-    CmmProdutDetailQuantityComponent
+    CmmProdutDetailQuantityComponent,
+    CmmNewCarouselComponent
   ],
   imports: [
     MaterialModule,
@@ -142,7 +144,8 @@ import { CmmProdutDetailQuantityComponent } from './components/ecommerce/cmm-pro
     CmmProductDetailComponent,
     CmmProductDetailV1Component,
     CmmProductDetailGridComponent,
-    CmmProdutDetailQuantityComponent
+    CmmProdutDetailQuantityComponent,
+    CmmNewCarouselComponent
   ],
 })
 
