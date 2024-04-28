@@ -16,6 +16,10 @@
     height: 40px !important;
 }
 
+.carousel_items_parent::-webkit-scrollbar {
+    display: none;
+}
+
 @media (max-width: 992px) {
 
     .carousel_items_parent {

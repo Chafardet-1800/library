@@ -30,33 +30,33 @@ export class CmmNewCarouselComponent {
 
   nextItem() {
 
-    // this.currentItemIndex += 1
-
-    // if (this.currentItemIndex >= this.carouselItems.length) {
-
-    //   this.currentItemIndex = 0
-
-    // }
-
     let parent = document.getElementsByClassName('carousel_items_parent')[0]
 
-    parent.scrollLeft += 300
+    if ((parent.scrollWidth - parent.clientWidth) == Math.round(parent.scrollLeft)) {
+      parent.scrollTo({
+        top: 0,
+        left: - (this.carouselItems.length - 1) * 300,
+        behavior: 'instant'
+      })
+    } else {
+      parent.scrollLeft += 300
+    }
 
   }
 
   previousItem() {
 
-    // this.currentItemIndex -= 1
-
-    // if (this.currentItemIndex == this.carouselItems.length) {
-
-    //   this.currentItemIndex = this.carouselItems.length - 1
-
-    // }
-
     let parent = document.getElementsByClassName('carousel_items_parent')[0]
 
-    parent.scrollLeft -= 300
+    if (0 == parent.scrollLeft) {
+      parent.scrollBy({
+        top: 0,
+        left: (this.carouselItems.length - 1) * 300,
+        behavior: 'instant'
+      })
+    } else {
+      parent.scrollLeft -= 300
+    }
 
   }
 
