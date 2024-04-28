@@ -7,84 +7,89 @@ import { Component, HostListener } from '@angular/core';
 })
 export class CmmNewCarouselComponent {
 
-  currentItemIndex = 0
-
+  /**
+   * Items del carrusel
+   */
   carouselItems = document.getElementsByClassName('carousel_item')
+
+  /**
+   * Cantidad de espacio a scrollear
+   */
+  scrollAmount: number = 300
 
   @HostListener('window:resize', ['$event'])
   onResize(e: Event) {
-    this.setCurrentElement()
+
+    let parent = document.getElementsByClassName('carousel_items_parent')[0]
+
+    if (window.innerWidth < 567) {
+
+      this.scrollAmount = (parent.scrollWidth - parent.clientWidth) / (this.carouselItems.length - 1)
+
+    } else {
+      this.scrollAmount = 300
+    }
+
+    //* Regreso al primer item
+    parent.scrollTo({
+      top: 0,
+      left: - (this.carouselItems.length - 1) * this.scrollAmount,
+      behavior: 'instant'
+    })
+
   }
 
   constructor() { }
 
-  ngOnInit() {
-
-  }
-
   ngAfterViewInit() {
 
-    this.setCurrentElement()
+    let parent = document.getElementsByClassName('carousel_items_parent')[0]
+
+    if (window.innerWidth < 567) {
+
+      this.scrollAmount = (parent.scrollWidth - parent.clientWidth) / (this.carouselItems.length - 1)
+
+    }
 
   }
 
+  /**
+   * Me lleva al item siguiente
+   */
   nextItem() {
 
     let parent = document.getElementsByClassName('carousel_items_parent')[0]
 
-    if ((parent.scrollWidth - parent.clientWidth) == Math.round(parent.scrollLeft)) {
+    let scrollableAmount = (parent.scrollWidth - parent.clientWidth)
+
+    if (scrollableAmount == Math.round(parent.scrollLeft) || (scrollableAmount - Math.round(parent.scrollLeft) < this.scrollAmount)) {
       parent.scrollTo({
         top: 0,
-        left: - (this.carouselItems.length - 1) * 300,
+        left: - (this.carouselItems.length - 1) * this.scrollAmount,
         behavior: 'instant'
       })
     } else {
-      parent.scrollLeft += 300
+      parent.scrollLeft += this.scrollAmount
     }
 
   }
 
+  /**
+   * Me lleva al item anterior
+   */
   previousItem() {
 
     let parent = document.getElementsByClassName('carousel_items_parent')[0]
 
-    if (0 == parent.scrollLeft) {
+    if (0 == parent.scrollLeft || parent.scrollLeft < this.scrollAmount) {
       parent.scrollBy({
         top: 0,
-        left: (this.carouselItems.length - 1) * 300,
+        left: (this.carouselItems.length - 1) * this.scrollAmount,
         behavior: 'instant'
       })
     } else {
-      parent.scrollLeft -= 300
+      parent.scrollLeft -= this.scrollAmount
     }
-
-  }
-
-  setCurrentElement() {
-
-    // if (window.innerWidth < 992) {
-    //   for (let i = 0; i < this.carouselItems.length; i++) {
-    //     const element = this.carouselItems[i];
-
-    //     element.classList.add('item_inactive')
-    //     element.classList.remove('item_active')
-
-    //   }
-
-    //   const displayElement = this.carouselItems[this.currentItemIndex]
-
-    //   displayElement?.classList.add('item_active')
-    //   displayElement?.classList.remove('item_inactive')
-    // } else {
-
-    //   for (let i = 0; i < this.carouselItems.length; i++) {
-    //     const element = this.carouselItems[i];
-
-    //     element.classList.remove('item_inactive')
-
-    //   }
-
-    // }
 
   }
 

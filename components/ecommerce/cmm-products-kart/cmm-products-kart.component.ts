@@ -28,10 +28,6 @@ export class CmmProductsKartComponent {
 
   }
 
-  ngOnInit() {
-    console.log(this.products);
-  }
-
   /**
    * Añade más unidades del producto
    */
