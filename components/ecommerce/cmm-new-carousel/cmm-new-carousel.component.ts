@@ -28,6 +28,11 @@ export class CmmNewCarouselComponent {
   @Input() instantReset: boolean = true
 
   /**
+   * Id del carrusel
+   */
+  @Input({ required: true }) carouselId: string = ''
+
+  /**
    * Indica si los botones son clickeables
    */
   buttonsActive: boolean = true
@@ -35,7 +40,7 @@ export class CmmNewCarouselComponent {
   @HostListener('window:resize', ['$event'])
   onResize(e: Event) {
 
-    let parent = document.getElementsByClassName('carousel_items_parent')[0]
+    let parent = document.getElementById(this.carouselId) as HTMLElement
 
     if (window.innerWidth < 567) {
 
@@ -58,7 +63,7 @@ export class CmmNewCarouselComponent {
 
   ngAfterViewInit() {
 
-    let parent = document.getElementsByClassName('carousel_items_parent')[0]
+    let parent = document.getElementById(this.carouselId) as HTMLElement
 
     if (window.innerWidth < 567) {
 
@@ -88,7 +93,7 @@ export class CmmNewCarouselComponent {
     }, 500);
 
     //* Obtengo el elemento padre de los items
-    let parent = document.getElementsByClassName('carousel_items_parent')[0]
+    let parent = document.getElementById(this.carouselId) as HTMLElement
 
     let scrollableAmount = (parent.scrollWidth - parent.clientWidth)
 
@@ -126,7 +131,7 @@ export class CmmNewCarouselComponent {
 
 
     //* Obtengo el elemento padre de los items
-    let parent = document.getElementsByClassName('carousel_items_parent')[0]
+    let parent = document.getElementById(this.carouselId) as HTMLElement
 
     //* Scrolleo el elemento padre la cantidad necesaria
     if (0 == parent.scrollLeft || parent.scrollLeft < this.scrollAmount) {
