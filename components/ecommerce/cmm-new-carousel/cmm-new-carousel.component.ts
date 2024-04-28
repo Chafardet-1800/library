@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
 
 @Component({
   selector: 'cmp-cmm-new-carousel',
@@ -17,6 +17,21 @@ export class CmmNewCarouselComponent {
    */
   scrollAmount: number = 300
 
+  /**
+   * Indica si se muestran botones personalizados
+   */
+  @Input() customButtons: boolean = false
+
+  /**
+   * Indica si el reset del carrusel es instant o smooth
+   */
+  @Input() instantReset: boolean = true
+
+  /**
+   * Indica si los botones son clickeables
+   */
+  buttonsActive: boolean = true
+
   @HostListener('window:resize', ['$event'])
   onResize(e: Event) {
 
@@ -34,7 +49,7 @@ export class CmmNewCarouselComponent {
     parent.scrollTo({
       top: 0,
       left: - (this.carouselItems.length - 1) * this.scrollAmount,
-      behavior: 'instant'
+      behavior: this.instantReset ? 'instant' : 'smooth'
     })
 
   }
@@ -58,15 +73,31 @@ export class CmmNewCarouselComponent {
    */
   nextItem() {
 
+    if (!this.buttonsActive) {
+      return
+    }
+
+    //* Desactivo el botón por un tiempo para evitar que se dañe el ritmo de scrolleo
+
+    this.buttonsActive = false
+
+    setTimeout(() => {
+
+      this.buttonsActive = true
+
+    }, 500);
+
+    //* Obtengo el elemento padre de los items
     let parent = document.getElementsByClassName('carousel_items_parent')[0]
 
     let scrollableAmount = (parent.scrollWidth - parent.clientWidth)
 
+    //* Scrolleo el elemento padre la cantidad necesaria
     if (scrollableAmount == Math.round(parent.scrollLeft) || (scrollableAmount - Math.round(parent.scrollLeft) < this.scrollAmount)) {
       parent.scrollTo({
         top: 0,
         left: - (this.carouselItems.length - 1) * this.scrollAmount,
-        behavior: 'instant'
+        behavior: this.instantReset ? 'instant' : 'smooth'
       })
     } else {
       parent.scrollLeft += this.scrollAmount
@@ -79,13 +110,30 @@ export class CmmNewCarouselComponent {
    */
   previousItem() {
 
+    if (!this.buttonsActive) {
+      return
+    }
+
+    //* Desactivo el botón por un tiempo para evitar que se dañe el ritmo de scrolleo
+
+    this.buttonsActive = false
+
+    setTimeout(() => {
+
+      this.buttonsActive = true
+
+    }, 500);
+
+
+    //* Obtengo el elemento padre de los items
     let parent = document.getElementsByClassName('carousel_items_parent')[0]
 
+    //* Scrolleo el elemento padre la cantidad necesaria
     if (0 == parent.scrollLeft || parent.scrollLeft < this.scrollAmount) {
       parent.scrollBy({
         top: 0,
         left: (this.carouselItems.length - 1) * this.scrollAmount,
-        behavior: 'instant'
+        behavior: this.instantReset ? 'instant' : 'smooth'
       })
     } else {
       parent.scrollLeft -= this.scrollAmount
