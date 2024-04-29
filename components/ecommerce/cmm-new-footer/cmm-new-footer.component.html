@@ -1,0 +1,121 @@
+<!-- características del negocio con íconos -->
+<cmp-cmm-business-qualities *ngIf="showBusinessQualities" class="w-100" [items]="config.items"></cmp-cmm-business-qualities>
+
+<!-- footer -->
+<footer class="w-100 cmm-bg-project-primary">
+
+    <div class="row flex-column flex-md-row justify-content-center mx-auto g-0 py-5" style="max-width: 1200px;">
+
+        <!-- Todo carnes -->
+        <div class="d-flex ps-3 m-0 justify-content-start justify-content-md-center footer_section1">
+
+            <div class="d-flex flex-column">
+
+                <div class="w-100 d-flex align-items-center">
+
+                    <!-- <img id="footer_logo" class="main_logo" [src]="mainLogo" alt=""> -->
+
+                    <h4 class="cmm-txt-thin-bold text-white m-0" style="height: 58px;">{{config.businessInfo?.name}}</h4>
+
+                </div>
+
+                <div class="w-100 d-flex align-items-center mt-4" style="gap: 1rem;">
+
+                    <div class="">
+                        <mat-icon class="text-white">location_on</mat-icon>
+                    </div>
+
+                    <span class="text-white text-break overflow-hidden">{{config.businessInfo?.direction}}</span>
+
+                </div>
+
+                <div class="w-100 d-flex align-items-center mt-4" style="gap: 1rem;">
+
+                    <mat-icon class="text-white">call</mat-icon>
+
+                    <span class="text-white">{{config.businessInfo?.phone}}</span>
+
+                </div>
+
+                <div class="w-100 d-flex align-items-center mt-4" style="gap: 1rem;">
+
+                    <mat-icon class="text-white">mail</mat-icon>
+
+                    <span class="text-white">{{config.businessInfo?.mail}}</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Productos -->
+        <div class="d-flex justify-content-start ps-3 mt-5 mt-md-0 justify-content-md-center footer_section2">
+
+            <div class="d-flex justify-content-start flex-column">
+
+                <div class="d-flex align-items-center" style="max-height: 100px;height: 58px;">
+                    <h5 class="text-white cmm-txt-thin-bold">PRODUCTOS</h5>
+                </div>
+
+                <span *ngFor="let item of config.products" class="text-white mb-3">• {{item}}</span>
+
+            </div>
+
+        </div>
+
+        <!-- Acerca de nosotros -->
+        <div class="d-flex justify-content-start ps-3 mt-5 mt-md-0 justify-content-md-center footer_section3">
+
+            <div class="d-flex justify-content-start flex-column">
+
+                <div class="d-flex align-items-center" style="max-height: 100px;height: 58px;">
+                    <h5 class="text-white cmm-txt-thin-bold">ACERCA DE NOSOTROS</h5>
+                </div>
+
+                <span *ngFor="let item of config.aboutUs" class="text-white mb-3">{{item}}</span>
+
+            </div>
+
+        </div>
+
+        <!-- Parte baja del footer (Redes sociales) -->
+        <section class="col-12 d-flex justify-content-center justify-content-md-end">
+
+            <div class="d-flex flex-column">
+
+                <!-- titulo -->
+                <div class="d-flex align-items-center justify-content-between">
+
+                    <div class="line cmm-bg-project-primary" style="width: 150px !important;"></div>
+
+                    <span class="cmm-txt-thin-bold cmm-txt-project">SÍGUENOS</span>
+
+                </div>
+
+                <!-- Redes sociales -->
+                <div class="d-flex align-items-center gap-3">
+
+                    <div class="d-flex gap-3">
+
+                        <div *ngFor="let icon of config.socialNetworkIcons" class="d-flex align-items-center cursor-pointer">
+                            <img [src]="icon" alt="">
+                            <span class="text-white fs-12">@{{config.businessInfo?.name}}</span>
+                        </div>
+
+                    </div>
+
+                    <!-- Ícono de whatsapp -->
+                    <!-- <div class="d-flex align-items-center justify-content-center">
+                        <img class="cursor-pointer" [src]="icons.whatsapp" width="50" height="50" alt="">
+                    </div> -->
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</footer>

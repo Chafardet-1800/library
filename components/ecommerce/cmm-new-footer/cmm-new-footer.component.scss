@@ -1,0 +1,34 @@
+.main_logo {
+  max-width: 60px;
+  max-height: 100px;
+}
+
+.footer_section1 {
+  width: 35%;
+  border-right: 2px solid white;
+}
+
+.footer_section2 {
+  width: 30%;
+  border-right: 2px solid white;
+}
+
+.footer_section3 {
+  width: 35%;
+}
+
+@media (max-width: 768px) {
+
+  .footer_section1 {
+      width: 100%;
+  }
+
+  .footer_section2 {
+      width: 100%;
+  }
+
+  .footer_section3 {
+      width: 100%;
+  }
+
+}
