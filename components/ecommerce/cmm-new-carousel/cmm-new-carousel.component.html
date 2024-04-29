@@ -1,0 +1,25 @@
+<div class="carousel_container d-flex justify-content-center align-items-center">
+
+    <div class="carousel_default_button" (click)="previousItem()">
+
+        <mat-icon *ngIf="!customButtons" class="fs-40 carousel_default_button cursor-pointer">navigate_before</mat-icon>
+
+        <ng-content *ngIf="customButtons" select="[prevButton]"></ng-content>
+
+    </div>
+
+    <div class="carousel_items_parent d-flex" [id]="carouselId">
+
+        <ng-content container class="w-100 h-100"></ng-content>
+
+    </div>
+
+    <div class="carousel_default_button" (click)="nextItem()">
+
+        <mat-icon *ngIf="!customButtons" class="fs-40 carousel_default_button cursor-pointer">navigate_next</mat-icon>
+
+        <ng-content *ngIf="customButtons" select="[nextButton]"></ng-content>
+
+    </div>
+
+</div>

@@ -1,0 +1,50 @@
+<div
+    class="d-flex flex-column-reverse justify-content-between flex-md-row w-100 h-100 image_grid gap-3 p-2 position-relative">
+
+    <!-- Sección de imágenes adicionales -->
+    <div class="other_images_column d-flex flex-row flex-md-column px-1">
+
+        <!-- Botón de ir arriba -->
+        <div *ngIf="images.length > 1"
+            class="arrow_up_container d-none d-md-flex justify-content-center align-items-center cursor-pointer"
+            (click)="scrollUp()">
+
+            <mat-icon class="fs-30 text-white">keyboard_arrow_up</mat-icon>
+
+        </div>
+
+        <!-- Las imágenes -->
+        <div *ngFor="let image of images; let i = index"
+            class="other_images_container bg-white cursor-pointer d-flex align-items-center justify-content-center my-1"
+            (click)="currentImageIndex = i" (mouseover)="currentImageIndex = i"
+            [ngClass]="[currentImageIndex == i && images.length > 1?'choosen_border':'', displayShadow?'shadowBorder':'']">
+
+            <img class="other_image" [src]="image" [alt]="image">
+
+        </div>
+
+        <!-- Botón de ir abajo -->
+        <div *ngIf="images.length > 1"
+            class="arrow_down_container d-none d-md-flex justify-content-center align-items-center cursor-pointer"
+            (click)="scrollDown()">
+
+            <mat-icon class="fs-30 text-white">keyboard_arrow_down</mat-icon>
+
+        </div>
+
+    </div>
+
+    <!-- Sección de imagen principal -->
+    <div class="main_image_column bg-white d-flex justify-content-center align-items-center flex-grow-1"
+        [ngClass]="displayShadow?'shadowBorder':''">
+
+        <div class="main_image_container cursor-pointer d-flex justify-content-center align-items-center">
+
+            <img class="main_image" [src]="images[currentImageIndex]" [alt]="images[currentImageIndex]">
+
+        </div>
+
+
+    </div>
+
+</div>

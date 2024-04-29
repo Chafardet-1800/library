@@ -57,4 +57,15 @@ export class CmmUtilsService {
     });
 
   }
+
+  /**
+   * Función para sortear los items del keyvalue pipe
+   * @param a
+   * @param b
+   * @returns
+   */
+  keepOrder = (a: any, b: any) => {
+    return 0;
+  }
+
 }

@@ -1,0 +1,24 @@
+<div class="d-flex mt-4 flex-column">
+
+  <span class="mb-3">CANTIDAD:</span>
+
+  <!-- Caja para cambiar de cantidad -->
+  <div class="border d-flex align-items-center" style="width: fit-content;">
+
+      <div class="border p-2 cursor-pointer" (click)="removeProductUnit()">
+
+          <mat-icon>expand_more</mat-icon>
+
+      </div>
+
+      <span class="px-5">{{quantity}}</span>
+
+      <div class="border p-2 cursor-pointer" (click)="addProductUnit()">
+
+          <mat-icon>expand_less</mat-icon>
+
+      </div>
+
+  </div>
+
+</div>

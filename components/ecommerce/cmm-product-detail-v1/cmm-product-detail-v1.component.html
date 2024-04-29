@@ -1,0 +1,111 @@
+<div class="row w-100 g-0 justify-content-evenly align-items-center mt-5">
+
+  <!-- Sección del producto -->
+  <section class="col-12 d-flex justify-content-center">
+
+    <div class="row w-100 g-0 justify-content-center h-100 align-items-center">
+
+      <!-- Imágenes del producto -->
+      <cmp-cmm-product-detail-grid class="col-lg-7 d-flex h-100" [images]="product.images"
+        [displayShadow]="displayShadow"></cmp-cmm-product-detail-grid>
+
+      <!-- Información del producto -->
+      <div class="col-lg-5 px-3">
+
+        <!-- Datos básicos del producto -->
+
+        <h3 class="cmm-txt-thin-bold mb-3">{{product.brand}}</h3>
+
+        <h3 class="cmm-txt-thin-bold mb-3">{{product.name}}</h3>
+
+        <div class="d-flex w-100 gap-1 mb-3">
+
+          <span class="fs-24 cmm-txt-thin-bold">{{currency}}</span>
+
+          <span class="fs-24 cmm-txt-thin-bold">{{product.price}}</span>
+
+        </div>
+
+        <!-- Detalles de producto, que pueden variar -->
+        <div *ngFor="let item of product.details | keyvalue:utilsService.keepOrder"
+          class="w-100 d-flex justify-content-between">
+
+          <span class="fs-16 cmm-txt-thin-bold">{{item.key}}:</span>
+
+          <span>{{item.value}}</span>
+
+        </div>
+
+        <!-- Cantidad de producto -->
+        <cmp-cmm-produt-detail-quantity class="W-100" [quantity]="product.quantity"
+          (currenQuantity)="product.quantity = $event"></cmp-cmm-produt-detail-quantity>
+
+        <!-- Botones -->
+        <div class="row w-100 my-5 g-0 align-items-center">
+
+          <div class="pe-xl-1 mb-xl-0" [ngClass]="buttonFavoriteMode == 'text'?'col-xl-6 mb-3':'col-sm-6 mb-3 mb-sm-0'">
+
+            <cmp-cmm-new-button>
+              <span class="cmm-txt-thin-bold fs-10">AGREGAR AL CARRITO</span>
+            </cmp-cmm-new-button>
+
+          </div>
+
+          <div class="ps-xl-1 d-flex justify-content-center align-items-center"
+            [ngClass]="buttonFavoriteMode == 'text'?'col-xl-6':'col-sm-6'">
+
+            <cmp-cmm-new-button *ngIf="buttonFavoriteMode == 'text'" class="w-100" [outlined]="true"
+              (click)="toggleFavorite = !toggleFavorite">
+
+              <div class="d-flex align-items-center justify-content-between w-100">
+
+                <mat-icon *ngIf="!toggleFavorite" class="fs-20 cmm-txt-project-primary cursor-pointer"
+                  style="width: 20px !important;height: 20px !important;">favorite_outline</mat-icon>
+
+                <mat-icon *ngIf="toggleFavorite" class="fs-20 cmm-txt-project-primary cursor-pointer"
+                  style="width: 20px !important;height: 20px !important;">favorite</mat-icon>
+
+                <span class="cmm-txt-thin-bold fs-10 ms-1">{{toggleFavorite?'ELIMINAR DE ':'AGREGAR A '}} FAVORITOS
+                </span>
+
+              </div>
+
+            </cmp-cmm-new-button>
+
+            <button *ngIf="buttonFavoriteMode == 'icon'" mat-icon-button
+              class="d-flex justify-content-center align-items-center" style="height: 65px;width: 65px;"
+              (click)="toggleFavorite = !toggleFavorite">
+
+              <mat-icon *ngIf="!toggleFavorite" class="fs-40 cmm-txt-project-primary cursor-pointer"
+                style="width: 40px !important;height: 40px !important;">favorite_outline</mat-icon>
+
+              <mat-icon *ngIf="toggleFavorite" class="fs-40 cmm-txt-project-primary cursor-pointer"
+                style="width: 40px !important;height: 40px !important;">favorite</mat-icon>
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <mat-divider *ngIf="product.description" class="my-3"></mat-divider>
+
+  <div *ngIf="product.description" class="col-12 d-flex flex-column">
+
+    <h3 class="cmm-txt-thin-bold mb-3">DESCRIPCIÓN</h3>
+
+    <div *ngFor="let item of product.description | keyvalue:utilsService.keepOrder"
+      class="mb-3 d-flex flex-column flex-sm-row gap-2">
+      <span class="cmm-txt-thin-bold text-sm-nowrap">{{item.key}} {{item.value?':':''}}</span>
+      <span class="">{{item.value}}</span>
+    </div>
+
+  </div>
+
+</div>
