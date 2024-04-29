@@ -4,18 +4,18 @@
 <!-- footer -->
 <footer class="w-100 cmm-bg-project-primary">
 
-    <div class="row flex-column flex-md-row justify-content-center mx-auto g-0 py-5" style="max-width: 1200px;">
+    <div class="row flex-column flex-md-row justify-content-center mx-auto g-0 py-5" style="max-width: 1500px;">
 
         <!-- Todo carnes -->
-        <div class="d-flex ps-3 m-0 justify-content-start justify-content-md-center footer_section1">
+        <div class="d-flex ps-3 m-0 justify-content-start justify-content-md-center col-md-4 footer_section_border">
 
             <div class="d-flex flex-column">
 
                 <div class="w-100 d-flex align-items-center">
 
-                    <!-- <img id="footer_logo" class="main_logo" [src]="mainLogo" alt=""> -->
+                    <img *ngIf="config.mainLogo" id="footer_logo" class="main_logo" [src]="config.mainLogo" alt="">
 
-                    <h4 class="cmm-txt-thin-bold text-white m-0" style="height: 58px;">{{config.businessInfo?.name}}</h4>
+                    <h4 *ngIf="!config.mainLogo" class="cmm-txt-thin-bold text-white m-0" style="height: 58px;">{{config.businessInfo?.name}}</h4>
 
                 </div>
 
@@ -25,7 +25,7 @@
                         <mat-icon class="text-white">location_on</mat-icon>
                     </div>
 
-                    <span class="text-white text-break overflow-hidden">{{config.businessInfo?.direction}}</span>
+                    <span class="text-white text-break overflow-hidden fs-12 cmm-txt-thin-bold">{{config.businessInfo?.direction}}</span>
 
                 </div>
 
@@ -33,7 +33,7 @@
 
                     <mat-icon class="text-white">call</mat-icon>
 
-                    <span class="text-white">{{config.businessInfo?.phone}}</span>
+                    <span class="text-white fs-12 cmm-txt-thin-bold">{{config.businessInfo?.phone}}</span>
 
                 </div>
 
@@ -41,7 +41,7 @@
 
                     <mat-icon class="text-white">mail</mat-icon>
 
-                    <span class="text-white">{{config.businessInfo?.mail}}</span>
+                    <span class="text-white fs-12 cmm-txt-thin-bold">{{config.businessInfo?.mail}}</span>
 
                 </div>
 
@@ -50,7 +50,7 @@
         </div>
 
         <!-- Productos -->
-        <div class="d-flex justify-content-start ps-3 mt-5 mt-md-0 justify-content-md-center footer_section2">
+        <div class="d-flex justify-content-start ps-3 mt-5 mt-md-0 justify-content-md-center col-md-4 footer_section_border">
 
             <div class="d-flex justify-content-start flex-column">
 
@@ -58,14 +58,14 @@
                     <h5 class="text-white cmm-txt-thin-bold">PRODUCTOS</h5>
                 </div>
 
-                <span *ngFor="let item of config.products" class="text-white mb-3">• {{item}}</span>
+                <span *ngFor="let item of config.products" class="text-white mb-3 fs-12 cmm-txt-thin-bold">• {{item}}</span>
 
             </div>
 
         </div>
 
         <!-- Acerca de nosotros -->
-        <div class="d-flex justify-content-start ps-3 mt-5 mt-md-0 justify-content-md-center footer_section3">
+        <div class="d-flex justify-content-start ps-3 mt-5 mt-md-0 justify-content-md-center col-md-4">
 
             <div class="d-flex justify-content-start flex-column">
 
@@ -73,7 +73,7 @@
                     <h5 class="text-white cmm-txt-thin-bold">ACERCA DE NOSOTROS</h5>
                 </div>
 
-                <span *ngFor="let item of config.aboutUs" class="text-white mb-3">{{item}}</span>
+                <span *ngFor="let item of config.aboutUs" class="text-white mb-3 fs-12 cmm-txt-thin-bold">{{item}}</span>
 
             </div>
 
@@ -100,15 +100,15 @@
 
                         <div *ngFor="let icon of config.socialNetworkIcons" class="d-flex align-items-center cursor-pointer">
                             <img [src]="icon" alt="">
-                            <span class="text-white fs-12">@{{config.businessInfo?.name}}</span>
+                            <span class="text-white fs-12 cmm-txt-thin-bold">@{{config.businessInfo?.name}}</span>
                         </div>
 
                     </div>
 
                     <!-- Ícono de whatsapp -->
-                    <!-- <div class="d-flex align-items-center justify-content-center">
-                        <img class="cursor-pointer" [src]="icons.whatsapp" width="50" height="50" alt="">
-                    </div> -->
+                    <div class="d-flex align-items-center justify-content-center">
+                        <img class="cursor-pointer" [src]="whatsappIcon" width="50" height="50" alt="">
+                    </div>
 
                 </div>
 

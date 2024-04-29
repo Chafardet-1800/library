@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { whatsappIcon } from 'src/app/common/assets/images/images-routes';
 import { CmmEcomFooterConfig } from 'src/app/common/data/utils/models/ecommerce.models';
 
 @Component({
@@ -8,6 +9,7 @@ import { CmmEcomFooterConfig } from 'src/app/common/data/utils/models/ecommerce.
 })
 export class CmmNewFooterComponent {
 
+  whatsappIcon = whatsappIcon
 
   @Input() showBusinessQualities: boolean = true
 

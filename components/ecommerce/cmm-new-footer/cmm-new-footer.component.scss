@@ -17,6 +17,10 @@
   width: 35%;
 }
 
+.footer_section_border {
+  border-right: 2px solid white;
+}
+
 @media (max-width: 768px) {
 
   .footer_section1 {
@@ -29,6 +33,10 @@
 
   .footer_section3 {
       width: 100%;
+  }
+
+  .footer_section_border {
+    border: none;
   }
 
 }

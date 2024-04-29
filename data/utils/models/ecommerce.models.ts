@@ -1,5 +1,6 @@
 
 export interface CmmEcomFooterConfig {
+  mainLogo?: string,
   items?: any,
   socialNetworkIcons?: any,
   businessInfo?: {

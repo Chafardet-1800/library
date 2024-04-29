@@ -85,7 +85,7 @@ export const reversedIcon =
   'assets/images/icons/chinchin_reverse.svg';
 
 export const whatsappIcon =
-  'assets/images/icons/chinchin_icon_whatsapp.svg';
+  'assets/images/icons/whatsapp.svg';
 
 export const facebookIcon =
   'assets/images/icons/chinchin_icon_facebook.svg';
@@ -101,4 +101,3 @@ export const documentImages = {
   document_od_svg: 'assets/images/icons/chinchin_od_document.svg',
   upload_file: 'assets/images/icons/chinchin_od_upload_file.svg',
 }
-
