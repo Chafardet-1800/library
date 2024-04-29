@@ -1,5 +1,6 @@
-<div class="row h-100 g-0 product_card px-1 flip_box">
+<div class="row h-100 g-0 product_card px-1">
 
+  <div class="flip_box">
     <div class="w-100 flip_box_inner" style="aspect-ratio: 1;">
 
         <div class="flip_front position-absolute">
@@ -13,19 +14,19 @@
         </div>
 
     </div>
+  </div>
 
+  <!-- Nombre -->
+  <span class="mt-3">{{data.name}}</span>
 
-    <!-- Nombre -->
-    <span class="mt-3">{{data.name}}</span>
+  <!-- precio -->
+  <span class="my-3 cmm-txt-bold">{{'$'+ data.price}}</span>
 
-    <!-- precio -->
-    <span class="my-3 cmm-txt-bold">{{'$'+ data.price}}</span>
-
-    <!-- Variantes -->
-    <div *ngFor="let variant of data.variants; index as i" class="color_box me-1 cursor-pointer"
-        [style.background-color]="variant"
-        [ngClass]="[i == choosenVariant?'scale-1':'', config.colorBoxRounded? 'rounded': '', config.colorBoxBorder? 'color_box_border': '']"
-        (click)="choosenVariant = i">
-    </div>
+  <!-- Variantes -->
+  <div *ngFor="let variant of data.variants; index as i" class="color_box me-1 cursor-pointer"
+      [style.background-color]="variant"
+      [ngClass]="[i == choosenVariant?'scale-1':'', config.colorBoxRounded? 'rounded': '', config.colorBoxBorder? 'color_box_border': '']"
+      (click)="choosenVariant = i">
+  </div>
 
 </div>

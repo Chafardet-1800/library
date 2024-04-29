@@ -532,3 +532,37 @@ END CARDS
   }
 
 }
+
+/*--------------------------------------------------------------------------------------------------------------------------------------
+ Efecto de flip card
+--------------------------------------------------------------------------------------------------------------------------------------*/
+
+.flip_box {
+  perspective: 1000px;
+}
+
+/* This container is needed to position the front and back side */
+.flip_box_inner {
+  position: relative !important;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip_box:hover .flip_box_inner {
+  transform: rotateY(180deg);
+}
+
+.flip_front,
+.flip_back {
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  /* Safari */
+  backface-visibility: hidden;
+}
+
+.flip_back {
+  transform: rotateY(180deg);
+}
