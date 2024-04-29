@@ -8,6 +8,8 @@
     overflow-x: auto;
     width: 900px;
     max-width: 100%;
+    display: flex;
+    justify-content: start;
     scroll-behavior: smooth !important;
 }
 

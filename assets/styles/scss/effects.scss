@@ -515,10 +515,16 @@ END CARDS
   display: none !important;
 }
 
+.carousel_item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (min-width: 992px) {
 
   .carousel_item {
-    min-width: 33%;
+    min-width: 33.33333333%
   }
 
 }
