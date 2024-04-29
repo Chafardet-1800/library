@@ -3,40 +3,7 @@
     <!-- Parte donde van las imágenes de los productos -->
     <div class="col-lg-7">
 
-        <div class="row g-0 w-100 bg-white">
-
-            <div class="col-2 col-lg-3">
-
-                <div class="row w-100 justify-content-center px-3">
-
-                    <div *ngFor="let item of product.images" [style.background-image]="'url(' + item +')'"
-                        class="col-12 product_detail_image my-3" style="aspect-ratio: 1;">
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="col-10 col-lg-9 d-flex align-items-center position-relative bg-white"
-                style="aspect-ratio: 9/10;background-color: #F2F2F2;">
-
-                <!-- Botón de cambiar a imagen anterior -->
-                <mat-icon class="position-absolute cursor-pointer"
-                    style="top: 50%;left: 5%;transform: translateX(-50%);"
-                    (click)="changeMainImageIndex(false)">arrow_back_ios</mat-icon>
-
-                <img [src]="product.images[mainImageIndex]" alt="" class="w-100"
-                    style="max-width: 100%;aspect-ratio: 1;">
-
-                <!-- Botón de cambiar a imagen siguiente -->
-                <mat-icon class="position-absolute cursor-pointer"
-                    style="top: 50%;left: 95%;transform: translateX(-50%);"
-                    (click)="changeMainImageIndex(true)">arrow_forward_ios</mat-icon>
-
-            </div>
-
-        </div>
+        <cmp-cmm-product-detail-grid [images]="product.images"></cmp-cmm-product-detail-grid>
 
     </div>
 
