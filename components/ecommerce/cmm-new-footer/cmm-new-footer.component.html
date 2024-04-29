@@ -7,13 +7,13 @@
     <div class="row flex-column flex-md-row justify-content-center mx-auto g-0 py-5" style="max-width: 1500px;">
 
         <!-- Todo carnes -->
-        <div class="d-flex ps-3 m-0 justify-content-start justify-content-md-center col-md-4 footer_section_border">
+        <div class="d-flex p-3 px-5 px-md-3 m-0 justify-content-start justify-content-md-center col-md-4 footer_section_border">
 
             <div class="d-flex flex-column">
 
                 <div class="w-100 d-flex align-items-center">
 
-                    <img *ngIf="config.mainLogo" id="footer_logo" class="main_logo" [src]="config.mainLogo" alt="">
+                    <img *ngIf="config.mainLogo" id="footer_logo" [ngStyle]="{'width': config.mainLogoSize?.width, 'height': config.mainLogoSize?.height}" [src]="config.mainLogo" alt="">
 
                     <h4 *ngIf="!config.mainLogo" class="cmm-txt-thin-bold text-white m-0" style="height: 58px;">{{config.businessInfo?.name}}</h4>
 
@@ -50,7 +50,7 @@
         </div>
 
         <!-- Productos -->
-        <div class="d-flex justify-content-start ps-3 mt-5 mt-md-0 justify-content-md-center col-md-4 footer_section_border">
+        <div class="d-flex justify-content-start p-3 px-5 px-md-3 mt-5 mt-md-0 justify-content-md-center col-md-4 footer_section_border">
 
             <div class="d-flex justify-content-start flex-column">
 
@@ -65,7 +65,7 @@
         </div>
 
         <!-- Acerca de nosotros -->
-        <div class="d-flex justify-content-start ps-3 mt-5 mt-md-0 justify-content-md-center col-md-4">
+        <div class="d-flex justify-content-start p-3 px-5 px-md-3 mt-5 mt-md-0 justify-content-md-center col-md-4">
 
             <div class="d-flex justify-content-start flex-column">
 
@@ -80,7 +80,7 @@
         </div>
 
         <!-- Parte baja del footer (Redes sociales) -->
-        <section class="col-12 d-flex justify-content-center justify-content-md-end">
+        <section class="col-12 p-3 d-flex justify-content-center justify-content-md-end">
 
             <div class="d-flex flex-column">
 
