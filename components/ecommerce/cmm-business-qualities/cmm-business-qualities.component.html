@@ -7,7 +7,7 @@
 
       <div *ngFor="let item of items; let last = last"
           class="col-sm-4 d-flex flex-column align-items-center justify-content-center"
-          [ngStyle]="{'border-right':last?'':'1px solid black'}">
+          [ngClass]="last?'':'footer_section_border'">
 
           <img class="w-100" [src]="item.icon" style="max-width: 100px;">
 
