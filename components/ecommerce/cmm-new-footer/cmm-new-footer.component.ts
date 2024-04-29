@@ -13,10 +13,12 @@ export class CmmNewFooterComponent {
 
   @Input() showBusinessQualities: boolean = true
 
+  @Input() showTitle: boolean = true
+
   /**
    * Información a mostrar en el footer
    */
-  @Input({required: true}) config: CmmEcomFooterConfig = {
+  @Input({ required: true }) config: CmmEcomFooterConfig = {
     businessInfo: {
       name: 'nature',
       direction: 'Av. Circumbalación del sol, calle 110 con av 62 de El Cafetal, Caracas',

@@ -1,37 +1,51 @@
 <!-- características del negocio con íconos -->
-<cmp-cmm-business-qualities *ngIf="showBusinessQualities" class="w-100" [items]="config.items"></cmp-cmm-business-qualities>
+<cmp-cmm-business-qualities *ngIf="showBusinessQualities" class="w-100"
+    [items]="config.items"></cmp-cmm-business-qualities>
 
 <!-- footer -->
-<footer class="w-100 cmm-bg-project-primary">
+<footer class="w-100"
+    [ngClass]="[config.bgColor && !config.bgClass?'':config.bgClass?config.bgClass:'cmm-bg-project-primary']"
+    [ngStyle]="{'background-color':config.bgColor??'default'}">
 
     <div class="row flex-column flex-md-row justify-content-center mx-auto g-0 py-5" style="max-width: 1500px;">
 
         <!-- Todo carnes -->
-        <div class="d-flex p-3 px-5 px-md-3 m-0 justify-content-start justify-content-md-center col-md-4 footer_section_border">
+        <div
+            class="d-flex p-3 px-5 px-md-3 m-0 justify-content-start justify-content-md-center col-md-4 footer_section_border">
 
             <div class="d-flex flex-column">
 
-                <div class="w-100 d-flex align-items-center">
+                <div class="w-100 d-flex align-items-center gap-2">
 
-                    <img *ngIf="config.mainLogo" id="footer_logo" [ngStyle]="{'width': config.mainLogoSize?.width, 'height': config.mainLogoSize?.height}" [src]="config.mainLogo" alt="">
+                    <img *ngIf="config.mainLogo" id="footer_logo"
+                        [ngStyle]="{'width': config.mainLogoSize?.width, 'height': config.mainLogoSize?.height}"
+                        [src]="config.mainLogo" alt="">
 
-                    <h4 *ngIf="!config.mainLogo" class="cmm-txt-thin-bold text-white m-0" style="height: 58px;">{{config.businessInfo?.name}}</h4>
+                    <h4 *ngIf="showTitle" class="cmm-txt-thin-bold m-0"
+                        [ngClass]="[config.textColor && !config.textClass?'':config.textClass?config.textClass:'text-white']"
+                        [ngStyle]="{'color':config.textColor??'default'}">
+                        {{config.businessInfo?.name}}</h4>
 
                 </div>
 
                 <div class="w-100 d-flex align-items-center mt-4" style="gap: 1rem;">
 
                     <div class="">
-                        <mat-icon class="text-white">location_on</mat-icon>
+                        <mat-icon
+                            [ngClass]="[config.textColor && !config.textClass?'':config.textClass?config.textClass:'text-white']"
+                            [ngStyle]="{'color':config.textColor??'default'}">location_on</mat-icon>
                     </div>
 
-                    <span class="text-white text-break overflow-hidden fs-12 cmm-txt-thin-bold">{{config.businessInfo?.direction}}</span>
+                    <span
+                        class="text-white text-break overflow-hidden fs-12 cmm-txt-thin-bold">{{config.businessInfo?.direction}}</span>
 
                 </div>
 
                 <div class="w-100 d-flex align-items-center mt-4" style="gap: 1rem;">
 
-                    <mat-icon class="text-white">call</mat-icon>
+                    <mat-icon
+                        [ngClass]="[config.textColor && !config.textClass?'':config.textClass?config.textClass:'text-white']"
+                        [ngStyle]="{'color':config.textColor??'default'}">call</mat-icon>
 
                     <span class="text-white fs-12 cmm-txt-thin-bold">{{config.businessInfo?.phone}}</span>
 
@@ -39,7 +53,9 @@
 
                 <div class="w-100 d-flex align-items-center mt-4" style="gap: 1rem;">
 
-                    <mat-icon class="text-white">mail</mat-icon>
+                    <mat-icon
+                        [ngClass]="[config.textColor && !config.textClass?'':config.textClass?config.textClass:'text-white']"
+                        [ngStyle]="{'color':config.textColor??'default'}">mail</mat-icon>
 
                     <span class="text-white fs-12 cmm-txt-thin-bold">{{config.businessInfo?.mail}}</span>
 
@@ -50,15 +66,19 @@
         </div>
 
         <!-- Productos -->
-        <div class="d-flex justify-content-start p-3 px-5 px-md-3 mt-5 mt-md-0 justify-content-md-center col-md-4 footer_section_border">
+        <div
+            class="d-flex justify-content-start p-3 px-5 px-md-3 mt-5 mt-md-0 justify-content-md-center col-md-4 footer_section_border">
 
             <div class="d-flex justify-content-start flex-column">
 
                 <div class="d-flex align-items-center" style="max-height: 100px;height: 58px;">
-                    <h5 class="text-white cmm-txt-thin-bold">PRODUCTOS</h5>
+                    <h5 class="cmm-txt-thin-bold"
+                        [ngClass]="[config.textColor && !config.textClass?'':config.textClass?config.textClass:'text-white']"
+                        [ngStyle]="{'color':config.textColor??'default'}">PRODUCTOS</h5>
                 </div>
 
-                <span *ngFor="let item of config.products" class="text-white mb-3 fs-12 cmm-txt-thin-bold">• {{item}}</span>
+                <span *ngFor="let item of config.products" class="text-white mb-3 fs-12 cmm-txt-thin-bold">•
+                    {{item}}</span>
 
             </div>
 
@@ -70,44 +90,55 @@
             <div class="d-flex justify-content-start flex-column">
 
                 <div class="d-flex align-items-center" style="max-height: 100px;height: 58px;">
-                    <h5 class="text-white cmm-txt-thin-bold">ACERCA DE NOSOTROS</h5>
+                    <h5 class="text-white cmm-txt-thin-bold"
+                        [ngClass]="[config.textColor && !config.textClass?'':config.textClass?config.textClass:'text-white']"
+                        [ngStyle]="{'color':config.textColor??'default'}">ACERCA DE NOSOTROS</h5>
                 </div>
 
-                <span *ngFor="let item of config.aboutUs" class="text-white mb-3 fs-12 cmm-txt-thin-bold">{{item}}</span>
+                <span *ngFor="let item of config.aboutUs"
+                    class="text-white mb-3 fs-12 cmm-txt-thin-bold">{{item}}</span>
 
             </div>
 
         </div>
 
         <!-- Parte baja del footer (Redes sociales) -->
-        <section class="col-12 p-3 d-flex justify-content-center justify-content-md-end">
+        <section *ngIf="config.socialNetworkIcons?.length"
+            class="col-12 p-3 d-flex justify-content-center justify-content-md-end">
 
-            <div class="d-flex flex-column">
+            <div class="row w-100 justify-content-end g-0">
 
-                <!-- titulo -->
-                <div class="d-flex align-items-center justify-content-between">
+                <div class="col-md-4">
 
-                    <div class="line bg-white" style="width: 150px !important;"></div>
+                    <!-- titulo -->
+                    <div class="d-flex align-items-center justify-content-between gap-3 mb-3">
 
-                    <span class="cmm-txt-thin-bold text-white cmm-txt-project">SÍGUENOS</span>
+                        <div class="line cmm-bg-project-primary" style="width: 150px !important;"></div>
 
-                </div>
-
-                <!-- Redes sociales -->
-                <div class="d-flex align-items-center gap-3">
-
-                    <div class="d-flex gap-3">
-
-                        <div *ngFor="let icon of config.socialNetworkIcons" class="d-flex align-items-center cursor-pointer">
-                            <img [src]="icon" alt="">
-                            <span class="text-white fs-12 cmm-txt-thin-bold">@{{config.businessInfo?.name}}</span>
-                        </div>
+                        <span class="cmm-txt-thin-bold text-white cmm-txt-project"
+                            [ngClass]="[config.textColor && !config.textClass?'':config.textClass?config.textClass:'text-white']"
+                            [ngStyle]="{'color':config.textColor??'default'}">SÍGUENOS</span>
 
                     </div>
 
-                    <!-- Ícono de whatsapp -->
-                    <div class="d-flex align-items-center justify-content-center">
-                        <img class="cursor-pointer" [src]="whatsappIcon" width="50" height="50" alt="">
+                    <!-- Redes sociales -->
+                    <div class="d-flex align-items-center">
+
+                        <div class="d-flex gap-3">
+
+                            <div *ngFor="let icon of config.socialNetworkIcons"
+                                class="d-flex align-items-center cursor-pointer">
+                                <img [src]="icon" alt="">
+                                <span class="text-white fs-12 cmm-txt-thin-bold">@{{config.businessInfo?.name}}</span>
+                            </div>
+
+                        </div>
+
+                        <!-- Ícono de whatsapp -->
+                        <div class="d-flex align-items-center justify-content-center">
+                            <img class="cursor-pointer" [src]="whatsappIcon" width="50" height="50" alt="">
+                        </div>
+
                     </div>
 
                 </div>
