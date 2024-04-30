@@ -9,4 +9,11 @@ export class CmmBusinessQualitiesComponent {
 
   @Input() items: any[] = []
 
+  @Input() config?: {
+    widthClass?: string,
+    showBorder?: boolean
+  } = {
+      showBorder: true
+    }
+
 }

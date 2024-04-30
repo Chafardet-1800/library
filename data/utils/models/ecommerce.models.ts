@@ -15,5 +15,9 @@ export interface CmmEcomFooterConfig {
     mail: string
   }
   products?: any[],
-  aboutUs?: any[]
+  aboutUs?: any[],
+  businessQualitiesConfig?: {
+    widthClass?: string,
+    showBorder?: boolean
+  }
 }
