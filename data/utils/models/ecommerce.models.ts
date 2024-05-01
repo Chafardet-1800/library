@@ -21,3 +21,13 @@ export interface CmmEcomFooterConfig {
     showBorder?: boolean
   }
 }
+
+export interface CmmEcomSearchDialogConfigModel {
+  inputMode?: string,
+  bgClass?: string,
+  textClass?: string,
+  inputClass?: string,
+  height?: string,
+  inputPlaceholder?: string,
+  inputBorderRadius?: string
+}

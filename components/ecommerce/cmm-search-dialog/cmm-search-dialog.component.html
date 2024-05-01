@@ -16,13 +16,16 @@
 
                 <!-- Input de búsqueda -->
                 <div *ngSwitchDefault class="d-flex align-items-center justify-content-between border p-2 px-3 w-100"
-                    style="border-radius: 30px;">
+                    [ngClass]="data.bgClass? data.bgClass:''"
+                    [ngStyle]="{'border-radius':data.inputBorderRadius??'30px'}">
 
                     <input name="eren" type="text" placeholder="Buscar" class="input_default"
-                        style="width: calc(100% - 30px);">
+                        style="width: calc(100% - 30px);"
+                        [ngClass]="[data.textClass? data.textClass:'', data.inputClass?data.inputClass:'']">
 
                     <!-- <label for="eren">Buscar</label> -->
-                    <mat-icon class="header_icon fs-30 text-secondary cursor-pointer">search</mat-icon>
+                    <mat-icon class="header_icon fs-30 text-secondary cursor-pointer"
+                        [ngClass]="data.textClass? data.textClass:''">search</mat-icon>
 
                 </div>
 

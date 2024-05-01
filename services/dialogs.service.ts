@@ -9,6 +9,7 @@ import { CmmInputQuestionDialogComponent } from '../components/dialogs/input-que
 import { CmmSnackbarCenteredComponent } from '../components/dialogs/snackbar-centered/snackbar-centered.component';
 import { CmmAlertModalModel, CmmAlertToastrModel, CmmQuestionDialogModel, CmmSelectDialogModel } from '../data/dialogs/models/dialogs.model';
 import { CmmSearchDialogComponent } from '../components/ecommerce/cmm-search-dialog/cmm-search-dialog.component';
+import { CmmEcomSearchDialogConfigModel } from '../data/utils/models/ecommerce.models';
 
 @Injectable()
 export class CmmDialogService {
@@ -157,18 +158,16 @@ export class CmmDialogService {
 
   }
 
-  CmmOpenSearchDialog() {
+  CmmOpenSearchDialog(data?: CmmEcomSearchDialogConfigModel) {
 
     // Abrimos el componente predeterminado con la data suministrada
     const dialogRef = this.dialog.open(CmmSearchDialogComponent, {
       width: '100vw',
       minWidth: '100vw',
-      minHeight: '190px',
+      minHeight: data?.height ?? '190px',
       maxWidth: '100vw',
       panelClass: 'rounded-0',
-      data: {
-        inputMode: ''
-      },
+      data: data,
       position: { top: '0', left: '0' }
     })
 

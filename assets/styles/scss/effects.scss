@@ -592,4 +592,9 @@ END CARDS
   appearance: none !important;
   outline: none !important;
   border: none;
+  background: transparent;
+}
+
+.input_default::placeholder {
+  color: var(--v-dynamic-primary) !important;
 }
