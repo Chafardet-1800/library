@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { HostListener, Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -13,10 +13,25 @@ export class CmmUtilsService {
    */
   gatewayUrl: string;
 
+  /**
+   * Posición de scroll
+   */
+  previousScrollY: number = 0
+
+  /**
+   * Observable que indica si estoy scrolleando hacia abajo
+   */
+  isScrollingDown: BehaviorSubject<boolean> = new BehaviorSubject(false)
+
   constructor(private http: HttpClient) {
 
     //*Tomo la url de del environment del proyecto. Todos deberían tener la variable "CC_GATEWAY_URL"
     this.gatewayUrl = environment.CC_GATEWAY_URL;
+
+    //* Escucho el evento de scroll
+    window.addEventListener('scroll', () => {
+      this.detectScrollingDown()
+    })
 
   }
 
@@ -51,7 +66,7 @@ export class CmmUtilsService {
   CmmGetBanksList(idCurrency: string | number): Observable<any> {
 
     return this.http.get(this.gatewayUrl + '/v1/list/bank', {
-      params:{
+      params: {
         idCurrency
       }
     });
@@ -66,6 +81,27 @@ export class CmmUtilsService {
    */
   keepOrder = (a: any, b: any) => {
     return 0;
+  }
+
+  /**
+   * Indica si estoy scrolleando hacia abajo
+   * @returns 
+   */
+  detectScrollingDown(): Observable<boolean> {
+
+    if (window.scrollY > this.previousScrollY) {
+
+      this.previousScrollY = window.scrollY
+
+      this.isScrollingDown.next(true)
+      return this.isScrollingDown.asObservable()
+    }
+
+    this.previousScrollY = window.scrollY
+
+    this.isScrollingDown.next(false)
+    return this.isScrollingDown.asObservable()
+
   }
 
 }
