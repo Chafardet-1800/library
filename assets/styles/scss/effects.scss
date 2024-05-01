@@ -583,3 +583,13 @@ END CARDS
   font-size: 30px !important;
   margin: 0 !important;
 }
+
+.input_default,
+.input_default:focus,
+.input_default:active {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  outline: none !important;
+  border: none;
+}

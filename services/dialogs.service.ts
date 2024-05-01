@@ -8,18 +8,19 @@ import { CmmToastrComponent } from '../components/dialogs/toastr/toastr.componen
 import { CmmInputQuestionDialogComponent } from '../components/dialogs/input-question-dialog/input-question-dialog.component';
 import { CmmSnackbarCenteredComponent } from '../components/dialogs/snackbar-centered/snackbar-centered.component';
 import { CmmAlertModalModel, CmmAlertToastrModel, CmmQuestionDialogModel, CmmSelectDialogModel } from '../data/dialogs/models/dialogs.model';
+import { CmmSearchDialogComponent } from '../components/ecommerce/cmm-search-dialog/cmm-search-dialog.component';
 
 @Injectable()
 export class CmmDialogService {
 
-  constructor(public dialog: MatDialog, private snackbar: MatSnackBar) {}
+  constructor(public dialog: MatDialog, private snackbar: MatSnackBar) { }
 
   /**
    * @description Abre el diálogo de alerta
    * @param {CmmAlertModalModel} alertData Data necesaria par ael uso de este servicio
    * @returns La respuesta generada al cierre del dialogo
    */
-  CmmAlertModal( alertData: CmmAlertModalModel) {
+  CmmAlertModal(alertData: CmmAlertModalModel) {
 
     // Abrimos el componente predeterminado con la data suministrada
     const dialogRef = this.dialog.open(CmmAlertMessagesComponent, {
@@ -153,6 +154,26 @@ export class CmmDialogService {
 
     // Retornamos el resultado del cierre
     return this.dialog.closeAll();
+
+  }
+
+  CmmOpenSearchDialog() {
+
+    // Abrimos el componente predeterminado con la data suministrada
+    const dialogRef = this.dialog.open(CmmSearchDialogComponent, {
+      width: '100vw',
+      minWidth: '100vw',
+      minHeight: '190px',
+      maxWidth: '100vw',
+      panelClass: 'rounded-0',
+      data: {
+        inputMode: ''
+      },
+      position: { top: '0', left: '0' }
+    })
+
+    // Retornamos el resultado del cierre
+    return dialogRef.afterClosed();
 
   }
 }
