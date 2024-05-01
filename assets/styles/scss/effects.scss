@@ -574,7 +574,7 @@ END CARDS
 }
 
 /*--------------------------------------------------------------------------------------------------------------------------------------
- Efecto de flip card
+ Para el popup de búsqueda y header
 --------------------------------------------------------------------------------------------------------------------------------------*/
 
 .header_icon {
@@ -597,4 +597,9 @@ END CARDS
 
 .input_default::placeholder {
   color: var(--v-dynamic-primary) !important;
+}
+
+// Efecto para elevar item al hacerle hover
+.hover_translateY:hover {
+  transform: translateY(-5px);
 }
