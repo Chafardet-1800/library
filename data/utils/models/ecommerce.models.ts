@@ -31,3 +31,17 @@ export interface CmmEcomSearchDialogConfigModel {
   inputPlaceholder?: string,
   inputBorderRadius?: string
 }
+
+
+export interface CmmEcomProductCardDataModel {
+  image: string
+  title: string
+  brand?: string
+  price: string,
+  currency: string,
+  id: string,
+  style?: {
+    priceColor: string
+  },
+  previousprice: string
+}

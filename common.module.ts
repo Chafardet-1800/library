@@ -50,6 +50,7 @@ import { CmmProdutDetailQuantityComponent } from './components/ecommerce/cmm-pro
 import { CmmNewCarouselComponent } from './components/ecommerce/cmm-new-carousel/cmm-new-carousel.component';
 import { CmmNewFooterComponent } from './components/ecommerce/cmm-new-footer/cmm-new-footer.component';
 import { CmmSearchDialogComponent } from './components/ecommerce/cmm-search-dialog/cmm-search-dialog.component';
+import { CmmProductCardV2Component } from './components/ecommerce/cmm-product-card-v2/cmm-product-card-v2.component';
 
 @NgModule({
   declarations: [
@@ -97,6 +98,7 @@ import { CmmSearchDialogComponent } from './components/ecommerce/cmm-search-dial
     CmmNewCarouselComponent,
     CmmNewFooterComponent,
     CmmSearchDialogComponent,
+    CmmProductCardV2Component,
   ],
   imports: [
     MaterialModule,
@@ -150,7 +152,8 @@ import { CmmSearchDialogComponent } from './components/ecommerce/cmm-search-dial
     CmmProductDetailGridComponent,
     CmmProdutDetailQuantityComponent,
     CmmNewCarouselComponent,
-    CmmNewFooterComponent
+    CmmNewFooterComponent,
+    CmmProductCardV2Component
   ],
 })
 
