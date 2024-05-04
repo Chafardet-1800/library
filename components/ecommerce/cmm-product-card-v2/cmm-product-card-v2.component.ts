@@ -10,7 +10,7 @@ export class CmmProductCardV2Component {
 
   @Input() product!: CmmEcomProductCardDataModel
 
-  @Input() configStyle!: {
+  @Input() configStyle?: {
     priceColor: string
   }
 
