@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { CmmEcomProductDetailModelv2 } from 'src/app/common/data/utils/models/ecommerce.models';
 
 @Component({
   selector: 'cmp-cmm-product-detail',
@@ -7,7 +8,7 @@ import { Component, Input } from '@angular/core';
 })
 export class CmmProductDetailComponent {
 
-  @Input() product: any
+  @Input() product!: CmmEcomProductDetailModelv2
 
   /**
    * Index de la imagen a mostrar
