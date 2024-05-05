@@ -70,22 +70,36 @@
             <!-- Sección de detalles adicionales -->
             <div class="w-100">
 
-                <div *ngFor="let item of product.aditionalInfo" class="row g-0 w-100 my-4">
+                <div *ngFor="let item of product.aditionalInfo; let i = index" class="row g-0 w-100 my-4">
 
                     <div class="d-flex gap-1 mb-3">
                         <span class="cmm-txt-thin-bold">{{item.title}}:</span>
                     </div>
 
+                    <!-- Información normal -->
                     <div *ngIf="!item.type" class="col-12">
 
-                        <div class="d-flex">
+                        <div class="d-flex overflow-hidden flex-column">
 
-                            <p>{{item.text}}</p>
+                            <!-- Contenedor de los textos -->
+                            <div #textContainers class="overflow-hidden">
+
+                                <p *ngIf="item.text">{{item.text}}</p>
+
+                                <p *ngFor="let text of item.texts">{{text}}</p>
+
+                            </div>
+
+                            <!-- Botón de ver más contenido -->
+                            <!-- <button *ngIf="textContainers && textContainers.offsetHeight > 100"
+                                style="border: none;background-color: transparent; width: fit-content;">Ver
+                                más...</button> -->
 
                         </div>
 
                     </div>
 
+                    <!-- Información sobre variantes -->
                     <div *ngIf="item.type == 'variants'" class="col-12">
 
                         <div class="d-flex">

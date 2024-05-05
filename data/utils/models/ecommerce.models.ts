@@ -70,6 +70,7 @@ export interface CmmEcomProductDetailModelv2 {
 export interface CmmEcomAditionalInfoModel {
   title: string,
   text?: string,
+  texts?: string[],
   type?: 'variants' | 'normal',
   colorVariants?: {
     color: string,

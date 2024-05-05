@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { CmmEcomProductDetailModelv2 } from 'src/app/common/data/utils/models/ecommerce.models';
 
 @Component({
@@ -25,7 +25,15 @@ export class CmmProductDetailComponent {
   @Input() config: { button?: { customBorderRadius?: string, outlined?: boolean, customHeight?: string, customBg?: string }, colorBox?: { colorBoxRounded?: boolean, colorBoxBorder?: boolean } } = {
   }
 
+  @ViewChild('textContainers') textContainers!: ElementRef<HTMLElement>
+
   constructor() { }
+
+  ngAfterViewInit() {
+
+    console.log(this.textContainers?.nativeElement.children[0].clientHeight);
+
+  }
 
   /**
    * Añade más unidades del producto
