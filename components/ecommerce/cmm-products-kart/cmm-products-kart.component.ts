@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { CmmProductCardV2Component } from '../cmm-product-card-v2/cmm-product-card-v2.component';
+import { CmmEcomProductCardDataModel, CmmEcomProductDetailModelv2 } from 'src/app/common/data/utils/models/ecommerce.models';
 
 @Component({
   selector: 'cmp-cmm-products-kart',
@@ -11,7 +13,7 @@ export class CmmProductsKartComponent {
   /**
    * Productos en el carrito
    */
-  @Input() products: any[] = []
+  @Input() products: CmmEcomProductDetailModelv2[] = []
 
   /**
    * Prefactura

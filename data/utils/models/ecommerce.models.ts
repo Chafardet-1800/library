@@ -55,18 +55,24 @@ export interface CmmEcomProductCardDataModel {
  * Modelo del detalle de producto
  */
 export interface CmmEcomProductDetailModelv2 {
+  id: string,
   images: string[]
   mainImage: string
   name: string
   brand?: string
   price: string
+  previousPrice?: string,
+  currency: string,
   sku?: string
   partNumber?: string
   maximunPurchase?: number
   quantity: number
-  aditionalInfo?: CmmEcomAditionalInfoModel[]
+  aditionalInfo?: CmmEcomAditionalInfoModel[],
 }
 
+/**
+ * Modelo de información adicional del producto
+ */
 export interface CmmEcomAditionalInfoModel {
   title: string,
   text?: string,

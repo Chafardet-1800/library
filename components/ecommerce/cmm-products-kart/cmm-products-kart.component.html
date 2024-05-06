@@ -52,7 +52,7 @@
                     <div class="d-flex justify-content-start kart_item_product gap-3">
 
                         <!-- Imagen del producto -->
-                        <img [src]="product.image" style="max-width: 100px; max-height: 80px;">
+                        <img [src]="product.mainImage" style="max-width: 100px; max-height: 80px;">
 
                         <!-- Nombre y marca -->
                         <div class="d-flex flex-column cmm-txt-uppercase justify-content-center">
@@ -61,7 +61,7 @@
 
                             <h4 class="cmm-txt-thin-bold fs-16">{{product.name}}</h4>
 
-                            <span class="fs-12">{{'by ' + product.brandName}}</span>
+                            <span class="fs-12">{{'by ' + product.brand}}</span>
 
                             <!-- Información adicional -->
                             <div *ngFor="let item of product.aditionalInfo | keyvalue" class="fs-12 d-flex gap-1">
