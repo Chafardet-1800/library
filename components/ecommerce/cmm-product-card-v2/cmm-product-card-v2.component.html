@@ -1,12 +1,12 @@
 <div class="d-flex flex-column" style="width: 250px;">
 
     <!-- Imagen -->
-    <div class="w-100 d-flex justify-content-center align-items-center" style="aspect-ratio: 277/430 !important;">
+    <div class="w-100 d-flex justify-content-center align-items-center mb-4" style="aspect-ratio: 277/430 !important;">
         <img [src]="product.image" loading="lazy" style="max-height: 430px;max-width: 100%;">
     </div>
 
     <!-- marca -->
-    <span *ngIf="product.brand" class="fs-12 cmm-txt-thin-bold mt-4">{{product.brand}}</span>
+    <span *ngIf="product.brand" class="fs-12 cmm-txt-thin-bold">{{product.brand}}</span>
 
     <!-- Nombre -->
     <h4 class="fs-16 cmm-txt-thin-bold">{{product.title}}</h4>
