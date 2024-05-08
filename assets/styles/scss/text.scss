@@ -3,6 +3,7 @@
 --------------------------------------------------------------------------------------------------------------------------------------*/
 
 @import "./variables.scss";
+
 // @import '~bootstrap/dist/css/bootstrap.min.css';
 *:not(.material-icons) {
   font-family: "poppins" !important;
@@ -20,15 +21,19 @@ body {
   .mat-paginator-range-label {
     margin: 0px !important;
   }
+
   .mat-paginator-container {
     padding: 0px !important;
   }
+
   .pbutton-0 {
     padding: 0px !important;
   }
+
   .align-text-left {
     width: 100% !important;
   }
+
   .align-text-right {
     width: 100% !important;
   }
@@ -39,6 +44,7 @@ body {
     float: right !important;
     width: max-content;
   }
+
   .align-text-right {
     float: initial;
     width: max-content;
@@ -98,6 +104,10 @@ body {
 
 .cmm-txt-normal {
   font-weight: 600 !important;
+}
+
+.cmm-txt-thin-bold {
+  font-weight: 700 !important;
 }
 
 .cmm-txt-bold {
@@ -196,6 +206,7 @@ body {
   .cmm-txt-sm-h5 {
     font-size: 0.9rem;
   }
+
   .cmm-txt-sm-p {
     font-size: 0.85rem;
   }
@@ -245,7 +256,7 @@ body {
 }
 
 // gradient
-.cmm-txt-gradient{
+.cmm-txt-gradient {
   /* Fallback: Set a background color. */
   background-color: $v-primary;
 
@@ -285,7 +296,7 @@ body {
   -moz-background-clip: text;
   -moz-text-fill-color: transparent;
 
-  mat-icon{
+  mat-icon {
     /* Fallback: Set a background color. */
     background-color: $v-primary;
 
@@ -311,11 +322,11 @@ body {
     background-image: $v-gradient;
     transition: all linear 250ms;
 
-    mat-icon{
+    mat-icon {
 
-          /* Create the gradient. */
-          background-image: $v-gradient;
-          transition: all linear 250ms;
+      /* Create the gradient. */
+      background-image: $v-gradient;
+      transition: all linear 250ms;
 
     }
 
@@ -350,6 +361,7 @@ body {
 
 .title-txt {
   color: $v-title-txt !important;
+
   p {
     color: $v-back-txt !important;
   }
@@ -359,6 +371,47 @@ body {
   color: $v-white !important;
 }
 
+.cmm-txt-project-primary {
+  color: var(--v-dynamic-primary);
+}
+
+.cmm-txt-project-secundary {
+  color: var(--v-dynamic-secundary);
+}
+
+.cmm-txt-project-tertiary {
+  color: var(--v-dynamic-tertiary);
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------
+Mayúsculas, minúsculas y más
+--------------------------------------------------------------------------------------------------------------------------------------*/
+
+.cmm-txt-uppercase {
+  text-transform: uppercase !important;
+}
+
+.cmm-txt-lowercase {
+  text-transform: lowercase !important;
+}
+
+.cmm-txt-capitalize {
+  text-transform: capitalize !important;
+}
+
+.text_hover_primary:hover {
+  color: var(--v-dynamic-primary) !important;
+}
+
+.text_hover_secundary:hover {
+  color: var(--v-dynamic-secundary) !important;
+}
+
+.text_hover_tertiary:hover {
+  color: var(--v-dynamic-tertiary) !important;
+}
+
 /*--------------------------------------------------------------------------------------------------------------------------------------
 END TEXT colors
 --------------------------------------------------------------------------------------------------------------------------------------*/
+
