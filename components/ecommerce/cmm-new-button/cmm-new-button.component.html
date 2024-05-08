@@ -1,5 +1,5 @@
 <button mat-button class="w-100 p-3 m-0 fs-12 cmm-txt-thin-bold text-white cursor-pointer"
-    [ngClass]="config.customBg? config.customBg : outlined? 'btn-project-primary-outline':'cmm-bg-project-primary'"
+    [ngClass]="config.customBg? config.customBg : config.outlined? 'btn-project-primary-outline':'cmm-bg-project-primary'"
     [ngStyle]="{'border-radius':config.customBorderRadius, 'height' : config.customHeight}">
 
     <ng-content class="w-100"></ng-content>

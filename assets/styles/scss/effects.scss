@@ -254,6 +254,28 @@ p {
   }
 }
 
+.btn-project-secundary-outline {
+  background-color: $v-white !important;
+  color: var(--v-dynamic-secundary) !important;
+  border: 2px solid var(--v-dynamic-secundary) !important;
+
+  &:hover {
+    background-color: var(--v-dynamic-secundary) !important;
+    color: $v-white !important;
+  }
+}
+
+.btn-project-tertiary-outline {
+  background-color: $v-white !important;
+  color: var(--v-dynamic-tertiary) !important;
+  border: 2px solid var(--v-dynamic-tertiary) !important;
+
+  &:hover {
+    background-color: var(--v-dynamic-tertiary) !important;
+    color: $v-white !important;
+  }
+}
+
 /*---------------------------------------------------------------------------------------------------------------------------------
 END BUTTON
 --------------------------------------------------------------------------------------------------------------------------------------*/

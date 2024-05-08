@@ -22,8 +22,9 @@
 
     </div>
 
-    <cmp-cmm-new-button class="mt-3" [config]="{customBorderRadius: '0'}" style="max-width: fit-content;"
-        (click)="addProduct.emit(product.id)">
+    <cmp-cmm-new-button class="mt-3"
+        [config]="{customBorderRadius: '0', outlined: configStyle?.button?.outlined, customBg: configStyle?.button?.customBg}"
+        style="max-width: fit-content;" (click)="addProduct.emit(product.id)">
         <span class="fs-12 cmm-txt-thin-bold">Agregar al carrito</span>
     </cmp-cmm-new-button>
 

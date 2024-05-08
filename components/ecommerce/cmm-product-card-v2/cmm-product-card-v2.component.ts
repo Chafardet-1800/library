@@ -11,7 +11,11 @@ export class CmmProductCardV2Component {
   @Input() product!: CmmEcomProductCardDataModel
 
   @Input() configStyle?: {
-    priceColor: string
+    priceColor: string,
+    button?: {
+      outlined?: boolean,
+      customBg?: string
+    }
   }
 
   @Output() addProduct: EventEmitter<string> = new EventEmitter()
