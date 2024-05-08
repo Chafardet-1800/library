@@ -29,6 +29,21 @@
 
                 </div>
 
+                <!-- Input de búsqueda -->
+                <div *ngSwitchCase="'supermarket'" class="d-flex align-items-center justify-content-between border ps-3 w-100"
+                style="max-width: 500px;max-height: 30px;">
+
+                  <input name="eren" type="text" class="input_default" style="width: calc(100% - 30px);">
+
+                  <div class="cmm-bg-project-secundary d-flex align-items-center justify-content-center"
+                      style="width: 60px; height: 100%;">
+                      <!-- <label for="eren">Buscar</label> -->
+                      <mat-icon
+                          class="header_icon text-white fs-30 text-secondary cursor-pointer">search</mat-icon>
+                  </div>
+
+                </div>
+
             </div>
 
             <div class="col-sm-3 d-flex justify-content-end align-items-center">
