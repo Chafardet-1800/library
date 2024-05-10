@@ -1,0 +1,32 @@
+.input_default::placeholder {
+    color: black !important;
+}
+
+.filter_button {
+    background-color: var(--v-dynamic-primary);
+    border: none;
+    height: 40px;
+    border-radius: 30px;
+    min-width: 70px;
+}
+
+.filters_grid {
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+@media (max-width: 1200px) {
+
+    .filters_grid {
+        width: 100%;
+    }
+
+    .filter_button {
+
+        min-width: 200px;
+
+    }
+
+}

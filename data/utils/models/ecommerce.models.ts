@@ -23,6 +23,16 @@ export interface CmmEcomFooterConfig {
 }
 
 /**
+ * Modelo del div de filtros especiales
+ */
+export interface CmmEcomSpecialFiltersConfig {
+  text: string,
+  buttonText: string,
+  filters: string[],
+  bgClass?: string,
+}
+
+/**
  * Configuración del diálogo con input de búsqueda
  */
 export interface CmmEcomSearchDialogConfigModel {

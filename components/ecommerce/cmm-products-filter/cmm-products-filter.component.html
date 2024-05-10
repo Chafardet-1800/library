@@ -1,0 +1,24 @@
+<div class="d-flex flex-column flex-xl-row justify-content-start justify-content-lg-between align-items-center align-items-xl-center gap-2 w-100 p-4 cmm-bg-project-primary"
+    [ngClass]="config.bgClass">
+
+    <!-- Texto -->
+    <p class="m-0 cmm-txt-thin-bold">{{config.text}}</p>
+
+    <div class="gap-2 filters_grid flex-grow-1 my-2 my-xl-0">
+
+        <!-- Input de búsqueda -->
+        <div *ngFor="let item of config.filters"
+            class="d-flex align-items-center bg-white justify-content-between border p-4 w-100"
+            style="max-width: 200px;min-width: 200px;max-height: 30px;border-radius: 50px;">
+
+            <input name="eren" type="text" [placeholder]="item" class="input_default" style="width: calc(100% - 30px);">
+
+            <mat-icon class="header_icon text-black fs-30 text-secondary cursor-pointer">chevron_right</mat-icon>
+
+        </div>
+
+    </div>
+
+    <button class="filter_button px-3 text-white cmm-txt-thin-bold">{{config.buttonText}}</button>
+
+</div>
