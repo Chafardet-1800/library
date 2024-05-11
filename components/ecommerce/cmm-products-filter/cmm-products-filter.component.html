@@ -2,7 +2,7 @@
     [ngClass]="config.bgClass">
 
     <!-- Texto -->
-    <p class="m-0 cmm-txt-thin-bold">{{config.text}}</p>
+    <p class="m-0 cmm-txt-thin-bold" [ngClass]="config.textClass?config.textClass:''">{{config.text}}</p>
 
     <div class="gap-2 filters_grid flex-grow-1 my-2 my-xl-0">
 
