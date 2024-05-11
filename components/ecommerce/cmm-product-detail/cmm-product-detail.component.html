@@ -111,7 +111,8 @@
                                 (click)="choosenVariant = i">
 
                                 <!-- Si es variante de color -->
-                                <div class="w-100 h-100" [style.background-color]="variant.color">
+                                <div class="w-100 h-100" [style.background-color]="variant.color"
+                                    style="border-radius: inherit;">
                                 </div>
 
                             </div>
@@ -125,7 +126,8 @@
                                 <!-- Si es variante de imagen -->
                                 <div class="w-100 h-100">
 
-                                    <img [src]="variant.image" alt="" class="w-100 h-100">
+                                    <img [src]="variant.image" alt="" class="w-100 h-100"
+                                        style="border-radius: inherit;">
 
                                 </div>
 
