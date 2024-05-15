@@ -52,6 +52,7 @@ import { CmmNewFooterComponent } from './components/ecommerce/cmm-new-footer/cmm
 import { CmmSearchDialogComponent } from './components/ecommerce/cmm-search-dialog/cmm-search-dialog.component';
 import { CmmProductCardV2Component } from './components/ecommerce/cmm-product-card-v2/cmm-product-card-v2.component';
 import { CmmProductsFilterComponent } from './components/ecommerce/cmm-products-filter/cmm-products-filter.component';
+import { CmmProductDetailGridV2Component } from './components/ecommerce/cmm-product-detail-grid-v2/cmm-product-detail-grid-v2.component';
 
 @NgModule({
   declarations: [
@@ -101,6 +102,7 @@ import { CmmProductsFilterComponent } from './components/ecommerce/cmm-products-
     CmmSearchDialogComponent,
     CmmProductCardV2Component,
     CmmProductsFilterComponent,
+    CmmProductDetailGridV2Component,
   ],
   imports: [
     MaterialModule,
