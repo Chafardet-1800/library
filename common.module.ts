@@ -158,7 +158,8 @@ import { CmmProductDetailGridV2Component } from './components/ecommerce/cmm-prod
     CmmNewCarouselComponent,
     CmmNewFooterComponent,
     CmmProductCardV2Component,
-    CmmProductsFilterComponent
+    CmmProductsFilterComponent,
+    CmmProductDetailGridV2Component
   ],
 })
 

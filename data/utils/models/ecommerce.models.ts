@@ -82,6 +82,26 @@ export interface CmmEcomProductDetailModelv2 {
 }
 
 /**
+ * Modelo de detalle de producto para inmobiliaria
+ */
+export interface CmmEcomRealstateDetailModel {
+  id: string,
+  images: string[],
+  mainImage: string,
+  name: string,
+  modality: 'EN VENTA' | 'ALQUILER',
+  previousPrice: string,
+  price: string,
+  currency: string,
+  description: string,
+  details: {
+    icon: string,
+    info: string
+  }[],
+  equipment: string
+}
+
+/**
  * Modelo de información adicional del producto
  */
 export interface CmmEcomAditionalInfoModel {
