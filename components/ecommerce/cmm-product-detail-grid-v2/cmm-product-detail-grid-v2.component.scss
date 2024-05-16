@@ -55,25 +55,29 @@
 
 //? Flechitas
 
+.arrow_container {
+  background-color: rgba($color: #000000, $alpha: 0.4);
+  height: 75px;
+  border-radius: 30px;
+  // max-width: calc(30% - 0.875rem);
+  width: 167px !important;
+  max-width: 30%;
+  left: 1.75rem;
+}
+
 .arrow_up_container {
     position: absolute;
     top: 0.5rem;
-    background-color: rgba($color: #000000, $alpha: 0.1);
-    width: 200px;
-    max-width: calc(30% - 0.875rem);
+
 }
 
-.arrow_up_container:hover,
-.arrow_down_container:hover {
-    background-color: rgba($color: #000000, $alpha: 0.3);
+.arrow_up_container:hover {
+    background-color: rgba($color: #000000, $alpha: 0.6);
 }
 
 .arrow_down_container {
     position: absolute;
     bottom: 0.5rem;
-    width: 200px;
-    max-width: calc(30% - 0.875rem);
-    background-color: rgba($color: #000000, $alpha: 0.1);
 }
 
 
