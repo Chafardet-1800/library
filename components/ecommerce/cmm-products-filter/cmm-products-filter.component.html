@@ -8,8 +8,7 @@
 
         <!-- Input de búsqueda -->
         <div *ngFor="let item of config.filters"
-            class="d-flex align-items-center bg-white justify-content-between border p-4 w-100"
-            style="max-width: 200px;min-width: 200px;max-height: 30px;border-radius: 50px;">
+            class="d-flex align-items-center bg-white justify-content-between border p-4 w-100 filter_input">
 
             <input name="eren" type="text" [placeholder]="item" class="input_default" style="width: calc(100% - 30px);">
 
@@ -19,6 +18,12 @@
 
     </div>
 
-    <button class="filter_button px-3 text-white cmm-txt-thin-bold">{{config.buttonText}}</button>
+    <button *ngIf="!config.buttonIcon"
+        class="filter_button px-3 text-white cmm-txt-thin-bold">{{config.buttonText}}</button>
+
+    <button *ngIf="config.buttonIcon" class="filter_button px-3 text-white cmm-txt-thin-bold"
+        [ngClass]="config.buttonBgClass">
+        <mat-icon>search</mat-icon>
+    </button>
 
 </div>

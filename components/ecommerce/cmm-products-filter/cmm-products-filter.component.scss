@@ -8,6 +8,9 @@
     height: 40px;
     border-radius: 30px;
     min-width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .filters_grid {
@@ -16,6 +19,25 @@
     align-content: center;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
+
+.filter_input {
+    max-width: 200px;
+    min-width: 200px;
+    max-height: 30px;
+    border-radius: 50px;
+    transition: all ease 0.25s;
+}
+
+// .filter_input:active,
+// .filter_input:focus,
+// .filter_input:target,
+// .filter_input:hover {
+//     min-width: 400px;
+//     max-width: 400px;
+//     z-index: 2;
+//     scale: 1.05;
+//     transition: all ease 0.25s;
+// }
 
 @media (max-width: 1200px) {
 

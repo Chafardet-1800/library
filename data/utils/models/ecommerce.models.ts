@@ -30,7 +30,9 @@ export interface CmmEcomSpecialFiltersConfig {
   buttonText: string,
   filters: string[],
   bgClass?: string,
-  textClass?: string
+  textClass?: string,
+  buttonIcon?: boolean,
+  buttonBgClass?: string
 }
 
 /**
