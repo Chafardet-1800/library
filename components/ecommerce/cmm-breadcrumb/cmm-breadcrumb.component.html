@@ -2,7 +2,8 @@
 
     <a class="text-black fs-20 cmm-txt-thin-bold cursor-pointer" (click)="navigate('/home')">Inicio</a>
 
-    <a class="text-black fs-20 cmm-txt-thin-bold cursor-pointer" *ngFor="let item of paths" (click)="navigate(item)"> /
-        {{item}}</a>
+    <a class="text-black fs-20 cmm-txt-thin-bold cursor-pointer" *ngFor="let item of navigationRoutes"
+        (click)="navigate(item.route)"> /
+        {{item.name}}</a>
 
 </div>

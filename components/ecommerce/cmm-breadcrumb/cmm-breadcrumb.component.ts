@@ -13,6 +13,14 @@ export class CmmBreadcrumbComponent {
    */
   paths: string[] = []
 
+  /**
+   * Rutas del breadcrumb
+   */
+  navigationRoutes: {
+    name: string,
+    route: string
+  }[] = []
+
   constructor(
     private router: Router
   ) {
@@ -27,6 +35,9 @@ export class CmmBreadcrumbComponent {
 
   }
 
+  /**
+   * Escucha los cambios de ruta
+   */
   listenRouteChanges() {
 
     this.router.events.subscribe(event => {
@@ -35,7 +46,12 @@ export class CmmBreadcrumbComponent {
 
   }
 
+  /**
+   * Obtiene todas las partes del breadcrumb
+   */
   getPaths() {
+
+    this.navigationRoutes = []
 
     let paths = location.pathname.split('/')
 
@@ -43,10 +59,34 @@ export class CmmBreadcrumbComponent {
 
     this.paths = paths
 
-    // console.log(paths);
+    //* Agrego cada ruta a mi array
+    for (let i = 0; i < this.paths.length; i++) {
+
+      const element = this.paths[i];
+      let newPath
+
+      if (paths[i - 1]) {
+        newPath = paths[i - 1] += '/' + element
+      } else {
+        newPath = element
+      }
+
+      //* Agrego cada ruta de navegación con su nombre correspondiente
+      this.navigationRoutes.push(
+        {
+          name: element,
+          route: newPath
+        }
+      )
+
+    }
 
   }
 
+  /**
+   * Me lleva a la ruta clickeada
+   * @param route 
+   */
   navigate(route: string) {
 
     this.router.navigate([route])
