@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,6 +12,11 @@ export class CmmBreadcrumbComponent {
    * Guarda las rutas
    */
   paths: string[] = []
+
+  /**
+   * Tipo de separador de rutas
+   */
+  @Input() separatorMode: 'chevron' | 'slash' = 'slash'
 
   /**
    * Rutas del breadcrumb
