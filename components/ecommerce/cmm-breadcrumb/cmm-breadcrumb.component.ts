@@ -60,6 +60,9 @@ export class CmmBreadcrumbComponent {
 
     let paths = location.pathname.split('/')
 
+    //* Elimino el path con el nombre de la plantilla
+    paths = paths.filter(path => !path.includes('template'))
+
     paths.shift()
 
     this.paths = paths
