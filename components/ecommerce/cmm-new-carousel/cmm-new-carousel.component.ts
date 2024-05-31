@@ -33,6 +33,11 @@ export class CmmNewCarouselComponent {
   @Input({ required: true }) carouselId: string = ''
 
   /**
+   * Indica si usaremos el ancho del elemento tarjeta
+   */
+  @Input() useItemWidth: boolean = false
+
+  /**
    * Indica si los botones son clickeables
    */
   buttonsActive: boolean = true
@@ -44,7 +49,7 @@ export class CmmNewCarouselComponent {
 
     if (window.innerWidth < 567) {
 
-      this.scrollAmount = (parent.scrollWidth - parent.clientWidth) / (this.carouselItems.length - 1)
+      this.scrollAmount = this.useItemWidth ? parent.clientWidth : (parent.scrollWidth - parent.clientWidth) / (this.carouselItems.length - 1)
 
     } else {
       this.scrollAmount = 300
@@ -67,7 +72,7 @@ export class CmmNewCarouselComponent {
 
     if (window.innerWidth < 567) {
 
-      this.scrollAmount = (parent.scrollWidth - parent.clientWidth) / (this.carouselItems.length - 1)
+      this.scrollAmount = this.useItemWidth ? parent.clientWidth : (parent.scrollWidth - parent.clientWidth) / (this.carouselItems.length - 1)
 
     }
 
