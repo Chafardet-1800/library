@@ -1,9 +1,10 @@
 <div class="w-100 bg-white p-3 d-flex">
 
-    <a class="text-black fs-20 cmm-txt-thin-bold cursor-pointer py-3" (click)="navigate('/home')">Inicio</a>
+    <a class="text-black cmm-txt-thin-bold cursor-pointer py-3" [ngClass]="fontSize"
+        (click)="navigate('/home')">Inicio</a>
 
     <a *ngFor="let item of navigationRoutes"
-        class="text-black fs-20 cmm-txt-thin-bold cursor-pointer d-flex align-items-center py-3"
+        class="text-black cmm-txt-thin-bold cursor-pointer d-flex align-items-center py-3" [ngClass]="fontSize"
         (click)="navigate(item.route)">
 
         <mat-icon *ngIf="separatorMode == 'chevron'">chevron_right</mat-icon>

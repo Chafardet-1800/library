@@ -19,6 +19,11 @@ export class CmmBreadcrumbComponent {
   @Input() separatorMode: 'chevron' | 'slash' = 'slash'
 
   /**
+   * Tamaño de fuente
+   */
+  @Input() fontSize: string = 'fs-20'
+
+  /**
    * Rutas del breadcrumb
    */
   navigationRoutes: {
