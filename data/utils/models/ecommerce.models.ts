@@ -19,7 +19,8 @@ export interface CmmEcomFooterConfig {
   businessQualitiesConfig?: {
     widthClass?: string,
     showBorder?: boolean
-  }
+  },
+  useMainColorWhatsapp?: boolean
 }
 
 /**

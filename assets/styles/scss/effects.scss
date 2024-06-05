@@ -629,3 +629,15 @@ END CARDS
 .rounded_30 {
   border-radius: 30px !important;
 }
+
+.svg_primary {
+  fill: var(--v-dynamic-primary) !important;
+}
+
+.svg_secundary {
+  fill: var(--v-dynamic-secundary) !important;
+}
+
+.svg_tertiary {
+  fill: var(--v-dynamic-tertiary) !important;
+}
