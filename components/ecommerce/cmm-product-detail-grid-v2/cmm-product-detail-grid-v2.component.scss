@@ -56,13 +56,13 @@
 //? Flechitas
 
 .arrow_container {
-  background-color: rgba($color: #000000, $alpha: 0.4);
-  height: 75px;
-  border-radius: 30px;
-  // max-width: calc(30% - 0.875rem);
-  width: 167px !important;
-  max-width: 30%;
-  left: 1.75rem;
+    background-color: rgba($color: #000000, $alpha: 0.4);
+    height: 75px;
+    border-radius: 30px;
+    // max-width: calc(30% - 0.875rem);
+    width: 167px !important;
+    max-width: 30%;
+    left: 1.75rem;
 }
 
 .arrow_up_container {
@@ -85,6 +85,7 @@
 
     .other_images_container {
         width: 150px;
+        min-width: 150px;
         height: 150px;
     }
 
