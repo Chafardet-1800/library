@@ -67,7 +67,7 @@ export class CmmProductsKartComponent {
    */
   navigateBack() {
 
-    this.router.navigate(['/products'])
+    this.router.navigate(['/Productos'])
 
   }
 

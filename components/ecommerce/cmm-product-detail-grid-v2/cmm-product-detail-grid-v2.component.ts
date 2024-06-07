@@ -80,7 +80,7 @@ export class CmmProductDetailGridV2Component {
 
     this.scrollUpInterval = setInterval(() => {
       document.querySelector('.other_images_column')?.scrollBy({ top: -50, left: 0, behavior: "smooth" })
-    }, 100)
+    }, 150)
 
   }
 
@@ -90,7 +90,7 @@ export class CmmProductDetailGridV2Component {
 
     this.scrollDownInterval = setInterval(() => {
       document.querySelector('.other_images_column')?.scrollBy({ top: 100, left: 0, behavior: "smooth" })
-    }, 100)
+    }, 150)
 
   }
 
