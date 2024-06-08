@@ -1,0 +1,11 @@
+.button_width {
+    max-width: fit-content;
+}
+
+@media (max-width: 767px) {
+
+    .button_width {
+        max-width: 100%;
+    }
+
+}
