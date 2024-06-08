@@ -7,7 +7,7 @@
         <!-- Botón de ir arriba -->
         <div *ngIf="images.length > 1"
             class="arrow_up_container d-none d-md-flex justify-content-center align-items-center cursor-pointer"
-            (click)="scrollUp()">
+            (mousedown)="scrollUp()" (mouseup)="stopScrolling()">
 
             <mat-icon class="fs-30 text-white">keyboard_arrow_up</mat-icon>
 
@@ -26,7 +26,7 @@
         <!-- Botón de ir abajo -->
         <div *ngIf="images.length > 1"
             class="arrow_down_container d-none d-md-flex justify-content-center align-items-center cursor-pointer"
-            (click)="scrollDown()">
+            (mousedown)="scrollDown()" (mouseup)="stopScrolling()">
 
             <mat-icon class="fs-30 text-white">keyboard_arrow_down</mat-icon>
 

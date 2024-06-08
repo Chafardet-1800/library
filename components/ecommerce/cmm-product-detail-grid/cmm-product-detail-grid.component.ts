@@ -27,6 +27,10 @@ export class CmmProductDetailGridComponent {
   */
   @Input() displayShadow: boolean = true
 
+  scrollUpInterval: any
+
+  scrollDownInterval: any
+
   @HostListener('window:resize', ['$event'])
   onResize(e: Event) {
 
@@ -72,12 +76,28 @@ export class CmmProductDetailGridComponent {
 
   scrollUp() {
 
-    document.querySelector('.other_images_column')?.scrollBy({ top: -this.itemSize, left: 0, behavior: "smooth" })
+    clearInterval(this.scrollDownInterval)
+
+    this.scrollUpInterval = setInterval(() => {
+      document.querySelector('.other_images_column')?.scrollBy({ top: -50, left: 0, behavior: "smooth" })
+    }, 150)
+
   }
 
   scrollDown() {
 
-    document.querySelector('.other_images_column')?.scrollBy({ top: this.itemSize, left: 0, behavior: "smooth" })
+    clearInterval(this.scrollUpInterval)
+
+    this.scrollDownInterval = setInterval(() => {
+      document.querySelector('.other_images_column')?.scrollBy({ top: 100, left: 0, behavior: "smooth" })
+    }, 150)
+
+  }
+
+  stopScrolling() {
+
+    clearInterval(this.scrollDownInterval)
+    clearInterval(this.scrollUpInterval)
 
   }
 
