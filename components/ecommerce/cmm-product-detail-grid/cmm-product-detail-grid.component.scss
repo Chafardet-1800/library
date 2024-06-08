@@ -90,6 +90,11 @@
         overflow-y: hidden;
     }
 
+    .other_image {
+        min-width: 150px;
+        max-width: none;
+    }
+
     .main_image_column {
         max-width: 100%;
     }
