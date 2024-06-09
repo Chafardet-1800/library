@@ -70,8 +70,7 @@ body {
   font-style: normal;
   font-display: block;
   font-weight: 400;
-  src: url(../../fonts/material/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2)
-    format("woff2");
+  src: url(../../fonts/material/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format("woff2");
 }
 
 @font-face {
@@ -196,6 +195,18 @@ body {
 
 .fs-40 {
   font-size: 40px !important;
+}
+
+.fs-50 {
+  font-size: 50px !important;
+}
+
+.fs-60 {
+  font-size: 60px !important;
+}
+
+.fs-70 {
+  font-size: 70px !important;
 }
 
 /*--------------------------------------------------------------------------------------------------------------------------------------
@@ -414,4 +425,3 @@ Mayúsculas, minúsculas y más
 /*--------------------------------------------------------------------------------------------------------------------------------------
 END TEXT colors
 --------------------------------------------------------------------------------------------------------------------------------------*/
-
