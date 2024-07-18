@@ -10,13 +10,15 @@
   </div>
 
   <!-- Acción para mostrar label de estatus -->
-  <div *ngSwitchCase="'statusAction'" class="rounded p-1 fs-12 text-nowrap d-flex justify-content-center" [ngStyle]="{ color: element.statusObject?.badge, border: '1.4px solid ' + element.statusObject?.badge}">
+  <div *ngSwitchCase="'statusAction'" class="rounded p-1 fs-12 text-nowrap d-flex justify-content-center" [ngStyle]="{ 'background-color': element.statusObject?.badge}">
 
     <!-- Ícono de status que sale en tamaño pequeño -->
     <svg [matTooltip]="element?.statusObject?.text" [matTooltipPosition]="'left'" [class]="element?.statusObject?.imgClass" [ngClass]="element?.statusObject?.imgClass?'d-block status-icon d-sm-none m-0 p-0': 'd-none'"></svg>
 
     <!-- Texto del estatus -->
-    <span [ngClass]="element?.statusObject?.imgClass?'d-none d-sm-block':'d-block'"> {{ element?.statusObject?.text }} </span>
+    <span [ngClass]="element?.statusObject?.imgClass? 'd-none d-sm-block fw-bold back-txt' : 'd-block fw-bold back-txt'">
+      {{ element?.statusObject?.text }}
+    </span>
 
   </div>
 

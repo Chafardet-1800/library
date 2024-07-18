@@ -211,6 +211,15 @@ export class CmmInputSmFileComponent implements CmmCustomInput {
     //* Le doy valor al input
     this.currentValue = obj
 
+    // Accedemos a la extencion de la url ingresada al campo, si es que lo es
+    let extension = this.currentValue.split('.')[this.currentValue.split('.').length -1];
+
+    // Solo si encontramos una extencion de las seleccionadas
+    if (this.imgFileTypes.includes(extension)) {
+      // colocamos el valor indicado como la url de la imagen a mostrar
+      this.fileImageUrl = this.currentValue
+    };
+
     //* Si no hay archivo en el form, lo elimino del input
     if(!obj) {
       this.removeFile()
@@ -325,7 +334,7 @@ export class CmmInputSmFileComponent implements CmmCustomInput {
     this.onChange(file)
 
     //* Emito evento de cambio de valor
-    this.inputChange.emit()
+    this.inputChange.emit(file)
   }
 
   /**///////////////////////////////////////////////////////////////////////////////  */

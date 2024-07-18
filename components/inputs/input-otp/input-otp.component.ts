@@ -137,17 +137,17 @@ export class CmmInputOtpComponent implements CmmCustomInput {
   /**
    * Input para indicar si se quiere que se pueda copiar los datos del input
    */
-  @Input() allowCopy: boolean = false;
+  @Input() allowCopy: boolean = true;
 
   /**
    * Input para indicar si se quiere que se pueda cortar los datos del input
    */
-  @Input() allowCut: boolean = false;
+  @Input() allowCut: boolean = true;
 
   /**
    * Input para indicar si se quiere que se pueda hacer click en el campo del input
    */
-  @Input() allowClicWithMouse: boolean = false;
+  @Input() allowClicWithMouse: boolean = true;
 
   //? Lógica de OTP
 
