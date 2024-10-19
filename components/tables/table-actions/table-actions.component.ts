@@ -2,17 +2,26 @@ import {
   Component,
   EventEmitter,
   Input,
-  Output
+  OnChanges,
+  Output,
+  SimpleChanges
 } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CmmSnackbarCenteredComponent } from '../../dialogs/snackbar-centered/snackbar-centered.component';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'cmm-cmp-t-actions',
   templateUrl: './table-actions.component.html',
   styleUrls: ['./table-actions.component.scss'],
 })
-export class CmmTableActionsComponent {
+export class CmmTableActionsComponent implements OnChanges {
+
+  /**
+   * Control del campo para las imagenes
+   */
+  inputControl!: FormControl;
+
   /**
    * Nombre de la acción implementada
    */
@@ -41,6 +50,12 @@ export class CmmTableActionsComponent {
   constructor(
     private snackBar: MatSnackBar,
   ) {}
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['actionSelected'].currentValue == 'image') {
+      this.inputControl = new FormControl(this.element.value);
+    }
+  }
 
   /**
    * Envio el evento de que se clickeo un elemento

@@ -2,6 +2,13 @@
 <div [ngSwitch]="actionSelected">
 
   <!-- Acción para expander vista de detalle -->
+  <div *ngSwitchCase="'image'" style="width: 90px;" class="mx-auto p-2">
+
+    <cmm-cmp-i-smfile [formControl]="inputControl" inputType="onlyImage" [readOnly]="true"></cmm-cmp-i-smfile>
+
+  </div>
+
+  <!-- Acción para expander vista de detalle -->
   <div *ngSwitchCase="'expandDetail'">
 
     <!-- Ícono de expander detalle -->

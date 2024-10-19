@@ -63,7 +63,7 @@
 <div *ngIf="inputType == 'onlyImage'" class=" position-relative rounded shadowBorder border">
 
   <!-- Icono para eliminar el imagen del campo -->
-  <mat-icon *ngIf="fileImageUrl" class="position-absolute p-0 delete-icon cursor-pointer"
+  <mat-icon *ngIf="fileImageUrl && !readOnly" class="position-absolute p-0 delete-icon cursor-pointer"
   style="top: 0.3em; right: 0.3em; z-index: 2;" (click)="removeFile()">delete</mat-icon>
 
   <!-- Contenedor de imagen y cover -->
@@ -87,7 +87,7 @@
 
     <!-- Input de tipo file (Oculto) -->
     <input type="file" #fileInput class="position-absolute opacity-0 top-0 cursor-pointer"
-    (change)="setFile($event)" (click)="resetInputFiles($event)">
+    (change)="readOnly ? $event.preventDefault() : setFile($event)" (click)="readOnly ? $event.preventDefault() : resetInputFiles($event)">
 
   </label>
 
