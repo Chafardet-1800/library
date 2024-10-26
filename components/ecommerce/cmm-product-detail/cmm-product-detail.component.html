@@ -185,7 +185,8 @@
 
                         <div class="col-sm-6 col-xl-6 mb-3">
 
-                            <cmp-cmm-new-button class="w-100" [config]="config.button??{}" style="max-width: 200px;">
+                            <cmp-cmm-new-button class="w-100" [config]="config.button??{}" style="max-width: 200px;"
+                                (click)="navigate()">
                                 <span class="cmm-txt-thin-bold">
                                     AGREGAR AL CARRITO
                                 </span>

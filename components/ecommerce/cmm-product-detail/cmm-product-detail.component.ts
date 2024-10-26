@@ -1,4 +1,5 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { CmmEcomProductDetailModelv2 } from 'src/app/common/data/utils/models/ecommerce.models';
 
 @Component({
@@ -27,7 +28,9 @@ export class CmmProductDetailComponent {
 
   @ViewChild('textContainers') textContainers!: ElementRef<HTMLElement>
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngAfterViewInit() {
 
@@ -82,6 +85,12 @@ export class CmmProductDetailComponent {
       }
 
     }
+
+  }
+
+  navigate() {
+
+    this.router.navigate(['/Productos/Carrito'])
 
   }
 
